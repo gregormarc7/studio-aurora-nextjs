@@ -27,33 +27,38 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 200;
+  z-index: 200; /* da ostane nad vsemi sloji */
 }
 .site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
   padding: 1rem 0;
 }
 .logo {
+  position: relative;
+  z-index: 201;
   height: 120px;
   width: auto;
   filter: none;
 }
 
-/* ==== 3. Navigacija kot bele elipse ==== */
+/* ==== 3. Centrirana bela navigacija ==== */
 .main-nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  gap: 0.75rem;
-  align-items: center;
+  gap: 1rem;
+  z-index: 201;
 }
 .main-nav a {
   display: inline-block;
-  padding: 0.6rem 1.5rem;
+  padding: 0.8rem 2rem;
   border: 2px solid #fff;
   border-radius: 2rem;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -61,7 +66,12 @@ body {
   background-color: rgba(255,255,255,0.1);
 }
 
-/* ==== 4. Hero sekcija ==== */
+/* ==== 4. Skrij spodnje oranžne hero-gumbe ==== */
+.hero-buttons {
+  display: none;
+}
+
+/* ==== 5. Hero sekcija ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -89,7 +99,7 @@ body {
   }
 }
 
-/* Hero vsebina */
+/* ==== 6. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -106,38 +116,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* ==== 5. Gumbi v hero sekciji ==== */
-.hero-buttons {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-.btn-primary {
-  background-color: #FF5E3A;
-  color: #fff;
-  border: none;
-}
-.btn-primary:hover {
-  background-color: #e14d2c;
-}
-.btn-outline {
-  background: transparent;
-  border: 2px solid #FF5E3A;
-  color: #FF5E3A;
-}
-.btn-outline:hover {
-  background-color: rgba(255, 94, 58, 0.1);
-}
-
-/* ==== 6. Osnovne sekcije ==== */
+/* ==== 7. Osnovne sekcije ==== */
 section {
   padding: 6rem 1rem;
   background: #f9f9f9;
