@@ -10,6 +10,8 @@ html {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
+  background: #fff;
+  color: #333;
 }
 
 /* ==== 1. Container za centriranje ==== */
@@ -25,7 +27,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 200; /* da je vedno nad hero-ozadjem */
+  z-index: 200;
 }
 .site-header .container {
   display: flex;
@@ -34,18 +36,32 @@ body {
   padding: 1rem 0;
 }
 .logo {
-  height: 120px;    /* povečana višina logotipa */
-  width: auto;      /* ohrani razmerje */
-  filter: none;     /* odstranjen ves filter */
-}
-.main-nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
+  height: 120px;
+  width: auto;
+  filter: none;
 }
 
-/* ==== 3. Hero sekcija ==== */
+/* ==== 3. Navigacija kot bele elipse ==== */
+.main-nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.main-nav a {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.main-nav a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* ==== 4. Hero sekcija ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -73,7 +89,7 @@ body {
   }
 }
 
-/* ==== 4. Hero vsebina ==== */
+/* Hero vsebina */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -90,7 +106,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* ==== 5. Gumbi ==== */
+/* ==== 5. Gumbi v hero sekciji ==== */
 .hero-buttons {
   display: flex;
   gap: 0.75rem;
