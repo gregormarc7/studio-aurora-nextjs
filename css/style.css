@@ -1,121 +1,119 @@
-/* GLOBAL */
-body {
+/* ==== 0. Reset in smooth scroll ==== */
+* {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #fafafa;
-  color: #333;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  color: #222;
-  margin-bottom: 1rem;
+html {
+  scroll-behavior: smooth;
 }
-p, li {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 1rem;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
-a { text-decoration: none; }
-.container { max-width: 900px; margin: 0 auto; padding: 0 1rem; text-align: center; }
 
-/* TABS NAV */
-.tabs { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-.tabs ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0.75rem; }
-.tabs a { margin: 0 1rem; padding: 0.5rem; font-weight: 500; color: #555; position: relative; }
-.tabs a.active, .tabs a:hover { color: #e76f51; }
-.tabs a.active::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 100%; height: 3px; background: #e76f51; }
+/* ==== 1. Container za centriranje ==== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-/* HERO BANNER */
-#hero {
+/* ==== 2. Header ==== */
+.site-header {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  height: 50px;
+}
+.main-nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ==== 3. Hero sekcija ==== */
+.hero {
   position: relative;
-  height: 65vh;
+  height: 100vh;
   background: url('../images/izola-hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#hero .overlay {
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
 }
-#hero .hero-content {
+
+/* Hero vsebina */
+.hero .content {
   position: relative;
+  z-index: 2;
+  text-align: center;
   color: #fff;
-  background: rgba(255,255,255,0.1);
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
 }
-#hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-#hero p { font-size: 1.1rem; margin-bottom: 1rem; }
+.hero .content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero .content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==== 4. Gumbi ==== */
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 0.75rem;
+  justify-content: center;
 }
 .btn {
   padding: 0.75rem 1.5rem;
-  border-radius: 30px;
+  border-radius: 2rem;
   font-weight: 500;
-  transition: background 0.3s, color 0.3s;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
 }
-.btn.primary {
-  background: #e76f51;
+.btn-primary {
+  background-color: #FF5E3A;
   color: #fff;
+  border: none;
 }
-.btn.secondary {
+.btn-primary:hover {
+  background-color: #e14d2c;
+}
+.btn-outline {
   background: transparent;
-  border: 2px solid #e76f51;
-  color: #e76f51;
+  border: 2px solid #FF5E3A;
+  color: #FF5E3A;
 }
-.btn.primary:hover { background: #d65a3b; }
-.btn.secondary:hover { background: #e76f51; color: #fff; }
-
-/* TAB CONTENT */
-.tab-content { display: none; padding: 4rem 0; }
-.tab-content.active { display: block; background: #fff; }
-
-/* LISTS */
-ul.features, ul.spots, ul.tips {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+.btn-outline:hover {
+  background-color: rgba(255,94,58,0.1);
 }
-li {
+
+/* ==== 5. Osnovne sekcije ==== */
+section {
+  padding: 6rem 1rem;
   background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 6px;
-  text-align: left;
 }
-
-/* CONTACT FORM */
-.contact-form {
-  display: grid;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 1.5rem auto;
+section:nth-of-type(even) {
+  background: #fff;
 }
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-}
-.contact-form button {
-  width: auto;
-  justify-self: center;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  #hero h1 { font-size: 2.25rem; }
-  .tabs ul { flex-direction: column; }
-  .tabs a { margin: 0.5rem 0; }
+section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
