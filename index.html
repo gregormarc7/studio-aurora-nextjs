@@ -4,100 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Aurora – Izola</title>
-
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* GLOBAL */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+    p, li {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    a { text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; text-align: center; }
 
-  <link rel="stylesheet" href="css/style.css">
+    /* TABS NAV */
+    .tabs { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    .tabs ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0.75rem; }
+    .tabs a { margin: 0 1rem; padding: 0.5rem; font-weight: 500; color: #555; position: relative; }
+    .tabs a.active, .tabs a:hover { color: #e76f51; }
+    .tabs a.active::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 100%; height: 3px; background: #e76f51; }
+
+    /* HERO BANNER */
+    #hero { position: relative; height: 65vh; background: url('../images/izola-hero.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
+    #hero .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+    #hero .hero-content { position: relative; color: #fff; background: rgba(255,255,255,0.1); padding: 1.5rem 2rem; border-radius: 8px; }
+    #hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    #hero p { font-size: 1.1rem; margin-bottom: 1rem; }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+    .btn { padding: 0.75rem 1.5rem; border-radius: 30px; font-weight: 500; transition: background 0.3s, color 0.3s; }
+    .btn.primary { background: #e76f51; color: #fff; }
+    .btn.secondary { background: transparent; border: 2px solid #e76f51; color: #e76f51; }
+    .btn.primary:hover { background: #d65a3b; }
+    .btn.secondary:hover { background: #e76f51; color: #fff; }
+
+    /* TAB CONTENT */
+    .tab-content { display: none; padding: 4rem 0; }
+    .tab-content.active { display: block; background: #fff; }
+
+    /* LISTS */
+    ul.features, ul.spots, ul.tips { list-style: none; padding: 0; margin: 1.5rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    li { background: #f9f9f9; padding: 1rem; border-radius: 6px; text-align: left; }
+
+    /* CONTACT FORM */
+    .contact-form { display: grid; gap: 1rem; max-width: 500px; margin: 1.5rem auto; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
+    .contact-form button { width: auto; justify-self: center; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      #hero h1 { font-size: 2.25rem; }
+      .tabs ul { flex-direction: column; }
+      .tabs a { margin: 0.5rem 0; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- TABS NAVIGACIJA -->
+  <!-- NAVIGATION TABS -->
   <nav class="tabs">
     <ul>
       <li><a href="#about" class="active">O Izoli</a></li>
       <li><a href="#apartment">Apartma</a></li>
-      <li><a href="#contact">Kontakt &amp; Povpraševanje</a></li>
+      <li><a href="#contact">Kontakt</a></li>
       <li><a href="#location">Lokacija</a></li>
     </ul>
   </nav>
 
-  <!-- HERO BANNER -->
+  <!-- HERO SECTION -->
   <section id="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>Dobrodošli v Izoli</h1>
       <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
       <div class="hero-buttons">
-        <a href="#about" class="btn">O Izoli</a>
-        <a href="#apartment" class="btn btn--outline">Apartma</a>
-        <a href="#contact" class="btn btn--outline">Kontakt &amp; Povpraševanje</a>
-        <a href="#location" class="btn btn--outline">Lokacija</a>
+        <a href="#about" class="btn primary">O Izoli</a>
+        <a href="#apartment" class="btn secondary">Apartma</a>
+        <a href="#contact" class="btn secondary">Kontakt</a>
+        <a href="#location" class="btn secondary">Lokacija</a>
       </div>
     </div>
   </section>
 
-  <!-- O IZOLI -->
-  <section id="about">
+  <!-- ABOUT TAB -->
+  <section id="about" class="tab-content active">
     <div class="container">
       <h2>O Izoli</h2>
-      <p>
-        Izola očara s sapo morja, slikovitimi tlakovci in šarmom nekdanje
-        ribiške vasice. Poleg zgodovinskega mestnega jedra, ki je bilo nekoč
-        otok, vas 5 km dolga obala z osmimi urejenimi plažami vabi na sprehod
-        in osvežitev v morju.
-      </p>
+      <p>Izola očara s sapo morja, slikovitimi tlakovci in šarmom nekdanje ribiške vasice. Poleg zgodovinskega mestnega jedra, ki je bilo nekoč otok, vas 5 km dolga obala z osmimi urejenimi plažami vabi na sprehod in osvežitev v morju.</p>
       <ul class="features">
-        <li>
-          <strong>Plaža Sansimon</strong>: urejena prodnata plaža z razgibano obalo, priljubljena za družine in supanje.
-        </li>
-        <li>
-          <strong>Plaža Delfin</strong>: dolga promenadna plaža, opremljena s senčniki in bližnjimi bari.
-        </li>
-        <li>
-          <strong>Plaža Bele skale</strong>: divja skalnata obala z majhnimi prodnatimi zalivčki za snorkeling.
-        </li>
-        <li>
-          <strong>Plaža Svetilnik</strong>: prodnato-peščena plaža ob svetilniku, mirne vode in razgled na zaliv.
-        </li>
+        <li><strong>Plaža Sansimon</strong>: urejena prodnata plaža z razgibano obalo, priljubljena za družine in supanje.</li>
+        <li><strong>Plaža Delfin</strong>: dolga promenadna plaža, opremljena s senčniki in bližnjimi bari.</li>
+        <li><strong>Plaža Bele skale</strong>: divja skalnata obala z majhnimi prodnatimi zalivčki za snorkeling.</li>
+        <li><strong>Plaža Svetilnik</strong>: prodnato-peščena plaža ob svetilniku, mirne vode in razgled na zaliv.</li>
       </ul>
     </div>
   </section>
 
-  <!-- APARTMA -->
-  <section id="apartment">
+  <!-- APARTMENT TAB -->
+  <section id="apartment" class="tab-content">
     <div class="container">
       <h2>Apartma</h2>
-      <p>Podrobnosti o našem apartmaju – opremljenost, fotografije, cene in razpoložljivost.</p>
-      <!-- Tukaj lahko kasneje vstaviš galerijo in opis apartmaja -->
+      <p>Naš apartma se nahaja v mirnem predelu Izole, le nekaj korakov od morja. Opremljen je z dvema spalnicama, popolnoma opremljeno kuhinjo in teraso z razgledom. Cena vključuje brezplačen Wi-Fi, parkirišče in uporabo koles.</p>
+      <!-- Future gallery placeholder -->
     </div>
   </section>
 
-  <!-- KONTAKT & POVPRAŠEVANJE -->
-  <section id="contact">
+  <!-- CONTACT TAB -->
+  <section id="contact" class="tab-content">
     <div class="container">
-      <h2>Kontakt &amp; Povpraševanje</h2>
-      <p>Imate vprašanja ali želite rezervirati? Izpolnite spodnji obrazec ali nas pokličite na +386 40 123 456.</p>
+      <h2>Kontakt & Povpraševanje</h2>
+      <p>Imate vprašanja ali želite rezervirati? Pokličite nas na <a href="tel:+38640123456">+386 40 123 456</a> ali izpolnite spodnji obrazec.</p>
       <form class="contact-form">
         <input type="text" name="name" placeholder="Ime in priimek" required>
         <input type="email" name="email" placeholder="E-naslov" required>
-        <textarea name="message" rows="4" placeholder="Vaše vprašanje ali povpraševanje"></textarea>
-        <button type="submit" class="btn">Pošlji povpraševanje</button>
+        <textarea name="message" rows="4" placeholder="Vaše povpraševanje"></textarea>
+        <button type="submit" class="btn primary">Pošlji povpraševanje</button>
       </form>
     </div>
   </section>
 
-  <!-- LOKACIJA -->
-  <section id="location">
+  <!-- LOCATION TAB -->
+  <section id="location" class="tab-content">
     <div class="container">
       <h2>Lokacija</h2>
-      <p>Poglejte si našo lokacijo na zemljevidu:</p>
-      <!-- Kasneje lahko dodaš iframe Google Maps / OpenStreetMap -->
+      <p>Poglejte si našo natančno lokacijo:</p>
+      <!-- Embed map placeholder -->
     </div>
   </section>
 
-  <script src="js/script.js"></script>
+  <script>
+    // Tab functionality
+    document.querySelectorAll('.tabs a').forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.preventDefault();
+        // Toggle active tab link
+        document.querySelectorAll('.tabs a').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        // Show relevant content
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelector(tab.getAttribute('href')).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
