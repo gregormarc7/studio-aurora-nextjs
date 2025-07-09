@@ -1,68 +1,54 @@
 /* GLOBAL */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background: #fafafa;
   color: #333;
   line-height: 1.6;
 }
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #222;
+  margin-bottom: 1rem;
+}
+p, li {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+a { text-decoration: none; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 1rem; text-align: center; }
 
 /* TABS NAV */
-.tabs {
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-.tabs ul {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0.5rem;
-  list-style: none;
-}
-.tabs a {
-  margin: 0 1rem;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-}
-.tabs a.active,
-.tabs a:hover {
-  color: #ff6f61;
-  border-bottom: 2px solid #ff6f61;
-}
+.tabs { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+.tabs ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0.75rem; }
+.tabs a { margin: 0 1rem; padding: 0.5rem; font-weight: 500; color: #555; position: relative; }
+.tabs a.active, .tabs a:hover { color: #e76f51; }
+.tabs a.active::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 100%; height: 3px; background: #e76f51; }
 
 /* HERO BANNER */
 #hero {
   position: relative;
-  width: 100%;
-  height: 70vh;
-  background: #000; /* kasneje ozadje prek CSS ali inline style */
+  height: 65vh;
+  background: url('../images/izola-hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: #fff;
 }
 #hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.4);
 }
 #hero .hero-content {
   position: relative;
-  max-width: 800px;
-  margin: 0 1rem;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
 }
-#hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-#hero p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
+#hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+#hero p { font-size: 1.1rem; margin-bottom: 1rem; }
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -70,74 +56,41 @@ body {
   gap: 0.75rem;
 }
 .btn {
-  display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #ff6f61;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+.btn.primary {
+  background: #e76f51;
   color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
 }
-.btn--outline {
+.btn.secondary {
   background: transparent;
-  color: #ff6f61;
-  border: 2px solid #ff6f61;
+  border: 2px solid #e76f51;
+  color: #e76f51;
 }
+.btn.primary:hover { background: #d65a3b; }
+.btn.secondary:hover { background: #e76f51; color: #fff; }
 
-/* SECTIONS CENTER */
-section {
-  padding: 4rem 1rem;
-  text-align: center;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
+/* TAB CONTENT */
+.tab-content { display: none; padding: 4rem 0; }
+.tab-content.active { display: block; background: #fff; }
 
-/* FEATURES LIST */
-.features {
+/* LISTS */
+ul.features, ul.spots, ul.tips {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: 1.5rem auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
-.features li {
+li {
   background: #f9f9f9;
   padding: 1rem;
-  border-radius: 4px;
-}
-
-/* ITINERARY & OTHER SECTIONS */
-.intro {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-}
-.itinerary-block {
-  margin-bottom: 2.5rem;
-}
-.itinerary-block h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.itinerary-block time {
-  font-size: 0.95rem;
-  color: #666;
-}
-.spots, .tips {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-.spots li, .tips li {
-  background: #f9f9f9;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  border-radius: 6px;
+  text-align: left;
 }
 
 /* CONTACT FORM */
@@ -145,8 +98,7 @@ section {
   display: grid;
   gap: 1rem;
   max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
+  margin: 1.5rem auto;
 }
 .contact-form input,
 .contact-form textarea {
@@ -154,15 +106,16 @@ section {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: inherit;
 }
 .contact-form button {
-  justify-self: center;
   width: auto;
+  justify-self: center;
 }
 
-/* RESPONSIVE TYPOGRAPHY */
+/* RESPONSIVE */
 @media (max-width: 600px) {
   #hero h1 { font-size: 2.25rem; }
-  #hero p { font-size: 1rem; }
+  .tabs ul { flex-direction: column; }
+  .tabs a { margin: 0.5rem 0; }
 }
