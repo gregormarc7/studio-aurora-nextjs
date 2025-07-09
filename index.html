@@ -4,9 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Aurora – Izola</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- TABS NAVIGACIJA -->
+  <nav class="tabs">
+    <ul>
+      <li><a href="#about" class="active">O Izoli</a></li>
+      <li><a href="#apartment">Apartma</a></li>
+      <li><a href="#contact">Kontakt &amp; Povpraševanje</a></li>
+      <li><a href="#location">Lokacija</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO BANNER -->
   <section id="hero">
@@ -14,7 +30,12 @@
     <div class="hero-content">
       <h1>Dobrodošli v Izoli</h1>
       <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
-      <a href="#itinerary" class="btn">Razišči Izolo</a>
+      <div class="hero-buttons">
+        <a href="#about" class="btn">O Izoli</a>
+        <a href="#apartment" class="btn btn--outline">Apartma</a>
+        <a href="#contact" class="btn btn--outline">Kontakt &amp; Povpraševanje</a>
+        <a href="#location" class="btn btn--outline">Lokacija</a>
+      </div>
     </div>
   </section>
 
@@ -45,59 +66,35 @@
     </div>
   </section>
 
-  <!-- ENODNEVNI VODNIK PO IZOLI -->
-  <section id="itinerary">
+  <!-- APARTMA -->
+  <section id="apartment">
     <div class="container">
-      <h2>Enodnevni vodnik po Izoli</h2>
-      <p class="intro">
-        Izola je slikovito obmorsko mesto z več kot 5 km obale in osmimi raznolikimi 
-        plažami. Zaradi prijetnega sredozemskega podnebja je raziskovanje mesta in 
-        kopanje mogoče vse leto.
-      </p>
+      <h2>Apartma</h2>
+      <p>Podrobnosti o našem apartmaju – opremljenost, fotografije, cene in razpoložljivost.</p>
+      <!-- Tukaj lahko kasneje vstaviš galerijo in opis apartmaja -->
+    </div>
+  </section>
 
-      <!-- 1. JUTRO: PLAŽE -->
-      <div class="itinerary-block">
-        <h3>1. Jutranji obisk plaž <time>8:00 – 11:30</time></h3>
-        <ul class="spots">
-          <li><strong>Plaža Sansimon</strong>: urejena prodnata plaža z razgibano obalo, priljubljena za družine in supanje.</li>
-          <li><strong>Plaža Delfin</strong>: dolga promenadna plaža, opremljena s senčniki in bližnjimi bari.</li>
-          <li><strong>Plaža Bele skale</strong>: divja skalnata obala z majhnimi prodnatimi zalivčki za snorkeling.</li>
-          <li><strong>Plaža Svetilnik</strong>: prodnato-peščena plaža ob svetilniku, mirne vode in razgled na zaliv.</li>
-        </ul>
-      </div>
+  <!-- KONTAKT & POVPRAŠEVANJE -->
+  <section id="contact">
+    <div class="container">
+      <h2>Kontakt &amp; Povpraševanje</h2>
+      <p>Imate vprašanja ali želite rezervirati? Izpolnite spodnji obrazec ali nas pokličite na +386 40 123 456.</p>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Ime in priimek" required>
+        <input type="email" name="email" placeholder="E-naslov" required>
+        <textarea name="message" rows="4" placeholder="Vaše vprašanje ali povpraševanje"></textarea>
+        <button type="submit" class="btn">Pošlji povpraševanje</button>
+      </form>
+    </div>
+  </section>
 
-      <!-- 2. URBANA TURA -->
-      <div class="itinerary-block">
-        <h3>2. Urbana tura po mestnem jedru <time>12:00 – 14:00</time></h3>
-        <ul class="spots">
-          <li><strong>Cerkev sv. Mavra</strong> in razgledni stolp (Trg sv. Mavra 4)</li>
-          <li><strong>Izolana – Hiša morja</strong>: muzejska hiša z razstavo o pomorski dediščini</li>
-          <li><strong>Podestatova palača</strong> z beneškim krilatim levom na pročelju</li>
-          <li><strong>Galerije in ateljeji</strong> na Ljubljanski ulici (“Ulica umetnikov”)</li>
-          <li><strong>Uršulinski samostan</strong> in sprehod po starem mestnem jedru</li>
-        </ul>
-      </div>
-
-      <!-- 3. POPOLDNE: OKOLICA -->
-      <div class="itinerary-block">
-        <h3>3. Popoldanska odkrivanja v okolici <time>14:30 – 17:30</time></h3>
-        <ul class="spots">
-          <li><strong>Arheološki park Simonov zaliv</strong> z restavrirano ribiško barko “Biser”</li>
-          <li><strong>Arheološko najdišče Kaštelir</strong> – ruševine rimske vile</li>
-          <li><strong>Sprehod med Izolo in Koprom</strong> ob potopljeni ladji Rex</li>
-        </ul>
-      </div>
-
-      <!-- 4. DODATNI NASVETI -->
-      <div class="itinerary-block">
-        <h3>4. Dodatni nasveti</h3>
-        <ul class="tips">
-          <li>Razgledne točke (“vište”) nad mestom: Belveder, Gračišče.</li>
-          <li>Gastronomija: ribiške specialitete ob obali in v starem mestnem jedru.</li>
-          <li>Parkiranje: parkirne hiše Medena, Marta; zunanja parkirišča ob plažah.</li>
-          <li>Mobilnost: kolesa ali taksi-vlak “Izolanka” (pomlad–jesen).</li>
-        </ul>
-      </div>
+  <!-- LOKACIJA -->
+  <section id="location">
+    <div class="container">
+      <h2>Lokacija</h2>
+      <p>Poglejte si našo lokacijo na zemljevidu:</p>
+      <!-- Kasneje lahko dodaš iframe Google Maps / OpenStreetMap -->
     </div>
   </section>
 
