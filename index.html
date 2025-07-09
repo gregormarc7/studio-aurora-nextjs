@@ -8,82 +8,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    /* GLOBAL */
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #fafafa;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #222;
-      margin-bottom: 1rem;
-    }
-    p, li {
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 1rem;
-    }
-    a { text-decoration: none; }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; text-align: center; }
-
-    /* TABS NAV */
-    .tabs { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-    .tabs ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0.75rem; }
-    .tabs a { margin: 0 1rem; padding: 0.5rem; font-weight: 500; color: #555; position: relative; }
-    .tabs a.active, .tabs a:hover { color: #e76f51; }
-    .tabs a.active::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 100%; height: 3px; background: #e76f51; }
-
-    /* HERO BANNER */
-    #hero { position: relative; height: 65vh; background: url('../images/izola-hero.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
-    #hero .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
-    #hero .hero-content { position: relative; color: #fff; background: rgba(255,255,255,0.1); padding: 1.5rem 2rem; border-radius: 8px; }
-    #hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-    #hero p { font-size: 1.1rem; margin-bottom: 1rem; }
-    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
-    .btn { padding: 0.75rem 1.5rem; border-radius: 30px; font-weight: 500; transition: background 0.3s, color 0.3s; }
-    .btn.primary { background: #e76f51; color: #fff; }
-    .btn.secondary { background: transparent; border: 2px solid #e76f51; color: #e76f51; }
-    .btn.primary:hover { background: #d65a3b; }
-    .btn.secondary:hover { background: #e76f51; color: #fff; }
-
-    /* TAB CONTENT */
-    .tab-content { display: none; padding: 4rem 0; }
-    .tab-content.active { display: block; background: #fff; }
-
-    /* LISTS */
-    ul.features, ul.spots, ul.tips { list-style: none; padding: 0; margin: 1.5rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    li { background: #f9f9f9; padding: 1rem; border-radius: 6px; text-align: left; }
-
-    /* CONTACT FORM */
-    .contact-form { display: grid; gap: 1rem; max-width: 500px; margin: 1.5rem auto; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
-    .contact-form button { width: auto; justify-self: center; }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      #hero h1 { font-size: 2.25rem; }
-      .tabs ul { flex-direction: column; }
-      .tabs a { margin: 0.5rem 0; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVIGATION TABS -->
-  <nav class="tabs">
-    <ul>
-      <li><a href="#about" class="active">O Izoli</a></li>
-      <li><a href="#apartment">Apartma</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-      <li><a href="#location">Lokacija</a></li>
-    </ul>
-  </nav>
+  <!-- HEADER with Logo + NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="images/logo.svg" alt="Studio Aurora logo">
+      </a>
+      <nav class="tabs">
+        <ul>
+          <li><a href="#about" class="active">O Izoli</a></li>
+          <li><a href="#apartment">Apartma</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#location">Lokacija</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section id="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -98,65 +44,89 @@
     </div>
   </section>
 
-  <!-- ABOUT TAB -->
+  <!-- O IZOLI -->
   <section id="about" class="tab-content active">
     <div class="container">
       <h2>O Izoli</h2>
-      <p>Izola očara s sapo morja, slikovitimi tlakovci in šarmom nekdanje ribiške vasice. Poleg zgodovinskega mestnega jedra, ki je bilo nekoč otok, vas 5 km dolga obala z osmimi urejenimi plažami vabi na sprehod in osvežitev v morju.</p>
+      <p>Izola očara s sapo morja, slikovitimi tlakovci in šarmom nekdanje ribiške vasice. Poleg zgodovinskega mestnega jedra, ki je bilo nekoč otok, vas 5 km dolga obala z osmimi urejenimi plažami vabi na sprehod in osvežitev v morju.</p>
       <ul class="features">
-        <li><strong>Plaža Sansimon</strong>: urejena prodnata plaža z razgibano obalo, priljubljena za družine in supanje.</li>
-        <li><strong>Plaža Delfin</strong>: dolga promenadna plaža, opremljena s senčniki in bližnjimi bari.</li>
+        <li><strong>Plaža Sansimon</strong>: urejena prodnata plaža, priljubljena za družine in supanje.</li>
+        <li><strong>Plaža Delfin</strong>: dolga promenadna plaža s senčniki in bližnjimi bari.</li>
         <li><strong>Plaža Bele skale</strong>: divja skalnata obala z majhnimi prodnatimi zalivčki za snorkeling.</li>
-        <li><strong>Plaža Svetilnik</strong>: prodnato-peščena plaža ob svetilniku, mirne vode in razgled na zaliv.</li>
+        <li><strong>Plaža Svetilnik</strong>: prodnato-peščena plaža ob svetilniku z razgledom na zaliv.</li>
+      </ul>
+      <h3>Znamenitosti</h3>
+      <ul class="features">
+        <li><strong>Cerkev sv. Mavra</strong> – arhitekturni biser s stolpom nad mestom.</li>
+        <li><strong>Simonov zaliv</strong> – arheološki park z ostanki rimske vile.</li>
+        <li><strong>Ulica umetnikov</strong> (Ljubljanska) – galerije in ateljeji.</li>
+        <li><strong>Belveder</strong> – panoramska razgledna točka nad Izolo.</li>
       </ul>
     </div>
   </section>
 
-  <!-- APARTMENT TAB -->
+  <!-- APARTMA -->
   <section id="apartment" class="tab-content">
     <div class="container">
       <h2>Apartma</h2>
-      <p>Naš apartma se nahaja v mirnem predelu Izole, le nekaj korakov od morja. Opremljen je z dvema spalnicama, popolnoma opremljeno kuhinjo in teraso z razgledom. Cena vključuje brezplačen Wi-Fi, parkirišče in uporabo koles.</p>
-      <!-- Future gallery placeholder -->
+      <div class="gallery">
+        <img src="images/apartma-1.jpg" alt="Dnevni prostor apartmaja">
+        <img src="images/apartma-2.jpg" alt="Kuhinja apartmaja">
+        <img src="images/apartma-3.jpg" alt="Terasa s pogledom">
+      </div>
+      <p>Naš apartma se nahaja na naslovu <strong>Na terasah 2, Izola</strong>. Opremljen je z dvema spalnicama, kuhinjo, dnevnim prostorom in teraso z razgledom. Cena vključuje brezplačen Wi-Fi, parkirišče in izposojo koles.</p>
     </div>
   </section>
 
-  <!-- CONTACT TAB -->
+  <!-- KONTAKT & POVPRAŠEVANJE -->
   <section id="contact" class="tab-content">
     <div class="container">
-      <h2>Kontakt & Povpraševanje</h2>
-      <p>Imate vprašanja ali želite rezervirati? Pokličite nas na <a href="tel:+38640123456">+386 40 123 456</a> ali izpolnite spodnji obrazec.</p>
-      <form class="contact-form">
-        <input type="text" name="name" placeholder="Ime in priimek" required>
-        <input type="email" name="email" placeholder="E-naslov" required>
-        <textarea name="message" rows="4" placeholder="Vaše povpraševanje"></textarea>
-        <button type="submit" class="btn primary">Pošlji povpraševanje</button>
+      <h2>Kontakt &amp; Povpraševanje</h2>
+      <p>Za rezervacije ali dodatne informacije nas kontaktirajte:</p>
+      <p>
+        <strong>Gregor:</strong> <a href="tel:+38641430460">041 430 460</a><br>
+        <strong>Tamara:</strong> <a href="tel:+38640585604">040 585 604</a><br>
+        <strong>E-mail:</strong> <a href="mailto:studioauroraizola@gmail.com">studioauroraizola@gmail.com</a>
+      </p>
+      <form name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thank-you">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;">
+          <label>Ne izpolni tega polja: <input name="bot-field"></label>
+        </p>
+        <p><input type="text" name="name" placeholder="Ime in priimek" required></p>
+        <p><input type="email" name="email" placeholder="E-pošta" required></p>
+        <p><textarea name="message" rows="4" placeholder="Vaše povpraševanje" required></textarea></p>
+        <p><button type="submit" class="btn primary">Pošlji povpraševanje</button></p>
       </form>
     </div>
   </section>
 
-  <!-- LOCATION TAB -->
+  <!-- LOKACIJA -->
   <section id="location" class="tab-content">
     <div class="container">
       <h2>Lokacija</h2>
-      <p>Poglejte si našo natančno lokacijo:</p>
-      <!-- Embed map placeholder -->
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.8739516289877!2d13.640579915564967!3d45.5385949791014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ac2e27450797f%3A0x9e3070534f66840c!2sNa%20terasah%202%2C%20423%2000%20Izola!5e0!3m2!1ssl!2ssi!4v1694782912345"
+          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <ul class="tips">
+        <li><strong>Mercator</strong> – 3 min hoje</li>
+        <li><strong>Spar</strong> – 4 min hoje</li>
+        <li><strong>Manjada</strong> – 2 min hoje</li>
+        <li><strong>Primavera</strong> – 5 min hoje</li>
+        <li><strong>Sonja</strong> – 3 min hoje</li>
+        <li><strong>Beach Garden</strong> – 8 min hoje</li>
+        <li><strong>Plaža Sansimon</strong> – 6 min hoje</li>
+        <li><strong>Plaža Delfin</strong> – 8 min hoje</li>
+      </ul>
     </div>
   </section>
 
-  <script>
-    // Tab functionality
-    document.querySelectorAll('.tabs a').forEach(tab => {
-      tab.addEventListener('click', e => {
-        e.preventDefault();
-        // Toggle active tab link
-        document.querySelectorAll('.tabs a').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        // Show relevant content
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        document.querySelector(tab.getAttribute('href')).classList.add('active');
-      });
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
