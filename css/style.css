@@ -4,11 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
@@ -27,7 +25,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 200; /* višji, da je logo nad hero-ozadjem */
 }
 .site-header .container {
   display: flex;
@@ -36,7 +34,9 @@ body {
   padding: 1rem 0;
 }
 .logo {
-  height: 50px;
+  height: 100px;      /* povečana višina logotipa */
+  width: auto;        /* ohrani proporce */
+  filter: brightness(0) invert(1); /* črno spremeni v belo */
 }
 .main-nav a {
   margin-left: 1.5rem;
@@ -53,7 +53,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: brightness(1.05);
+  filter: brightness(1.05); /* rahlo posvetli ozadje */
 }
 .hero::before {
   content: "";
@@ -69,11 +69,11 @@ body {
 }
 @media (max-width: 768px) {
   .hero::before {
-    background: transparent;
+    background: transparent; /* odstrani overlay na mobilnih napravah */
   }
 }
 
-/* Hero vsebina */
+/* ==== 4. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -90,7 +90,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* ==== 4. Gumbi ==== */
+/* ==== 5. Gumbi ==== */
 .hero-buttons {
   display: flex;
   gap: 0.75rem;
@@ -121,7 +121,7 @@ body {
   background-color: rgba(255, 94, 58, 0.1);
 }
 
-/* ==== 5. Osnovne sekcije ==== */
+/* ==== 6. Osnovne sekcije ==== */
 section {
   padding: 6rem 1rem;
   background: #f9f9f9;
