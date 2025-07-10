@@ -106,3 +106,34 @@ body {
 
 /* ==== 8. Ostali odseki ==== */
 section { padding: 6rem 1rem; }
+
+.weather-widget {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #1e1e3f;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.weather-widget img {
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+}
+
+.weather-info #temp {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.weather-info #wind {
+  font-size: 13px;
+  color: #ccc;
+}
