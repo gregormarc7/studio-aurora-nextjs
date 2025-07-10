@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Aurora – Izola</title>
-  <!-- Google Font: Great Vibes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,30 +11,25 @@
 </head>
 <body>
 
-  <!-- WEATHER WIDGET -->
-  <div class="weather-widget" id="weather">
+  <!-- VREMENSKA KARTICA -->
+  <div class="weather-widget">
     <div class="weather-info">
-      <div id="temp">☁️ -- °C</div>
-      <div id="wind">💨 -- km/h</div>
+      <div id="tempZrak">☁️ – °C</div>
+      <div id="veter">💨 – km/h</div>
     </div>
   </div>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- levi meni -->
       <nav class="nav-left">
         <a href="#o-izoli">O Izoli</a>
         <a href="#apartma">Apartma</a>
       </nav>
-
-      <!-- centriran blok: naslov + logo -->
       <div class="center-block">
         <div class="site-title">Studio Aurora</div>
         <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
       </div>
-
-      <!-- desni meni -->
       <nav class="nav-right">
         <a href="#kontakt">Kontakt</a>
         <a href="#lokacija">Lokacija</a>
@@ -51,24 +45,25 @@
     </div>
   </section>
 
-  <!-- ... ostali odseki ... -->
+  <!-- OSTALI ODSEKI ... -->
 
-  <!-- JS za vreme -->
- <script>
-  async function prikaziVreme() {
-    try {
-      const res = await fetch("/.netlify/functions/weather");
-      const data = await res.json();
-
-      document.getElementById("tempZrak").innerText = Math.round(data.tempZrak) + " °C";
-      document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
-    } catch (err) {
-      console.error("Napaka pri pridobivanju vremena:", err);
+  <!-- SCRIPT ZA VREME -->
+  <script>
+    async function prikaziVreme() {
+      try {
+        const res = await fetch("/.netlify/functions/weather");
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        document.getElementById("tempZrak").innerText = "☁️ " + Math.round(data.tempZrak) + " °C";
+        document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
+      } catch (err) {
+        console.error("Napaka pri vremenski funkciji:", err);
+        document.getElementById("tempZrak").innerText = "☁️ – °C";
+        document.getElementById("veter").innerText = "💨 – km/h";
+      }
     }
-  }
-
-  prikaziVreme();
-</script>
+    prikaziVreme();
+  </script>
 
 </body>
 </html>
