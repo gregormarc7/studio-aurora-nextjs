@@ -2,32 +2,29 @@ import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
   try {
-    const response = await fetch("https://www.vreme-info.si/temperatura-morja/izola/");
-    const html = await response.text();
+    // Koordinate Izole
+    const lat = 45.538;
+    const lon = 13.639;
 
-    // 🔍 Debug izpis prvih 500 znakov
-    const preview = html.slice(0, 500);
+    // Brezplačni SST API (Copernicus)
+    const resp = await fetch(
+      `https://marine.copernicus.eu/rest-api/?sensor=global_sea_surface_temperature&lat=${lat}&lon=${lon}&time=latest`
+    );
+    if (!resp.ok) throw new Error(resp.statusText);
 
-    // Poskusi regex (za zdaj še ne zanesljiv)
-    const match = html.match(/Izola,\s*\d+\s*ure nazaj,\s*([0-9]{1,2}(?:\.[0-9])?)\s*°C/);
-    const temp = match ? parseFloat(match[1]) : null;
+    const data = await resp.json();
+    const temp = data.temperature?.value ?? null;
 
     if (temp === null) {
-      console.error("❌ Regex ni ujel temperature");
-      return res.status(200).json({ error: "Temperatura ni najdena", debug: preview });
+      throw new Error("Ni temperature v JSONu");
     }
 
-    // ✅ Vrnemo temperaturo + debug HTML
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
-    res.status(200).json({
-      temp,
-      updated: new Date().toISOString(),
-      debug: preview
-    });
+    res.status(200).json({ temp, updated: data.timestamp });
 
   } catch (err) {
-    console.error("⚠️ Napaka pri fetchu:", err);
-    res.status(500).json({ error: "Napaka pri fetchu" });
+    console.error("Napaka pri Copernicus fetchu:", err);
+    res.status(500).json({ error: "Napaka pri pridobivanju SST" });
   }
 }
