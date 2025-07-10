@@ -1,4 +1,4 @@
-/* ==== 0. Reset in smooth scroll ==== */
+/* ==== 0. Reset + smooth scroll ==== */
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +8,13 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: #fff;               /* bel pas pod headerjem */
   font-family: Arial, sans-serif;
   line-height: 1.5;
+  background: #fff;
   color: #333;
 }
 
-/* ==== 1. Container za centriranje ==== */
+/* ==== 1. Container ==== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -23,50 +23,50 @@ body {
 
 /* ==== 2. Header ==== */
 .site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative; 
   width: 100%;
-  z-index: 200;                  /* header vedno na vrhu */
+  background: #fff;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.site-header .container {
-  position: relative;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centriraj logo+nav */
   padding: 1rem 0;
 }
 .logo {
-  position: relative;
-  z-index: 201;
-  height: 120px;                 /* večji logo */
+  height: 120px;
   width: auto;
-  filter: none;                  /* brez filtra */
+  margin-right: 2rem; /* razmik do menija */
 }
 
-/* ==== 3. Centriran siv meni ==== */
+/* ==== 3. Enake sivke elipse ==== */
 .main-nav {
-  position: absolute;
-  top: 50%;                      /* polovica headerja */
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   gap: 1rem;
-  z-index: 201;
 }
 .main-nav a {
-  display: inline-block;
-  padding: 0.8rem 2rem;          /* večja elipsa */
-  border: 2px solid #555;        /* sivi rob */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border: 2px solid #555;
   border-radius: 2rem;
-  color: #555;                   /* temno sivo besedilo */
-  font-weight: 700;              /* krepkega tiska */
-  font-size: 1.3rem;             /* večji font */
+  color: #555;
+  font-weight: 700;
+  font-size: 1.3rem;
+  white-space: nowrap;       /* ena vrstica */
   text-decoration: none;
-  transition: background-color .3s, color .3s;
+  transition: background-color 0.3s, color 0.3s;
 }
-.main-nav a:hover {
-  background-color: rgba(85,85,85,0.1);
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: #555;
+  color: #fff;
 }
 
-/* ==== 4. Skrij spodnje oranžne gumbe ==== */
+/* ==== 4. Skrij oranžne gumbe ==== */
 .hero-buttons {
   display: none;
 }
@@ -74,13 +74,13 @@ body {
 /* ==== 5. Hero sekcija ==== */
 .hero {
   position: relative;
-  margin-top: 7cm;               /* bel pas zgoraj */
   height: 100vh;
   background: url('../images/izola-hero.png') center top/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   filter: brightness(1.05);
+  margin-top: 0; /* hero začne takoj pod headerjem */
 }
 .hero::before {
   content: "";
@@ -88,9 +88,9 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.5) 50%,
+    rgba(0,0,0,0.2) 100%
   );
   z-index: 1;
 }
@@ -117,7 +117,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* ==== 7. Osnovne sekcije ==== */
+/* ==== 7. Ostale sekcije ==== */
 section {
   padding: 6rem 1rem;
   background: #f9f9f9;
