@@ -1,30 +1,30 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
+  const API_KEY = "0c9ff55e2bc630eb45e778c68a57d390"; // ← zamenjaj s svojim!
+  const LAT = 45.538; // Izola
+  const LON = 13.66;
+
   try {
-    // Koordinate Izole
-    const lat = 45.538;
-    const lon = 13.639;
-
-    // Brezplačni SST API (Copernicus)
-    const resp = await fetch(
-      `https://marine.copernicus.eu/rest-api/?sensor=global_sea_surface_temperature&lat=${lat}&lon=${lon}&time=latest`
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&lang=sl&appid=${API_KEY}`
     );
-    if (!resp.ok) throw new Error(resp.statusText);
+    if (!response.ok) throw new Error("Napaka pri poizvedbi API");
 
-    const data = await resp.json();
-    const temp = data.temperature?.value ?? null;
+    const data = await response.json();
 
-    if (temp === null) {
-      throw new Error("Ni temperature v JSONu");
-    }
+    const weather = {
+      tempZrak: data.main.temp,
+      veter: data.wind.speed,
+      opis: data.weather[0].description,
+      updated: new Date(data.dt * 1000).toISOString()
+    };
 
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
-    res.status(200).json({ temp, updated: data.timestamp });
-
+    res.status(200).json(weather);
   } catch (err) {
-    console.error("Napaka pri Copernicus fetchu:", err);
-    res.status(500).json({ error: "Napaka pri pridobivanju SST" });
+    console.error("Napaka:", err);
+    res.status(500).json({ error: "Napaka pri pridobivanju vremena" });
   }
 }
