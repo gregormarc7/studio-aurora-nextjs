@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
@@ -20,10 +22,9 @@ body {
 
 /* ==== 2. Header ==== */
 .site-header {
-  position: relative;
-  width: 100%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
   z-index: 200;
 }
 .header-inner {
@@ -31,16 +32,26 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0;
-  position: relative; /* za absolutni logo */
 }
 
-/* ==== 3. Sredinski naslov ==== */
+/* ==== 3. Logo + naslov ==== */
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.logo-block .logo {
+  height: 80px;        /* zmanjšana višina */
+  width: auto;
+  margin-bottom: 0.25rem;
+}
 .site-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 72px;
+  font-size: 72px;     /* 72px */
   font-weight: bold;
   color: #333;
-  text-align: center;
+  line-height: 1;
 }
 
 /* ==== 4. Meniji ==== */
@@ -51,12 +62,12 @@ body {
 }
 .nav-left a,
 .nav-right a {
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 36px;     /* 36px */
+  font-weight: bold;   /* bold */
   color: #333;
   text-decoration: none;
   padding: 0.25rem 0.75rem;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
 }
 .nav-left a:hover,
 .nav-right a:hover {
@@ -64,18 +75,7 @@ body {
   border-radius: 0.25rem;
 }
 
-/* ==== 5. Logo zgoraj desno ==== */
-.logo-link {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-}
-.logo {
-  height: 120px;
-  width: auto;
-}
-
-/* ==== 6. Hero sekcija ==== */
+/* ==== 5. Hero sekcija ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -98,10 +98,12 @@ body {
   z-index: 1;
 }
 @media (max-width: 768px) {
-  .hero::before { background: transparent; }
+  .hero::before {
+    background: transparent;
+  }
 }
 
-/* ==== 7. Hero vsebina ==== */
+/* ==== 6. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -117,7 +119,7 @@ body {
   font-size: 1.25rem;
 }
 
-/* ==== 8. Ostali odseki ==== */
+/* ==== 7. Preostali odseki ==== */
 section {
   padding: 6rem 1rem;
 }
