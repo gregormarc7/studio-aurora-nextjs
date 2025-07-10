@@ -1,142 +1,82 @@
-<!DOCTYPE html>
-<html lang="sl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Aurora</title>
-  <style>
-    /*--------------------------------------------
-      style.css - Celoten CSS za belo zgornjo vrstico in črn tekst
-    --------------------------------------------*/
+/* Reset osnovnih stilov */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
 
-    /* 1) Reset osnovnih stilov */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
+/* Top-bar kot kontejner za logo + nav */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7cm;            /* lahko spremeniš na npr. 200px */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+}
 
-    /* 2) Belo polje na vrhu (7cm) */
-    body::before {
-      content: '';
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 7cm;       /* višina belega traku */
-      background: #fff;  /* bela barva */
-      z-index: 1000;     /* nad vsemi ostalimi elementi */
-    }
+/* Logo v top-baru */
+.top-bar .logo img {
+  max-height: 50px;
+}
 
-    /* 3) Pomik vsebine navzdol za 7cm */
-    body {
-      position: relative;
-      padding-top: 7cm;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
+/* Navigacija v top-baru */
+.top-bar nav {
+  display: flex;
+  gap: 1rem;
+}
+.top-bar nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+.top-bar nav a:hover {
+  background: #000;
+  color: #fff;
+}
 
-    /* 4) Slog glave (header) */
-    header {
-      position: relative;
-      background: transparent !important;
-      z-index: 1001;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* Hero sekcija – ozadje pod trakcem */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;        /* zajame ves viewport */
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;        /* hero teče pod top-barom */
+}
 
-    /* 5) Logo in navigacija - črn tekst */
-    header .logo img,
-    header nav a {
-      color: #000 !important;
-      text-shadow: none !important;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* Polprozorna maska za besedilo */
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
 
-    /* 6) Navigacijski gumbi */
-    header nav {
-      display: flex;
-      gap: 1rem;
-    }
-    header nav a {
-      border: 1px solid #000;
-      border-radius: 20px;
-      padding: 0.5rem 1rem;
-      transition: background 0.3s, color 0.3s;
-    }
-    header nav a:hover {
-      background: #000;
-      color: #fff !important;
-    }
-
-    /* 7) “Hero” sekcija (slika oz. vsebina pod headerjem) */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      /* višino lahko prilagodiš: tukaj 100vh pokrije cel zaslon */
-      height: 100vh;
-    }
-    .hero .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .hero .content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 10rem 1rem;
-      color: #fff;
-    }
-    .hero .content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero .content p {
-      font-size: 1.25rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <!-- Zamenjaj 'logo.png' s svojo potjo do logotipa -->
-      <img src="logo.png" alt="Studio Aurora" width="150" />
-    </div>
-    <nav>
-      <a href="#o-izoli">O Izoli</a>
-      <a href="#apartma">Apartma</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#lokacija">Lokacija</a>
-    </nav>
-  </header>
-
-  <!-- HERO SEKCIJA -->
-  <div class="hero" style="background-image: url('hero.jpg');">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>Dobrodošli v Izoli</h1>
-      <p>Studio Aurora – Sodobno in prijeten apartma v mirnem delu Izole</p>
-    </div>
-  </div>
-
-  <!-- TUKAJ DODAŠ OSTALO VSEBINO STRANI -->
-
-</body>
-</html>
+/* Besedilo heroja */
+.hero .content {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+.hero .content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero .content p {
+  font-size: 1.25rem;
+}
