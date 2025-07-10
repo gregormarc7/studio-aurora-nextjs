@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio Aurora</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Aurora – Izola</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- BEL TOP-BAR z logotipom in navigacijo -->
-  <div class="top-bar">
-    <div class="logo">
-      <img src="logo.png" alt="Studio Aurora">
+  <!-- HEADER z logotipom in centrirano navigacijo -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/">
+        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
+      </a>
+      <nav class="main-nav">
+        <a href="#o-izoli">O Izoli</a>
+        <a href="#apartma">Apartma</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#lokacija">Lokacija</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#o-izoli">O Izoli</a>
-      <a href="#apartma">Apartma</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#lokacija">Lokacija</a>
-    </nav>
-  </div>
+  </header>
 
-  <!-- HERO SEKCIJA -->
-  <div class="hero" style="background-image: url('hero.jpg');">
-    <div class="overlay"></div>
-    <div class="content">
+  <!-- HERO sekcija -->
+  <section class="hero">
+    <div class="content container">
       <h1>Dobrodošli v Izoli</h1>
-      <p>Studio Aurora – Sodobno in prijeten apartma v mirnem delu Izole</p>
+      <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
+      <div class="hero-buttons">
+        <a href="#o-izoli" class="btn btn-primary">O Izoli</a>
+        <a href="#apartma" class="btn btn-outline">Apartma</a>
+        <a href="#kontakt" class="btn btn-outline">Kontakt</a>
+        <a href="#lokacija" class="btn btn-outline">Lokacija</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <main>
-    <!-- …vaša ostala vsebina… -->
-  </main>
+  <!-- CILJNI ODDELKI -->
+  <section id="o-izoli">
+    <div class="container">
+      <h2>O Izoli</h2>
+      <p>…tvoja vsebina “O Izoli”…</p>
+    </div>
+  </section>
 
-  <footer>
-    <!-- …footer… -->
-  </footer>
+  <section id="apartma">
+    <div class="container">
+      <h2>Apartma</h2>
+      <p>…tvoja vsebina “Apartma”…</p>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="kontakt">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p>…tvoja vsebina “Kontakt”…</p>
+    </div>
+  </section>
+
+  <section id="lokacija">
+    <div class="container">
+      <h2>Lokacija</h2>
+      <p>…tvoja vsebina “Lokacija”…</p>
+    </div>
+  </section>
+
 </body>
 </html>
