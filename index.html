@@ -54,29 +54,21 @@
   <!-- ... ostali odseki ... -->
 
   <!-- JS za vreme -->
-  <script>
-    async function loadWeather() {
-      try {
-        const res = await fetch('/.netlify/functions/weather');
-        const data = await res.json();
+ <script>
+  async function prikaziVreme() {
+    try {
+      const res = await fetch("/.netlify/functions/weather");
+      const data = await res.json();
 
-        if (data.tempZrak && data.veter && data.icon) {
-          const iconImg = `<img src="https://openweathermap.org/img/wn/${data.icon}@2x.png" style="vertical-align: middle; width: 42px;">`;
-          document.getElementById("temp").innerHTML = `${iconImg} <strong>${Math.round(data.tempZrak)} °C</strong>`;
-          document.getElementById("wind").innerHTML = `💨 <strong>${Math.round(data.veter)} km/h</strong>`;
-        } else {
-          document.getElementById("temp").innerHTML = `☁️ – °C`;
-          document.getElementById("wind").innerHTML = `💨 –`;
-        }
-      } catch (e) {
-        console.error("Napaka:", e);
-        document.getElementById("temp").innerHTML = `☁️ – °C`;
-        document.getElementById("wind").innerHTML = `💨 –`;
-      }
+      document.getElementById("tempZrak").innerText = Math.round(data.tempZrak) + " °C";
+      document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
+    } catch (err) {
+      console.error("Napaka pri pridobivanju vremena:", err);
     }
+  }
 
-    loadWeather();
-  </script>
+  prikaziVreme();
+</script>
 
 </body>
 </html>
