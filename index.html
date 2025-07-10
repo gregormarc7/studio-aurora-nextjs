@@ -4,42 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Aurora – Izola</title>
-
-  <!-- Google Font: Great Vibes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" 
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- WEATHER WIDGET -->
-  <div class="weather-widget" id="weather">
-    <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="ikona vremena" id="weather-icon" />
-    <div class="weather-info">
-      <div id="temp">-- °C</div>
-      <div id="wind">-- km/h</div>
-    </div>
-  </div>
-
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- levi meni -->
       <nav class="nav-left">
         <a href="#o-izoli">O Izoli</a>
         <a href="#apartma">Apartma</a>
       </nav>
 
-      <!-- centriran blok: naslov + logo -->
       <div class="center-block">
         <div class="site-title">Studio Aurora</div>
         <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
       </div>
 
-      <!-- desni meni -->
       <nav class="nav-right">
         <a href="#kontakt">Kontakt</a>
         <a href="#lokacija">Lokacija</a>
@@ -51,11 +35,19 @@
   <section class="hero">
     <div class="content container">
       <h1>Dobrodošli v Izoli</h1>
-      <p>Studio Aurora – sodoben studio za 2 v mirni soseski Izole</p>
+      <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
     </div>
   </section>
 
-  <!-- JS za nalaganje vremena -->
+  <!-- WEATHER WIDGET -->
+  <div class="weather-widget" id="weather">
+    <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="ikona vremena" id="weather-icon" />
+    <div class="weather-info">
+      <div id="temp">-- °C</div>
+      <div id="wind">Veter: -- km/h</div>
+    </div>
+  </div>
+
   <script>
     async function loadWeather() {
       try {
@@ -63,10 +55,8 @@
         const data = await res.json();
 
         document.getElementById("temp").innerHTML = `${Math.round(data.tempZrak)} °C`;
-        document.getElementById("wind").innerHTML = `${Math.round(data.veter)} km/h`;
-
-        const icon = data.icon || "03d";
-        document.getElementById("weather-icon").src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        document.getElementById("wind").innerHTML = `Veter: ${Math.round(data.veter)} km/h`;
+        document.getElementById("weather-icon").src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
       } catch (e) {
         console.warn("Napaka pri nalaganju vremena", e);
       }
