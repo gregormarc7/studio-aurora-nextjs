@@ -1,0 +1,7 @@
+{
+  "name": "studio-aurora-proxy",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.4.1"
+  }
+}
