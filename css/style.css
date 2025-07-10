@@ -8,9 +8,9 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  background: #fff;               /* bel pas pod headerjem */
   font-family: Arial, sans-serif;
   line-height: 1.5;
-  background: #fff;
   color: #333;
 }
 
@@ -27,7 +27,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 200; /* da ostane nad vsemi sloji */
+  z-index: 200;                  /* header vedno na vrhu */
 }
 .site-header .container {
   position: relative;
@@ -36,15 +36,15 @@ body {
 .logo {
   position: relative;
   z-index: 201;
-  height: 120px;
+  height: 120px;                 /* večji logo */
   width: auto;
-  filter: none;
+  filter: none;                  /* brez filtra */
 }
 
-/* ==== 3. Centrirana bela navigacija ==== */
+/* ==== 3. Centriran siv meni ==== */
 .main-nav {
   position: absolute;
-  top: 50%;
+  top: 50%;                      /* polovica headerja */
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -53,20 +53,20 @@ body {
 }
 .main-nav a {
   display: inline-block;
-  padding: 0.8rem 2rem;
-  border: 2px solid #fff;
+  padding: 0.8rem 2rem;          /* večja elipsa */
+  border: 2px solid #555;        /* sivi rob */
   border-radius: 2rem;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.1rem;
+  color: #555;                   /* temno sivo besedilo */
+  font-weight: 700;              /* krepkega tiska */
+  font-size: 1.3rem;             /* večji font */
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color .3s, color .3s;
 }
 .main-nav a:hover {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(85,85,85,0.1);
 }
 
-/* ==== 4. Skrij spodnje oranžne hero-gumbe ==== */
+/* ==== 4. Skrij spodnje oranžne gumbe ==== */
 .hero-buttons {
   display: none;
 }
@@ -74,6 +74,7 @@ body {
 /* ==== 5. Hero sekcija ==== */
 .hero {
   position: relative;
+  margin-top: 7cm;               /* bel pas zgoraj */
   height: 100vh;
   background: url('../images/izola-hero.png') center top/cover no-repeat;
   display: flex;
