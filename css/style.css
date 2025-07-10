@@ -112,14 +112,12 @@ section { padding: 6rem 1rem; }
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #000;
-  padding: 20px 26px;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  font-family: Arial, sans-serif;
-  z-index: 999;
+  background: rgba(255,255,255,0.95);
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
+  z-index: 999;
 }
 
 .weather-info {
@@ -128,14 +126,13 @@ section { padding: 6rem 1rem; }
   align-items: center;
 }
 
-.weather-info #temp {
-  font-size: 30px;
+#tempZrak {
+  font-size: 28px;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
-.weather-info #wind {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
+#veter {
+  font-size: 20px;
+  font-weight: 600;
 }
