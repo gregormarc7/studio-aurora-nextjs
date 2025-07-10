@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Aurora – Izola</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Font: Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- VREMENSKI PRIKAZ -->
+  <!-- WEATHER WIDGET -->
   <div class="weather-widget" id="weather">
     <div class="weather-info">
       <div id="temp">☁️ -- °C</div>
       <div id="wind">💨 -- km/h</div>
     </div>
   </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav-left">
+        <a href="#o-izoli">O Izoli</a>
+        <a href="#apartma">Apartma</a>
+      </nav>
+
+      <div class="center-block">
+        <div class="site-title">Studio Aurora</div>
+        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
+      </div>
+
+      <nav class="nav-right">
+        <a href="#kontakt">Kontakt</a>
+        <a href="#lokacija">Lokacija</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO sekcija -->
+  <section class="hero">
+    <div class="content container">
+      <h1>Dobrodošli v Izoli</h1>
+      <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
+    </div>
+  </section>
+
+  <!-- OSTALI ODSEKI (če jih imaš) -->
 
   <script>
     async function loadWeather() {
