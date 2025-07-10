@@ -4,9 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
@@ -22,9 +20,10 @@ body {
 
 /* ==== 2. Header ==== */
 .site-header {
+  position: relative;
+  width: 100%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: relative;
   z-index: 200;
 }
 .header-inner {
@@ -32,28 +31,19 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0;
+  position: relative; /* za absolutni logo */
 }
 
-/* ==== 3. Logo nad naslovom ==== */
-.logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.logo-block .logo {
-  height: 60px;  /* po želji prilagodi */
-  width: auto;
-  margin-bottom: 0.25rem;
-}
+/* ==== 3. Sredinski naslov ==== */
 .site-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 48px;
-  line-height: 1;
+  font-size: 72px;
+  font-weight: bold;
   color: #333;
+  text-align: center;
 }
 
-/* ==== 4. Levi in desni meni ==== */
+/* ==== 4. Meniji ==== */
 .nav-left,
 .nav-right {
   display: flex;
@@ -61,7 +51,8 @@ body {
 }
 .nav-left a,
 .nav-right a {
-  font-size: 1rem;
+  font-size: 36px;
+  font-weight: bold;
   color: #333;
   text-decoration: none;
   padding: 0.25rem 0.75rem;
@@ -73,7 +64,18 @@ body {
   border-radius: 0.25rem;
 }
 
-/* ==== 5. Hero sekcija ==== */
+/* ==== 5. Logo zgoraj desno ==== */
+.logo-link {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+.logo {
+  height: 120px;
+  width: auto;
+}
+
+/* ==== 6. Hero sekcija ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -96,12 +98,10 @@ body {
   z-index: 1;
 }
 @media (max-width: 768px) {
-  .hero::before {
-    background: transparent;
-  }
+  .hero::before { background: transparent; }
 }
 
-/* ==== 6. Hero vsebina ==== */
+/* ==== 7. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -117,5 +117,7 @@ body {
   font-size: 1.25rem;
 }
 
-/* ==== 7. Ostali odseki ==== */
-/* (dodajte po potrebi) */
+/* ==== 8. Ostali odseki ==== */
+section {
+  padding: 6rem 1rem;
+}
