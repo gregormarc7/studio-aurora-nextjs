@@ -22,47 +22,41 @@ body {
 .site-header {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: relative;
-  z-index: 200;
+  padding: 2rem 0 1rem;  /* več vrhnjega razmika pred naslovom */
+  text-align: center;
 }
 .header-inner {
   display: flex;
-  justify-content: center; /* centriraj vsebino */
-  padding: 1rem 0;
-}
-
-/* ==== 3. Logo + naslov + podmeni ==== */
-.logo-block {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
-.logo-block .logo {
-  height: 80px;
-  width: auto;
-  margin-bottom: 0.5rem;
-}
+
+/* ==== 3. Naslov ==== */
 .site-title {
   font-family: 'Great Vibes', cursive;
   font-size: 72px;
   font-weight: bold;
   color: #333;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* zavijač za menije pod naslovom */
+/* ==== 4. Logo pod naslovom ==== */
+.logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* ==== 5. Meni spodaj ==== */
 .nav-wrapper {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  gap: 4rem;  /* prostor med levim in desnim delom */
 }
-
-/* menija */
 .nav-left,
 .nav-right {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .nav-left a,
 .nav-right a {
@@ -79,7 +73,7 @@ body {
   border-radius: 0.25rem;
 }
 
-/* ==== 4. Hero sekcija ==== */
+/* ==== 6. Hero sekcija ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -105,7 +99,7 @@ body {
   .hero::before { background: transparent; }
 }
 
-/* ==== 5. Hero vsebina ==== */
+/* ==== 7. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -121,7 +115,7 @@ body {
   font-size: 1.25rem;
 }
 
-/* ==== 6. Ostali odseki ==== */
+/* ==== 8. Ostali odseki ==== */
 section {
   padding: 6rem 1rem;
 }
