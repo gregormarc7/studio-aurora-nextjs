@@ -10,7 +10,6 @@ html {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
-  background: #fff;
   color: #333;
 }
 
@@ -23,52 +22,55 @@ body {
 
 /* ==== 2. Header ==== */
 .site-header {
-  position: relative;
-  width: 100%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
   z-index: 200;
 }
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem 0;
-}
-.logo {
-  height: 120px;
-  width: auto;
-  margin-right: 2rem;
+  justify-content: space-between;
+  padding: 0.75rem 0;
 }
 
-/* ==== 3. Enake sivke elipse ==== */
-.main-nav {
+/* ==== 3. Logo nad naslovom ==== */
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.logo-block .logo {
+  height: 60px;  /* po želji prilagodi */
+  width: auto;
+  margin-bottom: 0.25rem;
+}
+.site-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  line-height: 1;
+  color: #333;
+}
+
+/* ==== 4. Levi in desni meni ==== */
+.nav-left,
+.nav-right {
   display: flex;
   gap: 1rem;
 }
-.main-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 2rem;
-  border: 2px solid #555;
-  border-radius: 2rem;
-  color: #555;
-  font-weight: 700;
-  font-size: 1.3rem;
-  white-space: nowrap;
+.nav-left a,
+.nav-right a {
+  font-size: 1rem;
+  color: #333;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 0.25rem 0.75rem;
+  transition: background-color .2s;
 }
-.main-nav a:hover,
-.main-nav a.active {
-  background-color: #555;
-  color: #fff;
-}
-
-/* ==== 4. Skrij spodnje oranžne gumbe ==== */
-.hero-buttons {
-  display: none;
+.nav-left a:hover,
+.nav-right a:hover {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 0.25rem;
 }
 
 /* ==== 5. Hero sekcija ==== */
@@ -80,7 +82,6 @@ body {
   align-items: center;
   justify-content: center;
   filter: brightness(1.05);
-  margin-top: 0;
 }
 .hero::before {
   content: "";
@@ -114,18 +115,7 @@ body {
 }
 .hero .content p {
   font-size: 1.25rem;
-  margin-bottom: 1.5rem;
 }
 
-/* ==== 7. Ostale sekcije ==== */
-section {
-  padding: 6rem 1rem;
-  background: #f9f9f9;
-}
-section:nth-of-type(even) {
-  background: #fff;
-}
-section h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
+/* ==== 7. Ostali odseki ==== */
+/* (dodajte po potrebi) */
