@@ -1,12 +1,14 @@
-// js/script.js
-document.querySelectorAll('.tabs a').forEach(tab => {
-  tab.addEventListener('click', e => {
-    e.preventDefault();
-    // označi aktivni gumb
-    document.querySelectorAll('.tabs a').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    // prikaži ustrezno vsebino
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    document.querySelector(tab.getAttribute('href')).classList.add('active');
+document.addEventListener('DOMContentLoaded', () => {
+  const topBar = document.querySelector('.top-bar');
+  const topBarH = topBar.offsetHeight;
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      const scrollToY = target.offsetTop - topBarH;
+      window.scrollTo({ top: scrollToY, behavior: 'smooth' });
+    });
   });
 });
