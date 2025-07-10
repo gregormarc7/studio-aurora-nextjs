@@ -111,14 +111,13 @@ section { padding: 6rem 1rem; }
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: #1e1e3f;
-  color: #fff;
-  border-radius: 12px;
-  padding: 10px 14px;
+  background-color: transparent;
+  color: #000;
   display: flex;
   align-items: center;
   font-family: Arial, sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
   z-index: 9999;
 }
 
@@ -128,12 +127,18 @@ section { padding: 6rem 1rem; }
   margin-right: 8px;
 }
 
+.weather-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .weather-info #temp {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .weather-info #wind {
   font-size: 13px;
-  color: #ccc;
+  color: #333;
 }
+
