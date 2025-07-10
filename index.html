@@ -57,7 +57,7 @@
   <script>
     async function loadWeather() {
       try {
-        const res = await fetch('/api/weather');
+        const res = await fetch('/.netlify/functions/weather');
         const data = await res.json();
 
         if (data.tempZrak && data.veter && data.icon) {
