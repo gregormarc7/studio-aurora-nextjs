@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Aurora – Izola</title>
+  <!-- Google Font: Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" 
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,15 +17,26 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/">
-        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
-      </a>
-      <nav class="main-nav">
+
+      <!-- levi meni -->
+      <nav class="nav-left">
         <a href="#o-izoli">O Izoli</a>
         <a href="#apartma">Apartma</a>
+      </nav>
+
+      <!-- centriran blok: logo nad naslovom -->
+      <div class="logo-block">
+        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
+        <div class="site-title">Studio Aurora</div>
+      </div>
+
+      <!-- desni meni -->
+      <nav class="nav-right">
         <a href="#kontakt">Kontakt</a>
+        <a href="#povprasevanje">Povpraševanje</a>
         <a href="#lokacija">Lokacija</a>
       </nav>
+
     </div>
   </header>
 
@@ -28,51 +45,10 @@
     <div class="content container">
       <h1>Dobrodošli v Izoli</h1>
       <p>Studio Aurora – apartma ob morju s čudovitim razgledom</p>
-      <div class="hero-buttons">
-        <a href="#o-izoli" class="btn btn-primary">O Izoli</a>
-        <a href="#apartma" class="btn btn-outline">Apartma</a>
-        <a href="#kontakt" class="btn btn-outline">Kontakt</a>
-        <a href="#lokacija" class="btn btn-outline">Lokacija</a>
-      </div>
     </div>
   </section>
 
-  <!-- CILJNI ODDELKI -->
-  <section id="o-izoli">
-    <div class="container">
-      <h2>O Izoli</h2>
-      <p>…tvoja vsebina “O Izoli”…</p>
-    </div>
-  </section>
-  <section id="apartma">
-    <div class="container">
-      <h2>Apartma</h2>
-      <p>…tvoja vsebina “Apartma”…</p>
-    </div>
-  </section>
-  <section id="kontakt">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <p>…tvoja vsebina “Kontakt”…</p>
-    </div>
-  </section>
-  <section id="lokacija">
-    <div class="container">
-      <h2>Lokacija</h2>
-      <p>…tvoja vsebina “Lokacija”…</p>
-    </div>
-  </section>
-
-  <!-- JavaScript za dinamično označevanje izbrane povezave -->
-  <script>
-    document.querySelectorAll('.main-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelectorAll('.main-nav a')
-          .forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-  </script>
+  <!-- ... ostali odseki ... -->
 
 </body>
 </html>
