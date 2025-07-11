@@ -56,11 +56,16 @@ body {
   margin-bottom: 0.5rem;
 }
 .logo {
-  height: 80px;
+  height: 140px;
   width: auto;
 }
 
 /* ==== 5. Desni meni ==== */
+.nav-right-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .nav-right a {
   font-size: 36px;
   font-weight: bold;
@@ -107,32 +112,57 @@ body {
 /* ==== 8. Ostali odseki ==== */
 section { padding: 6rem 1rem; }
 
-/* ==== 9. VREMENSKI WIDGET ==== */
-.weather-widget {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.95);
-  padding: 16px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  z-index: 999;
-}
-
-.weather-info {
+/* ==== 9. Vreme desno v header === */
+.weather-inline {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  min-width: 100px;
 }
 
 #tempZrak {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 4px;
 }
 
 #veter {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
+}
+
+/* ==== 10. Responsive prilagoditev ==== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-left, .nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-right-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-inline {
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 16px;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    font-size: 28px;
+  }
 }
