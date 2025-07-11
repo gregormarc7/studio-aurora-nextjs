@@ -1,26 +1,34 @@
-import fetch from 'node-fetch';
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-export default async function handler(req, res) {
-  const API_KEY = "0c9ff55e2bc630eb45e778c68a57d390";
-  const LAT = 45.538;
-  const LON = 13.66;
+exports.handler = async function(event, context) {
+  const apiKey = process.env.OPENWEATHERMAP_API_KEY;
+
+  if (!apiKey) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "API ključ ni nastavljen v okolju Netlify." })
+    };
+  }
 
   try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&lang=sl&appid=${API_KEY}`
-    );
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=45.5389&lon=13.6606&appid=${apiKey}&units=metric&lang=sl`);
     const data = await response.json();
 
-    if (!data || !data.main || !data.wind || !data.weather) {
-      return res.status(500).json({ error: "Podatki niso popolni" });
-    }
+    const tempZrak = data.main.temp;
+    const veter = data.wind.speed;
 
-    res.status(200).json({
-      tempZrak: data.main.temp,
-      veter: data.wind.speed,
-      icon: data.weather[0].icon
-    });
-  } catch (err) {
-    res.status(500).json({ error: "Napaka pri pridobivanju" });
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ tempZrak, veter })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Napaka pri branju vremena", debug: error.message })
+    };
   }
-}
+};
