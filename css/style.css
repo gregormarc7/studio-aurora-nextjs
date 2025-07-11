@@ -149,8 +149,15 @@ body {
   text-align: center; color: #fff;
   padding: 0 1rem;
 }
-.hero .content h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-.hero .content p { font-size: 1.25rem; }
+.hero .content h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.hero .content p {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
 
 /* ==== 8. Ostali odseki ==== */
 section { padding: 6rem 1rem; }
