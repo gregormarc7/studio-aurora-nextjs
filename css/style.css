@@ -97,7 +97,50 @@ body {
   z-index: 1;
 }
 @media (max-width: 768px) {
-  .hero::before { background: transparent; }
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    font-size: 28px;
+    margin: 0.25rem 0;
+  }
+
+  .nav-right-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
+  .weather-absolute {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 16px;
+  }
+
+  .site-title {
+    font-size: 56px;
+  }
 }
 
 /* ==== 7. Hero vsebina ==== */
