@@ -8,115 +8,97 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Svetla statusna vrstica -->
   <meta name="theme-color" content="#ffffff" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="msapplication-navbutton-color" content="#ffffff">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
+<header class="site-header">
+  <div class="container header-inner">
 
-      <!-- Levi meni -->
-      <nav class="nav-left">
-        <a href="#o-izoli">O Izoli</a>
-        <a href="#apartma">Apartma</a>
+    <nav class="nav-left">
+      <a href="#o-izoli">O Izoli</a>
+      <a href="#apartma">Apartma</a>
+    </nav>
+
+    <div class="center-block">
+      <div class="site-title">Studio Aurora</div>
+      <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
+    </div>
+
+    <div class="right-block">
+      <nav class="nav-right" id="mobile-menu">
+        <a href="#povprasevanje">Povpraševanje</a>
+        <a href="#lokacija">Lokacija</a>
       </nav>
-
-      <!-- Center: naslov + logo -->
-      <div class="center-block">
-        <div class="site-title">Studio Aurora</div>
-        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
-      </div>
-
-      <!-- Desni blok: meni + vreme -->
-      <div class="right-block">
-        <nav class="nav-right">
-          <a href="#povprasevanje">Povpraševanje</a>
-          <a href="#lokacija">Lokacija</a>
-        </nav>
-        <div class="weather-absolute">
-          <span id="tempZrak">☁️ – °C</span>
-          <span id="veter">💨 – km/h</span>
-        </div>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="content container">
-      <h1>Dobrodošli v Izoli</h1>
-      <p>Studio Aurora – sodoben apartma v umirjenem delu Izole</p>
-    </div>
-  </section>
-
-  <!-- O IZOLI -->
-  <section id="o-izoli" class="section">
-    <div class="container">
-      <h2>O Izoli</h2>
-      <p>Izola je slikovito obmorsko mesto s pestrim kulturnim dogajanjem, odličnimi restavracijami in krasnimi razgledi na slovensko obalo.</p>
-    </div>
-  </section>
-
-  <!-- APARTMA -->
-  <section id="apartma" class="section">
-    <div class="container">
-      <h2>Apartma</h2>
-      <p>Naš apartma ponuja udobje in razgled, ki vam bo ostal v spominu.</p>
-
-      <div class="gallery">
-        <div class="gallery-track">
-          <img src="images/studio1.jpg" alt="Studio Aurora 1">
-          <img src="images/studio2.jpg" alt="Studio Aurora 2">
-          <img src="images/studio3.jpg" alt="Studio Aurora 3">
-          <img src="images/studio4.jpg" alt="Studio Aurora 4">
-          <img src="images/studio5.jpg" alt="Studio Aurora 5">
-          <img src="images/studio6.jpg" alt="Studio Aurora 6">
-          <img src="images/studio7.jpg" alt="Studio Aurora 7">
-          <img src="images/studio8.jpg" alt="Studio Aurora 8">
-          <img src="images/studio9.jpg" alt="Studio Aurora 9">
-          <img src="images/studio10.jpg" alt="Studio Aurora 10">
-        </div>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <div class="weather-absolute">
+        <span id="tempZrak">☁️ – °C</span>
+        <span id="veter">💨 – km/h</span>
       </div>
     </div>
-  </section>
 
-  <!-- POVPRAŠEVANJE -->
-  <section id="povprasevanje" class="section">
-    <div class="container">
-      <h2>Povpraševanje</h2>
-      <p>Za rezervacije ali dodatna vprašanja nam pišite ali izpolnite kontaktni obrazec (v pripravi).</p>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="content container">
+    <h1>Dobrodošli v Izoli</h1>
+    <p>Studio Aurora – sodoben apartma v umirjenem delu Izole</p>
+  </div>
+</section>
+
+<section id="o-izoli" class="section">
+  <div class="container">
+    <h2>O Izoli</h2>
+    <p>Izola je slikovito...</p>
+  </div>
+</section>
+
+<section id="apartma" class="section">
+  <div class="container">
+    <h2>Apartma</h2>
+    <p>Naš apartma ponuja udobje...</p>
+    <div class="gallery">
+      <div class="gallery-track">
+        <!-- slike -->
+        <img src="images/studio1.jpg" alt="">
+        <!-- ... -->
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LOKACIJA -->
-  <section id="lokacija" class="section">
-    <div class="container">
-      <h2>Lokacija</h2>
-      <p>Studio Aurora se nahaja v neposredni bližini plaže v Izoli – idealna izhodiščna točka za raziskovanje Slovenske Istre.</p>
-    </div>
-  </section>
+<section id="povprasevanje" class="section">
+  <div class="container">
+    <h2>Povpraševanje</h2>
+    <p>Za rezervacije...</p>
+  </div>
+</section>
 
-  <!-- SCRIPT ZA VREME -->
-  <script>
-    async function prikaziVreme() {
-      try {
-        const res = await fetch("/.netlify/functions/weather");
-        if (!res.ok) throw new Error("Napaka HTTP " + res.status);
-        const data = await res.json();
-        document.getElementById("tempZrak").innerText = "☁️ " + Math.round(data.tempZrak) + " °C";
-        document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
-      } catch (err) {
-        console.error("Napaka:", err);
-      }
-    }
-    prikaziVreme();
-  </script>
+<section id="lokacija" class="section">
+  <div class="container">
+    <h2>Lokacija</h2>
+    <p>Studio Aurora se nahaja...</p>
+  </div>
+</section>
+
+<script>
+async function prikaziVreme() {
+  try {
+    const res = await fetch("/.netlify/functions/weather");
+    const d = await res.json();
+    document.getElementById("tempZrak").innerText = `☁️ ${Math.round(d.tempZrak)} °C`;
+    document.getElementById("veter").innerText = `💨 ${Math.round(d.veter)} km/h`;
+  } catch(e){ console.error(e); }
+}
+prikaziVreme();
+
+const btn = document.getElementById('menu-toggle');
+const nav = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+</script>
 
 </body>
 </html>
