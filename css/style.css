@@ -224,3 +224,35 @@ section { padding: 6rem 1rem; }
     font-size: 28px;
   }
 }
+/* ==== Galerija z leve proti desni ==== */
+.gallery {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-track {
+  display: flex;
+  gap: 16px;
+}
+.gallery-track img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.gallery-track img:hover {
+  transform: scale(1.05);
+}
+.gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
