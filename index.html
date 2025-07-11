@@ -9,96 +9,113 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="msapplication-navbutton-color" content="#ffffff">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="nav-left">
+        <a href="#o-izoli">O Izoli</a>
+        <a href="#apartma">Apartma</a>
+      </div>
 
-    <nav class="nav-left">
-      <a href="#o-izoli">O Izoli</a>
-      <a href="#apartma">Apartma</a>
-    </nav>
+      <div class="center-block">
+        <div class="site-title">Studio Aurora</div>
+        <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
+      </div>
 
-    <div class="center-block">
-      <div class="site-title">Studio Aurora</div>
-      <img src="images/logo.png" alt="Studio Aurora logo" class="logo">
-    </div>
-
-    <div class="right-block">
-      <nav class="nav-right" id="mobile-menu">
+      <div class="nav-right-wrapper">
         <a href="#povprasevanje">Povpraševanje</a>
         <a href="#lokacija">Lokacija</a>
-      </nav>
-      <button class="menu-toggle" id="menu-toggle">☰</button>
+      </div>
+
+      <button class="hamburger" aria-label="Menu">
+        ☰
+      </button>
+      <div class="mobile-menu">
+        <a href="#o-izoli">O Izoli</a>
+        <a href="#apartma">Apartma</a>
+        <a href="#povprasevanje">Povpraševanje</a>
+        <a href="#lokacija">Lokacija</a>
+      </div>
+
       <div class="weather-absolute">
         <span id="tempZrak">☁️ – °C</span>
         <span id="veter">💨 – km/h</span>
       </div>
+
     </div>
+  </header>
 
-  </div>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="content container">
+      <h1>Dobrodošli v Izoli</h1>
+      <p>Studio Aurora – sodoben apartma v umirjenem delu Izole</p>
+    </div>
+  </section>
 
-<section class="hero">
-  <div class="content container">
-    <h1>Dobrodošli v Izoli</h1>
-    <p>Studio Aurora – sodoben apartma v umirjenem delu Izole</p>
-  </div>
-</section>
+  <!-- O IZOLI -->
+  <section id="o-izoli" class="section">
+    <div class="container">
+      <h2>O Izoli</h2>
+      <p>Izola je slikovito obmorsko mesto s pestrim kulturnim dogajanjem, odličnimi restavracijami in krasnimi razgledi na slovensko obalo.</p>
+    </div>
+  </section>
 
-<section id="o-izoli" class="section">
-  <div class="container">
-    <h2>O Izoli</h2>
-    <p>Izola je slikovito...</p>
-  </div>
-</section>
-
-<section id="apartma" class="section">
-  <div class="container">
-    <h2>Apartma</h2>
-    <p>Naš apartma ponuja udobje...</p>
-    <div class="gallery">
-      <div class="gallery-track">
-        <!-- slike -->
-        <img src="images/studio1.jpg" alt="">
-        <!-- ... -->
+  <!-- APARTMA -->
+  <section id="apartma" class="section">
+    <div class="container">
+      <h2>Apartma</h2>
+      <p>Naš apartma ponuja udobje in razgled, ki vam bo ostal v spominu.</p>
+      <div class="gallery">
+        <div class="gallery-track">
+          <img src="images/studio1.jpg" alt="Studio Aurora 1">
+          <!-- ... nadaljuj s slikami do studio10.jpg ... -->
+          <img src="images/studio10.jpg" alt="Studio Aurora 10">
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="povprasevanje" class="section">
-  <div class="container">
-    <h2>Povpraševanje</h2>
-    <p>Za rezervacije...</p>
-  </div>
-</section>
+  <!-- POVPRAŠEVANJE -->
+  <section id="povprasevanje" class="section">
+    <div class="container">
+      <h2>Povpraševanje</h2>
+      <p>Za rezervacije ali dodatna vprašanja nam pišite ali izpolnite kontaktni obrazec (v pripravi).</p>
+    </div>
+  </section>
 
-<section id="lokacija" class="section">
-  <div class="container">
-    <h2>Lokacija</h2>
-    <p>Studio Aurora se nahaja...</p>
-  </div>
-</section>
+  <!-- LOKACIJA -->
+  <section id="lokacija" class="section">
+    <div class="container">
+      <h2>Lokacija</h2>
+      <p>Studio Aurora se nahaja v neposredni bližini plaže v Izoli – idealna izhodiščna točka za raziskovanje Slovenske Istre.</p>
+    </div>
+  </section>
 
-<script>
-async function prikaziVreme() {
-  try {
-    const res = await fetch("/.netlify/functions/weather");
-    const d = await res.json();
-    document.getElementById("tempZrak").innerText = `☁️ ${Math.round(d.tempZrak)} °C`;
-    document.getElementById("veter").innerText = `💨 ${Math.round(d.veter)} km/h`;
-  } catch(e){ console.error(e); }
-}
-prikaziVreme();
+  <!-- WEATHER SCRIPT -->
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.toggle('open');
+    });
 
-const btn = document.getElementById('menu-toggle');
-const nav = document.getElementById('mobile-menu');
-btn.addEventListener('click', () => {
-  nav.classList.toggle('open');
-});
-</script>
+    async function prikaziVreme() {
+      try {
+        const res = await fetch("/.netlify/functions/weather");
+        const data = await res.json();
+        document.getElementById("tempZrak").innerText = "☁️ " + Math.round(data.tempZrak) + " °C";
+        document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
+      } catch {
+        document.getElementById("tempZrak").innerText = "☁️ – °C";
+        document.getElementById("veter").innerText = "💨 – km/h";
+      }
+    }
+    prikaziVreme();
+  </script>
 
 </body>
 </html>
