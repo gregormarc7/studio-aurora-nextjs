@@ -1,8 +1,12 @@
 /* ==== 0. Reset + smooth scroll ==== */
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
@@ -19,29 +23,38 @@ body {
 /* ==== 2. Header ==== */
 .site-header {
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: 1rem 0;
   position: relative;
   z-index: 200;
 }
-.header-inner {
+.header-inner-flex {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
 }
 
-/* ==== 3. Levi meni ==== */
-.nav-left a {
+/* ==== 3. Levi in desni meni ==== */
+.nav-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  min-width: 200px;
+  gap: 0.5rem;
+}
+.nav-left a,
+.nav-right a {
   font-size: 36px;
   font-weight: bold;
   color: #333;
   text-decoration: none;
-  margin-right: 1.5rem;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
 }
-.nav-left a:hover {
-  background-color: rgba(0,0,0,0.05);
+.nav-left a:hover,
+.nav-right a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
 }
 
@@ -50,6 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .site-title {
   font-family: 'Great Vibes', cursive;
@@ -62,26 +76,30 @@ body {
   width: auto;
 }
 
-/* ==== 5. Desni meni ==== */
-.nav-right-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-.nav-right a {
-  font-size: 36px;
+/* ==== 5. Vreme ==== */
+.weather-absolute {
+  font-size: 16px;
   font-weight: bold;
+  margin-top: 0.5rem;
   color: #333;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  transition: background-color .2s;
+  text-align: right;
 }
-.nav-right a:hover {
-  background-color: rgba(0,0,0,0.05);
-  border-radius: 0.25rem;
+.weather-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+}
+#tempZrak {
+  font-size: 22px;
+  font-weight: bold;
+}
+#veter {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-/* ==== 6. Hero sekcija ==== */
+/* ==== 6. Hero ==== */
 .hero {
   position: relative;
   height: 100vh;
@@ -92,14 +110,12 @@ body {
   filter: brightness(1.05);
 }
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.2) 100%);
   z-index: 1;
 }
-
-/* ==== 7. Hero vsebina ==== */
 .hero .content {
   position: relative;
   z-index: 2;
@@ -117,38 +133,12 @@ body {
   font-weight: 500;
 }
 
-/* ==== 8. Sekcije ==== */
+/* ==== 7. Sekcije ==== */
 .section {
   padding: 6rem 1rem;
 }
 
-/* ==== 9. Vreme ==== */
-.weather-absolute {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  text-align: right;
-  z-index: 10;
-}
-.weather-absolute span {
-  line-height: 1.3;
-}
-#tempZrak {
-  font-size: 22px;
-  font-weight: bold;
-}
-#veter {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* ==== 10. Galerija ==== */
+/* ==== 8. Galerija ==== */
 .gallery {
   overflow-x: auto;
   padding-bottom: 1rem;
@@ -183,39 +173,23 @@ body {
   background: transparent;
 }
 
-/* ==== 11. Responsive mobilni popravki ==== */
+/* ==== 9. Responsive ==== */
 @media (max-width: 768px) {
-  .header-inner {
+  .header-inner-flex {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .nav-left, .nav-right {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-left a, .nav-right a {
-    font-size: 28px;
-    margin: 0.25rem 0;
-  }
-
-  .nav-right-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .weather-absolute {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin-top: 0.5rem;
+  .nav-side {
+    width: 100%;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
-    font-size: 16px;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    font-size: 28px;
   }
 
   .logo {
@@ -226,15 +200,18 @@ body {
     font-size: 56px;
   }
 
+  .weather-absolute {
+    text-align: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
   .gallery-track img {
     max-width: 90vw;
     height: auto;
   }
 
   .center-block {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 }
