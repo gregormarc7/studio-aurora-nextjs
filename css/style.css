@@ -32,11 +32,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
   flex-wrap: wrap;
 }
 
-/* ==== 3. Levi in desni meni ==== */
+/* ==== 3. Meniji ==== */
 .nav-side {
   display: flex;
   flex-direction: column;
@@ -52,7 +51,6 @@ body {
   color: #333;
   text-decoration: none;
   transition: background-color 0.2s;
-  display: inline-block;
 }
 .nav-left a:hover,
 .nav-right a:hover {
@@ -60,7 +58,7 @@ body {
   border-radius: 0.25rem;
 }
 
-/* ==== 4. Center block ==== */
+/* ==== 4. Center blok ==== */
 .center-block {
   display: flex;
   flex-direction: column;
@@ -177,7 +175,7 @@ body {
   background: transparent;
 }
 
-/* ==== 9. Responsive ==== */
+/* ==== 9. Mobilna različica ==== */
 @media (max-width: 768px) {
   .header-inner-flex {
     flex-direction: column;
