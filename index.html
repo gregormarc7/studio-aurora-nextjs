@@ -126,10 +126,11 @@
       document.getElementById("veter").innerText = Math.round(data.veter) + " km/h";
 
       // IKONA
-      const img = document.getElementById("ikona-vreme");
-      img.src = data.ikonaUrl;
-      img.alt = "Vremenska ikona";
-    } catch (err) {
+      if (data.ikonaUrl) {
+  const img = document.getElementById("ikona-vreme");
+  img.src = data.ikonaUrl;
+  img.alt = "Vremenska ikona";
+} catch (err) {
       console.error("Napaka:", err);
     }
   }
