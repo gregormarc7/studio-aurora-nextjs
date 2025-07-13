@@ -154,7 +154,7 @@ body {
   left: 20px;
   display: flex;
   flex-direction: column; /* <-- vertikalno */
-  align-items: flex-end;
+  align-items: flex-start;
   font-size: 18px;
   font-weight: bold;
   color: #222;
