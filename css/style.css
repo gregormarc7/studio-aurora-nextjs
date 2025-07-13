@@ -177,7 +177,9 @@ body {
 }
 
 .weather-icon {
-  font-size: 20px;
+  width: 48px;
+  height: auto;
+  vertical-align: middle;
 }
 
 
