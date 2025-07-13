@@ -131,37 +131,41 @@ body {
 .section {
   padding: 6rem 1rem;
 }
-
-/* ==== 8. Vreme ==== */
-.weather-absolute {
-  position: absolute;
-  right: 20px;
+/* ==== 8.1 Fiksno vreme v desnem zgornjem kotu ==== */
+.weather-fixed {
+  position: fixed;
   top: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
   text-align: right;
-  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 999;
 }
 
-.weather-absolute .weather-location {
-  font-weight: 600;
+.weather-fixed .weather-location {
+  font-weight: bold;
   font-size: 20px;
   margin-bottom: 4px;
+  align-self: flex-end;
+  text-align: right;
 }
 
 #tempZrak {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-#veter {
   font-size: 18px;
   font-weight: 600;
 }
+
+#veter {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
 
 /* ==== 9. Galerija ==== */
 .gallery {
