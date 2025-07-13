@@ -158,7 +158,18 @@
   document.addEventListener("DOMContentLoaded", prikaziVreme);
 </script>
 
+S (dodaš pred </body>)
+html
+Copy
+Edit
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
 
+  hamburger.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
 
 
 </body>
