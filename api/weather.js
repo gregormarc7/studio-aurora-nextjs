@@ -17,7 +17,8 @@ exports.handler = async function(event, context) {
     const tempZrak = data.main.temp;
     const veter = data.wind.speed;
 
-    const iconCode = data.weather[0].icon; // npr. "01d"
+    // DODANO: zajem ikone
+    const iconCode = data.weather[0].icon;
     const ikonaUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
     return {
@@ -26,9 +27,8 @@ exports.handler = async function(event, context) {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ tempZrak, veter, ikonaUrl }) // <- KLJUČNO
+      body: JSON.stringify({ tempZrak, veter, ikonaUrl }) // <== TO JE KLJUČNO
     };
-
   } catch (error) {
     return {
       statusCode: 500,
