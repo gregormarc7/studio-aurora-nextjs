@@ -11,11 +11,11 @@ exports.handler = async function(event, context) {
   }
 
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=45.5389&lon=13.6606&appid=${apiKey}&units=metric&lang=sl`);
-    const data = await response.json();
+   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=45.5389&lon=13.6606&appid=${apiKey}&units=metric&lang=sl`);
+const data = await response.json();
 
-    console.log("❄️ API VRAČA:", JSON.stringify(data, null, 2));
-
+console.log("❄️ API VRAČA:", JSON.stringify(data, null, 2)); // 👈 TO MORAŠ VIDETI V LOGU
+    
     const tempZrak = data.main.temp;
     const veter = data.wind.speed;
 
