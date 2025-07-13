@@ -26,18 +26,21 @@ body {
 }
 .header-inner {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  position: relative;
 }
-
+.nav-group {
+  display: flex;
+  gap: 2.5rem;
+}
 /* ==== 3. Levi meni ==== */
 .nav-left a {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #333;
   text-decoration: none;
-  margin-right: 1.5rem;
+ /* margin-right: 1.5rem;*/
   transition: background-color .2s;
 }
 .nav-left a:hover {
