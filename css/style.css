@@ -260,35 +260,33 @@ body {
   }
 
   .center-logo-wrapper {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
   }
 }
 /* Hamburger ikona */
-.hamburger {
-  display: none;
-  font-size: 36px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  margin-bottom: 1rem;
-}
+ #hamburger {
+    display: block;
+    margin-top: 1rem;
+    font-size: 32px;
+    cursor: pointer;
+  }
 
 /* Mobilni meni */
 .mobile-nav {
   display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
 .mobile-nav a {
   font-size: 24px;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-}
+    text-decoration: none;
+    color: #333;
+  }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
