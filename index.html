@@ -117,26 +117,37 @@
     try {
       const res = await fetch("/.netlify/functions/weather");
       if (!res.ok) throw new Error("HTTP " + res.status);
+
       const data = await res.json();
+      console.log("🌤️ API data:", data);
 
-      console.log("API data:", data); // <== DEBUG!
+      // Prikaži temperaturo
+      const tempZrakEl = document.getElementById("tempZrak");
+      if (data.tempZrak !== undefined && tempZrakEl) {
+        tempZrakEl.textContent = Math.round(data.tempZrak) + " °C";
+      }
 
-      // vrednosti
-      document.getElementById("tempZrak").innerText = Math.round(data.tempZrak) + " °C";
-      document.getElementById("veter").innerText = Math.round(data.veter) + " km/h";
+      // Prikaži veter
+      const veterEl = document.getElementById("veter");
+      if (data.veter !== undefined && veterEl) {
+        veterEl.textContent = Math.round(data.veter) + " km/h";
+      }
 
-      // IKONA
-      if (data.ikonaUrl) {
-  const img = document.getElementById("ikona-vreme");
-  img.src = data.ikonaUrl;
-  img.alt = "Vremenska ikona";
-} catch (err) {
-      console.error("Napaka:", err);
+      // Prikaži vremensko ikono, če obstaja
+      const img = document.getElementById("ikona-vreme");
+      if (data.ikonaUrl && img) {
+        img.src = data.ikonaUrl;
+        img.alt = "Vremenska ikona";
+        img.style.display = "inline";
+      }
+    } catch (err) {
+      console.error("❌ Napaka pri prikazu vremena:", err);
     }
   }
 
-  prikaziVreme();
+  document.addEventListener("DOMContentLoaded", prikaziVreme);
 </script>
+
 
 
 
