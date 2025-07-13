@@ -11,17 +11,16 @@ exports.handler = async function(event, context) {
   }
 
   try {
-   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=45.5389&lon=13.6606&appid=${apiKey}&units=metric&lang=sl`);
-const data = await response.json();
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=45.5389&lon=13.6606&appid=${apiKey}&units=metric&lang=sl`);
+    const data = await response.json();
 
-console.log("❄️ API VRAČA:", JSON.stringify(data, null, 2)); // 👈 TO MORAŠ VIDETI V LOGU
-    
-    const tempZrak = data.main.temp;
-    const veter = data.wind.speed;
+    console.log("❄️ API VRAČA:", JSON.stringify(data, null, 2)); // <-- To boš videl v logih
 
-    // DODANO: vremenska ikona
-    const iconCode = data.weather[0].icon;
-    const ikonaUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const tempZrak = data.main?.temp;
+    const veter = data.wind?.speed;
+
+    const ikona = data.weather?.[0]?.icon;
+    const ikonaUrl = ikona ? `https://openweathermap.org/img/wn/${ikona}@2x.png` : null;
 
     return {
       statusCode: 200,
@@ -29,7 +28,7 @@ console.log("❄️ API VRAČA:", JSON.stringify(data, null, 2)); // 👈 TO MOR
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ tempZrak, veter, ikonaUrl }) // <-- ZDAJ VRAČA TUDI IKONO
+      body: JSON.stringify({ tempZrak, veter, ikonaUrl }) // <-- zdaj vključi ikonaUrl
     };
   } catch (error) {
     return {
