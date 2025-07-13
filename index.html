@@ -109,23 +109,32 @@
     </div>
   </section>
 
-  <!-- SCRIPT ZA VREME -->
-  <script>
-    async function prikaziVreme() {
-      try {
-        const res = await fetch("/.netlify/functions/weather");
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
-        document.getElementById("tempZrak").innerText = "☁️ " + Math.round(data.tempZrak) + " °C";
-        document.getElementById("veter").innerText = "💨 " + Math.round(data.veter) + " km/h";
-      } catch (err) {
-        console.error("Napaka pri vremenski funkciji:", err);
-        document.getElementById("tempZrak").innerText = "☁️ – °C";
-        document.getElementById("veter").innerText = "💨 – km/h";
-      }
+ 
+ <!-- SCRIPT ZA VREME -->
+<script>
+  async function prikaziVreme() {
+    try {
+      const res = await fetch("/.netlify/functions/weather");
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+
+      // Temperatura in veter
+      document.getElementById("tempZrak").innerText = Math.round(data.tempZrak) + " °C";
+      document.getElementById("veter").innerText = Math.round(data.veter) + " km/h";
+
+      // Ikona iz API-ja
+      const img = document.getElementById("ikona-vreme");
+      img.src = data.ikonaUrl;
+      img.alt = "Vremenska ikona";
+    } catch (err) {
+      console.error("Napaka pri vremenski funkciji:", err);
+      document.getElementById("tempZrak").innerText = "-- °C";
+      document.getElementById("veter").innerText = "-- km/h";
     }
-    prikaziVreme();
-  </script>
+  }
+  prikaziVreme();
+</script>
+
 
 </body>
 </html>
