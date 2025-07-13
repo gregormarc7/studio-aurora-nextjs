@@ -155,12 +155,15 @@ body {
   text-align: center;
 }
 
-#tempZrak {
+
+#tempZrak  {
+  font-weight: bold;
   font-size: 18px;
   font-weight: 600;
 }
 
 #veter {
+  font-weight: bold;
   font-size: 16px;
   font-weight: 500;
 }
