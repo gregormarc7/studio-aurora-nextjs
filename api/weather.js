@@ -16,6 +16,9 @@ exports.handler = async function(event, context) {
 
     const tempZrak = data.main.temp;
     const veter = data.wind.speed;
+    const ikona = data.weather[0].icon; // npr. 01d
+    const ikonaUrl = `https://openweathermap.org/img/wn/${ikona}@2x.png`;
+
 
     return {
       statusCode: 200,
@@ -23,7 +26,7 @@ exports.handler = async function(event, context) {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ tempZrak, veter })
+       body: JSON.stringify({ tempZrak, veter, ikonaUrl })
     };
   } catch (error) {
     return {
