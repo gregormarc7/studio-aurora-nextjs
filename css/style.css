@@ -136,40 +136,37 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: none; /* odstranimo ozadje */
-  box-shadow: none; /* odstranimo senco */
-  border: none;      /* odstranimo okvir */
-  padding: 0;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  background: none;
+  border: none;
+  padding: 0;
   z-index: 999;
 }
+
 .weather-city {
-  font-weight: 700;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  text-align: right;
 }
 
 .weather-temp,
-
 .weather-wind {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 0.2rem 0;
-}
-
-#tempZrak,
-#veter {
-  font-weight: bold;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 4px;
 }
 
 .weather-icon {
-  width: 32px;
+  width: 30px;
   height: auto;
+  display: inline-block;
   vertical-align: middle;
 }
 
