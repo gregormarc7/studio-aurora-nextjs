@@ -136,20 +136,16 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: white;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-size: 16px;
+  background: none; /* odstranimo ozadje */
+  box-shadow: none; /* odstranimo senco */
+  border: none;      /* odstranimo okvir */
+  padding: 0;
   font-weight: bold;
-  color: #111;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 90px;
+  align-items: flex-end;
   z-index: 999;
 }
-
 .weather-city {
   font-weight: 700;
   font-size: 18px;
@@ -167,8 +163,8 @@ body {
 .weather-wind {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 0.5rem;
+  margin: 0.2rem 0;
 }
 
 #tempZrak,
@@ -177,7 +173,7 @@ body {
 }
 
 .weather-icon {
-  width: 48px;
+  width: 32px;
   height: auto;
   vertical-align: middle;
 }
