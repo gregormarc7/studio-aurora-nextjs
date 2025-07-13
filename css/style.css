@@ -153,8 +153,9 @@ body {
   top: 20px;
   left: 20px;
   display: flex;
-  flex-direction: column; /* <-- vertikalno */
-  align-items: flex-start;
+  flex-direction: column; /* Vertikalna razporeditev */
+  align-items: flex-start; /* Poravnava levo */
+  justify-content: flex-start;
   font-size: 18px;
   font-weight: bold;
   color: #222;
@@ -163,23 +164,29 @@ body {
   padding: 0;
   z-index: 999;
 }
+
 .weather-temp,
 .weather-wind {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start; /* Leva poravnava */
   gap: 6px;
   margin-bottom: 4px;
 }
+
 .weather-row {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: nowrap;
 }
+
 .weather-city {
   font-size: 20px;
+  margin-bottom: 4px;
+  text-align: left;
 }
+
 .weather-icon {
   width: 30px;
   height: auto;
