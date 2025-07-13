@@ -264,3 +264,71 @@ body {
     gap: 0.5rem;
   }
 }
+/* Hamburger ikona */
+.hamburger {
+  display: none;
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Mobilni meni */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.mobile-nav a {
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .center-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .site-title {
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
+  .weather-fixed {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
