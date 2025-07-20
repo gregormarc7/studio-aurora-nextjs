@@ -1,7 +1,16 @@
+import Head from 'next/head'
+import Hero from '../components/Hero'
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-purple-600 text-white font-sans">
-      <h1 className="text-5xl font-bold">Dobrodošel v Studio Aurora!</h1>
-    </main>
+    <>
+      <Head>
+        <title>Studio Aurora</title>
+        <meta name="description" content="Sodoben apartma v Izoli – Studio Aurora" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Hero />
+    </>
   )
 }
