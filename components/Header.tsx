@@ -19,7 +19,13 @@ export default function Header() {
 
         {/* Logo Only (Left) */}
         <div className="flex items-center">
-          <Image src="/images/logo.png" alt="Studio Aurora logo" width={80} height={80} className="w-20 h-20" />
+          <Image
+            src="/images/logo.png"
+            alt="Studio Aurora logo"
+            width={160}
+            height={160}
+            className="w-40 h-40 object-contain"
+          />
         </div>
 
         {/* Hamburger for mobile */}
