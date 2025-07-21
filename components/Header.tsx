@@ -22,8 +22,8 @@ export default function Header() {
           <Image
             src="/images/logo.png"
             alt="Studio Aurora logo"
-            width={160}
-            height={160}
+            width={130}
+            height={130}
             className="w-40 h-40 object-contain"
           />
         </div>
