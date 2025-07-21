@@ -14,7 +14,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-40">
 <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-0 py-0">
         
         {/* Logo center + Hamburger under logo on mobile */}
@@ -28,7 +28,7 @@ export default function Header() {
           />
           <button
             id="hamburger"
-            className="mt-0.5 text-3xl md:hidden"
+            className="mt-0 text-3xl md:hidden"
           >
             ☰
           </button>
