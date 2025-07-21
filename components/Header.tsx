@@ -18,7 +18,7 @@ export default function Header() {
 <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-2 py-0.5">
         
         {/* Logo center + Hamburger under logo on mobile */}
-        <div className="flex flex-col items-center md:flex-row md:gap-6">
+        <div className="flex flex-col items-center md:flex-row md:gap-4">
           <Image
             src="/images/logo.png"
             alt="Studio Aurora logo"
