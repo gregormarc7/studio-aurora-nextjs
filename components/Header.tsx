@@ -17,10 +17,9 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4">
 
-        {/* Left: Logo + Naziv */}
-        <div className="flex items-center gap-4">
-          <Image src="/images/logo.png" alt="Studio Aurora logo" width={64} height={64} className="w-16 h-16" />
-          <h1 className="text-2xl font-extrabold tracking-widest uppercase">Studio Aurora</h1>
+        {/* Logo Only (Left) */}
+        <div className="flex items-center">
+          <Image src="/images/logo.png" alt="Studio Aurora logo" width={80} height={80} className="w-20 h-20" />
         </div>
 
         {/* Hamburger for mobile */}
@@ -31,7 +30,7 @@ export default function Header() {
           ☰
         </button>
 
-        {/* Desktop navigation */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
           <a href="#o-izoli" className="text-gray-800 hover:text-blue-600 transition">O Izoli</a>
           <a href="#apartma" className="text-gray-800 hover:text-blue-600 transition">Apartma</a>
@@ -39,7 +38,7 @@ export default function Header() {
           <a href="#lokacija" className="text-gray-800 hover:text-blue-600 transition">Lokacija</a>
         </nav>
 
-        {/* Mobile navigation */}
+        {/* Mobile nav */}
         <nav
           id="mobileNav"
           className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} mt-4 gap-3 text-center`}
