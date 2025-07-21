@@ -15,44 +15,46 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4">
-
-        {/* Logo Only (Left) */}
-        <div className="flex items-center">
+      <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 py-3">
+        
+        {/* Logo center + Hamburger under logo on mobile */}
+        <div className="flex flex-col items-center md:flex-row md:gap-6">
           <Image
             src="/images/logo.png"
             alt="Studio Aurora logo"
-            width={160}
-            height={160}
-            className="w-32 h-32 object-contain"
+            width={180}
+            height={180}
+            className="w-40 h-40"
           />
+          <button
+            id="hamburger"
+            className="mt-2 text-3xl md:hidden"
+          >
+            ☰
+          </button>
         </div>
 
-        {/* Hamburger for mobile */}
-        <button
-          id="hamburger"
-          className="text-3xl md:hidden block focus:outline-none"
-        >
-          ☰
-        </button>
+        {/* Desktop nav (hidden on mobile) */}
+        <div className="hidden md:flex gap-10">
+          <nav className="flex gap-4">
+            <a href="#o-izoli" className="hover:text-primary">O Izoli</a>
+            <a href="#apartma" className="hover:text-primary">Apartma</a>
+          </nav>
+          <nav className="flex gap-4">
+            <a href="#povprasevanje" className="hover:text-primary">Povpraševanje</a>
+            <a href="#lokacija" className="hover:text-primary">Lokacija</a>
+          </nav>
+        </div>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
-          <a href="#o-izoli" className="text-gray-800 hover:text-blue-600 transition">O Izoli</a>
-          <a href="#apartma" className="text-gray-800 hover:text-blue-600 transition">Apartma</a>
-          <a href="#povprasevanje" className="text-gray-800 hover:text-blue-600 transition">Povpraševanje</a>
-          <a href="#lokacija" className="text-gray-800 hover:text-blue-600 transition">Lokacija</a>
-        </nav>
-
-        {/* Mobile nav */}
+        {/* Mobile nav (toggle via hamburger) */}
         <nav
           id="mobileNav"
-          className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} mt-4 gap-3 text-center`}
+          className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-4 gap-2`}
         >
-          <a href="#o-izoli" className="text-gray-800 hover:text-blue-600 transition">O Izoli</a>
-          <a href="#apartma" className="text-gray-800 hover:text-blue-600 transition">Apartma</a>
-          <a href="#povprasevanje" className="text-gray-800 hover:text-blue-600 transition">Povpraševanje</a>
-          <a href="#lokacija" className="text-gray-800 hover:text-blue-600 transition">Lokacija</a>
+          <a href="#o-izoli" className="text-gray-700 hover:text-primary">O Izoli</a>
+          <a href="#apartma" className="text-gray-700 hover:text-primary">Apartma</a>
+          <a href="#povprasevanje" className="text-gray-700 hover:text-primary">Povpraševanje</a>
+          <a href="#lokacija" className="text-gray-700 hover:text-primary">Lokacija</a>
         </nav>
       </div>
     </header>
