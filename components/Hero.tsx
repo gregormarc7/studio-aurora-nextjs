@@ -18,7 +18,7 @@ export default function Hero() {
         <h1 className="text-5xl font-bold font-display mb-4">
           Studio <span className="text-accent">Aurora</span>
         </h1>
-        <p className="text-xl mb-6 font-body">Sodoben apartma v umirjenem delu Izole z razgledom na morje.</p>
+        <p className="text-xl mb-6 font-body">Sodoben apartma v umirjenem delu Izole.</p>
         <div className="flex gap-4 justify-center">
           <a
             href="#rezervacija"
