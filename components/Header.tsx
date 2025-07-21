@@ -22,9 +22,9 @@ export default function Header() {
           <Image
             src="/images/logo.png"
             alt="Studio Aurora logo"
-            width={180}
-            height={180}
-            className="w-40 h-40"
+            width={160}
+            height={160}
+            className="w-32 h-32"
           />
           <button
             id="hamburger"
