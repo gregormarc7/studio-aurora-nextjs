@@ -112,13 +112,13 @@ export default function SectionApartma() {
               />
               <button
                 onClick={prevImage}
-                className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white text-3xl px-3"
+                className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white text-8xl px-3"
               >
                 ‹
               </button>
               <button
                 onClick={nextImage}
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white text-3xl px-3"
+                className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white text-8xl px-3"
               >
                 ›
               </button>
