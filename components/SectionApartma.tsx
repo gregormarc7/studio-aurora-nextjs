@@ -1,137 +1,99 @@
-import { useState } from 'react'
-import Image from 'next/image'
-import { Dialog } from '@headlessui/react'
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { ArrowLeftIcon, ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 const SectionApartma = () => {
-  const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
+  const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`);
+  const [selected, setSelected] = useState(0);
+  const [open, setOpen] = useState(false);
 
-  const openLightbox = () => setIsOpen(true)
-  const closeLightbox = () => setIsOpen(false)
-
-  const showPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
-  const showNext = () => setCurrentIndex((prev) => (prev + 1) % images.length)
+  const next = () => setSelected((prev) => (prev + 1) % images.length);
+  const prev = () => setSelected((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section id="apartma" className="py-16 bg-gray-100 text-gray-800">
-      <div className="container mx-auto px-4 text-center">
-        <span className="inline-block px-3 py-1 text-sm font-semibold bg-blue-100 text-blue-800 rounded-full mb-2">
-          Galerija
-        </span>
-        <h2 className="text-3xl font-bold">
-          Odkrijte <span className="text-blue-500">udobje</span>
+    <section id="apartma" className="py-16 bg-gray-50 text-gray-800 text-center">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="inline-block mb-2 px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-xs">Galerija</div>
+        <h2 className="text-3xl font-bold mb-1">
+          Odkrijte <span className="text-blue-600">udobje</span>
         </h2>
-        <p className="text-sm text-gray-600 mb-8 max-w-xl mx-auto">
-          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš počitek.
+        <p className="text-sm text-gray-600 mb-6">
+          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš
+          počitek.
         </p>
 
-        {/* Večja slika z gumbom za povečavo */}
-        <div className="relative w-full max-w-3xl mx-auto aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
-          <img
-            src={images[currentIndex]}
-            alt={`Studio Aurora ${currentIndex + 1}`}
-            className="object-contain w-full h-full"
-          />
-          {/* Slika indikator znotraj slike */}
-          <span className="absolute bottom-2 left-2 text-xs text-white bg-black/60 px-2 py-1 rounded">
-            {currentIndex + 1} / {images.length}
-          </span>
+        {/* LARGE IMAGE + Overlay */}
+        <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-lg bg-white">
+          <img src={images[selected]} alt={`Studio Aurora ${selected + 1}`} className="w-full h-auto object-cover" />
+          
+          {/* Counter bottom-left */}
+          <div className="absolute bottom-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">
+            {selected + 1} / {images.length}
+          </div>
 
-          {/* Gumb Povečaj na sredini */}
+          {/* Magnify center */}
           <button
-            onClick={openLightbox}
-            className="absolute inset-0 flex justify-center items-center group transition"
-            aria-label="Povečaj sliko"
+            onClick={() => setOpen(true)}
+            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 px-3 py-1 rounded-full flex items-center gap-2 text-sm shadow transition"
           >
-            <div className="bg-white/80 px-4 py-2 rounded-full flex items-center gap-2 shadow hover:bg-blue-200 transition">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-blue-600 group-hover:text-red-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-              <span className="text-sm font-medium text-blue-800 group-hover:text-red-700">
-                Povečaj
-              </span>
-            </div>
+            <MagnifyingGlassIcon className="w-4 h-4 text-blue-500" />
+            <span className="text-sm text-gray-800">Povečaj</span>
           </button>
         </div>
 
-        {/* Predogledne slike */}
-        <div className="grid grid-cols-5 gap-2 mt-6 max-w-4xl mx-auto">
-          {images.map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              alt={`Studio Aurora ${idx + 1}`}
-              onClick={() => setCurrentIndex(idx)}
-              className={`cursor-pointer rounded-md border-2 transition-all duration-200 h-28 object-cover w-full ${
-                idx === currentIndex ? 'border-blue-500' : 'border-transparent'
-              }`}
-            />
+        {/* THUMBNAILS */}
+        <div className="grid grid-cols-5 gap-3 mt-6">
+          {images.map((img, i) => (
+            <button
+              key={i}
+              className={`overflow-hidden rounded-lg border-2 ${
+                selected === i ? 'border-blue-500' : 'border-transparent'
+              } transition`}
+              onClick={() => setSelected(i)}
+            >
+              <img src={img} alt={`thumb ${i}`} className="w-full h-24 object-cover" />
+            </button>
           ))}
         </div>
 
-        {/* Navigacija */}
+        {/* BUTTONS */}
         <div className="flex justify-center gap-4 mt-6">
           <button
-            onClick={showPrev}
-            className="px-5 py-2 rounded-full bg-blue-100 text-blue-800 hover:bg-red-200 hover:text-red-900 transition"
+            onClick={prev}
+            className="px-6 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-red-300 hover:text-red-800 transition flex items-center gap-1"
           >
-            ← Prejšnja
+            <ArrowLeftIcon className="w-4 h-4" /> Prejšnja
           </button>
           <button
-            onClick={showNext}
-            className="px-5 py-2 rounded-full bg-blue-100 text-blue-800 hover:bg-red-200 hover:text-red-900 transition"
+            onClick={next}
+            className="px-6 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-red-300 hover:text-red-800 transition flex items-center gap-1"
           >
-            Naslednja →
+            Naslednja <ArrowRightIcon className="w-4 h-4" />
           </button>
         </div>
+
+        {/* MODAL */}
+        <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
+          <div className="fixed inset-0 bg-black/60" aria-hidden="true" />
+          <div className="fixed inset-0 flex items-center justify-center p-4">
+            <Dialog.Panel className="bg-white p-2 rounded-lg max-w-3xl w-full relative">
+              <img src={images[selected]} alt="modal" className="w-full h-auto rounded-md object-cover" />
+              <button onClick={() => setOpen(false)} className="absolute top-2 right-3 text-gray-500 hover:text-red-500">
+                ✕
+              </button>
+              <div className="absolute top-1/2 left-3 transform -translate-y-1/2">
+                <button onClick={prev} className="text-white bg-black/50 hover:bg-black px-2 py-1 rounded-full">←</button>
+              </div>
+              <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+                <button onClick={next} className="text-white bg-black/50 hover:bg-black px-2 py-1 rounded-full">→</button>
+              </div>
+            </Dialog.Panel>
+          </div>
+        </Dialog>
       </div>
-
-      {/* Lightbox Modal */}
-      <Dialog open={isOpen} onClose={closeLightbox} className="relative z-50">
-        <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="max-w-3xl w-full bg-white rounded-lg overflow-hidden relative">
-            <img
-              src={images[currentIndex]}
-              alt={`Studio Aurora ${currentIndex + 1}`}
-              className="w-full h-full object-contain"
-            />
-            <button
-              onClick={showPrev}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow"
-            >
-              <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
-            </button>
-            <button
-              onClick={showNext}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow"
-            >
-              <ArrowRightIcon className="h-5 w-5 text-gray-600" />
-            </button>
-            <button
-              onClick={closeLightbox}
-              className="absolute top-2 right-2 bg-white text-gray-600 rounded-full px-2 py-1"
-            >
-              ✕
-            </button>
-          </Dialog.Panel>
-        </div>
-      </Dialog>
     </section>
-  )
-}
+  );
+};
 
-export default SectionApartma
+export default SectionApartma;
