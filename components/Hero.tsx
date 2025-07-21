@@ -8,7 +8,7 @@ export default function Hero() {
       className="relative min-h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden"
     >
       <Image
-        src="/images/izola-hero22.png"
+        src="/images/izola-hero.png"
         alt="Izola – pogled na morje"
         fill
         style={{ objectFit: 'cover' }}
@@ -29,7 +29,7 @@ export default function Hero() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Sodoben apartma v mirnem delu Izole z razgledom na morje.
+          Sodoben apartma v umirjenem delu Izole.
         </p>
         <div
           className="flex gap-4 justify-center"
