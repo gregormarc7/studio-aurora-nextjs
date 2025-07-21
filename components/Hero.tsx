@@ -19,7 +19,7 @@ export default function Hero() {
           Studio <span className="text-accent">Aurora</span>
         </h1>
         <p className="text-xl mb-6 font-body">
-          Sodoben apartma v mirnem delu Izole z razgledom na morje.
+          Sodoben apartma v umirjenem delu Izole.
         </p>
         <div className="flex gap-4 justify-center">
           <a
