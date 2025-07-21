@@ -4,7 +4,7 @@ export default function Hero() {
       id="domov"
       className="relative h-screen flex items-center justify-center text-white text-center px-6"
       style={{
-        backgroundImage: `url('/images/cover_izola.jpg')`,
+        backgroundImage: `url('/images/izola-hero.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
