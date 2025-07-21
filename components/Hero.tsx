@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/images/hero.jpg')" }} // 🔁 zamenjaj pot do slike po potrebi
+        style={{ backgroundImage: "url('/images/izola-hero.png')" }} // 🔁 zamenjaj pot do slike po potrebi
       ></div>
 
       {/* Gradient Overlay */}
