@@ -4,7 +4,7 @@ export default function Hero() {
       id="domov"
       className="relative h-screen flex items-center justify-center text-white text-center px-6"
       style={{
-        backgroundImage: `url('/images/izola-hero.jpg')`,
+        backgroundImage: `url('/images/izola-hero.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -17,7 +17,7 @@ export default function Hero() {
           Studio <span className="text-accent">Aurora</span>
         </h1>
         <p className="text-lg md:text-xl mb-6 font-body">
-          Sodoben apartma v umirjenem delu Izole z razgledom na morje.
+          Sodoben apartma v umirjenem delu Izole.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
