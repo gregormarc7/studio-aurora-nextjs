@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    './styles/**/*.{css,scss}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -15,7 +20,18 @@ module.exports = {
         display: ['"Poppins"', 'sans-serif'],
         body: ['"Inter"', 'sans-serif'],
       },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+  ],
 }
