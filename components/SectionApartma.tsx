@@ -54,7 +54,7 @@ export default function SectionApartma() {
             onClick={() => openModal(selectedImageIndex)}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-blue-700 p-3 rounded-full text-sm shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
           >
-            🔍
+            <span className="text-2xl font-bold">+</span>
           </button>
         </div>
 
