@@ -28,36 +28,42 @@ const SectionApartma = () => {
         </p>
 
         {/* Večja slika z gumbom za povečavo */}
-        <div className="relative w-full max-w-3xl mx-auto">
+        <div className="relative w-full max-w-3xl mx-auto aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
           <img
             src={images[currentIndex]}
             alt={`Studio Aurora ${currentIndex + 1}`}
-            className="mx-auto rounded-lg shadow-lg max-h-[500px] object-contain"
+            className="object-contain w-full h-full"
           />
+          {/* Slika indikator znotraj slike */}
           <span className="absolute bottom-2 left-2 text-xs text-white bg-black/60 px-2 py-1 rounded">
             {currentIndex + 1} / {images.length}
           </span>
 
+          {/* Gumb Povečaj na sredini */}
           <button
             onClick={openLightbox}
-            className="absolute top-4 right-4 flex items-center gap-2 bg-white/70 hover:bg-blue-100 text-gray-800 px-3 py-2 rounded-full shadow-md backdrop-blur-sm transition duration-300 group"
-            title="Povečaj"
+            className="absolute inset-0 flex justify-center items-center group transition"
+            aria-label="Povečaj sliko"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-blue-600 group-hover:text-red-500 transition"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-            <span className="font-medium text-sm">Povečaj</span>
+            <div className="bg-white/80 px-4 py-2 rounded-full flex items-center gap-2 shadow hover:bg-blue-200 transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-blue-600 group-hover:text-red-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <span className="text-sm font-medium text-blue-800 group-hover:text-red-700">
+                Povečaj
+              </span>
+            </div>
           </button>
         </div>
 
