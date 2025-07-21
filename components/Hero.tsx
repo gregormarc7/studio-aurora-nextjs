@@ -8,7 +8,7 @@ export default function Hero() {
       className="relative min-h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden"
     >
       <Image
-        src="/images/izola-hero.png"
+        src="/images/hero.jpg"
         alt="Izola – pogled na morje"
         fill
         style={{ objectFit: 'cover' }}
