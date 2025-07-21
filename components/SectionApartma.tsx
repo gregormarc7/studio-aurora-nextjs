@@ -1,4 +1,5 @@
-"use client"
+'use client'
+
 import { useState } from 'react'
 import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
@@ -7,95 +8,98 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid'
 const SectionApartma = () => {
   const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
   const [current, setCurrent] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  const handleNext = () => setCurrent((prev) => (prev + 1) % images.length)
-  const handlePrev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length)
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length)
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length)
+  const selectImage = (index: number) => setCurrent(index)
 
   return (
-    <section id="apartma" className="py-16 bg-gray-50 text-gray-800">
+    <section id="apartma" className="py-16 bg-gray-100 text-gray-800">
       <div className="container mx-auto px-4 text-center">
-        <p className="text-sm text-gray-400 mb-2">Galerija</p>
-        <h2 className="text-3xl font-bold">
+        <span className="inline-block px-3 py-1 mb-2 text-xs font-medium text-blue-600 bg-blue-100 rounded-full">Galerija</span>
+        <h2 className="text-3xl font-bold mb-2">
           Odkrijte <span className="text-blue-500">udobje</span>
         </h2>
-        <p className="text-gray-600 mt-2 mb-8">
+        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
           Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš počitek.
         </p>
 
-        {/* Velika slika */}
-        <div className="relative group max-w-4xl mx-auto rounded-xl overflow-hidden shadow-md mb-4">
-          <img
+        <div className="relative w-full max-w-3xl mx-auto mb-4">
+          <Image
             src={images[current]}
-            alt={`Slika ${current + 1}`}
-            className="w-full h-auto object-cover cursor-pointer transition duration-300 hover:opacity-90"
-            onClick={() => setIsOpen(true)}
+            alt={`Studio Aurora ${current + 1}`}
+            width={800}
+            height={600}
+            onClick={() => setOpen(true)}
+            className="rounded-xl mx-auto cursor-pointer object-cover w-full h-[400px]"
           />
-          <div className="absolute bottom-2 left-2 text-xs bg-white px-2 py-1 rounded-full shadow">
+          <span className="absolute bottom-2 left-2 bg-white px-2 py-1 text-xs rounded-md shadow">
             {current + 1} / {images.length}
-          </div>
+          </span>
         </div>
 
-        {/* Sličice spodaj */}
-        <div className="grid grid-cols-5 gap-3 mb-6">
+        <div className="grid grid-cols-5 gap-2 justify-center mb-6 max-w-3xl mx-auto">
           {images.map((src, idx) => (
-            <img
+            <Image
               key={idx}
               src={src}
-              alt={`Sličica ${idx + 1}`}
-              onClick={() => setCurrent(idx)}
-              className={`rounded-lg h-20 w-full object-cover cursor-pointer border-2 ${
+              alt={`Thumbnail ${idx + 1}`}
+              width={160}
+              height={100}
+              onClick={() => selectImage(idx)}
+              className={`rounded-md object-cover h-24 w-full cursor-pointer border-2 transition-all duration-300 ${
                 current === idx ? 'border-blue-500' : 'border-transparent'
-              } hover:scale-105 transition`}
+              }`}
             />
           ))}
         </div>
 
-        {/* Gumbi */}
         <div className="flex justify-center gap-4">
           <button
-            onClick={handlePrev}
-            className="flex items-center gap-2 px-4 py-2 bg-red-300 text-black font-semibold rounded-full hover:bg-red-400 active:bg-red-500 transition"
+            onClick={prevSlide}
+            className="px-5 py-2 rounded-full bg-red-200 hover:bg-red-300 text-red-900 transition-colors"
           >
-            <ArrowLeftIcon className="h-4 w-4" />
-            Prejšnja
+            ← Prejšnja
           </button>
           <button
-            onClick={handleNext}
-            className="flex items-center gap-2 px-4 py-2 bg-white text-blue-600 border border-blue-300 font-semibold rounded-full hover:bg-blue-100 active:bg-blue-200 transition"
+            onClick={nextSlide}
+            className="px-5 py-2 rounded-full bg-blue-100 hover:bg-blue-200 text-blue-900 transition-colors"
           >
-            Naslednja
-            <ArrowRightIcon className="h-4 w-4" />
+            Naslednja →
           </button>
         </div>
-      </div>
 
-      {/* MODAL POVEČAVA */}
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-white rounded-xl overflow-hidden relative max-w-3xl w-full">
-            <img src={images[current]} alt={`Povečana slika ${current + 1}`} className="w-full object-contain" />
-            <button
-              className="absolute top-2 right-2 text-white bg-black/50 rounded-full px-3 py-1 hover:bg-black"
-              onClick={() => setIsOpen(false)}
-            >
-              ✕
-            </button>
-            <button
-              onClick={handlePrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full px-2 py-1 hover:bg-black"
-            >
-              ‹
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full px-2 py-1 hover:bg-black"
-            >
-              ›
-            </button>
-          </Dialog.Panel>
-        </div>
-      </Dialog>
+        {/* Fullscreen modal */}
+        <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
+          <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
+          <div className="fixed inset-0 flex items-center justify-center">
+            <Dialog.Panel className="relative max-w-4xl mx-auto bg-white p-4 rounded-lg">
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-2 right-2 text-gray-600 hover:text-red-500"
+              >
+                ✕
+              </button>
+              <div className="flex items-center justify-between">
+                <button onClick={prevSlide}>
+                  <ArrowLeftIcon className="w-6 h-6 text-gray-800 hover:text-blue-500" />
+                </button>
+                <Image
+                  src={images[current]}
+                  alt={`Modal Image ${current + 1}`}
+                  width={900}
+                  height={600}
+                  className="rounded-lg object-cover max-h-[80vh]"
+                />
+                <button onClick={nextSlide}>
+                  <ArrowRightIcon className="w-6 h-6 text-gray-800 hover:text-blue-500" />
+                </button>
+              </div>
+            </Dialog.Panel>
+          </div>
+        </Dialog>
+      </div>
     </section>
   )
 }
