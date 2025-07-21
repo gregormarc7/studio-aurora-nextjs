@@ -24,7 +24,7 @@ export default function Header() {
             alt="Studio Aurora logo"
             width={160}
             height={160}
-            className="w-40 h-40 object-contain"
+            className="w-32 h-32 object-contain"
           />
         </div>
 
