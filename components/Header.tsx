@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-<div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 py-4">
+<div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-2 py-0.5">
         
         {/* Logo center + Hamburger under logo on mobile */}
         <div className="flex flex-col items-center md:flex-row md:gap-6">
