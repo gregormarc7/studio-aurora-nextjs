@@ -24,7 +24,7 @@ export default function Weather() {
   return (
     <div className="absolute top-4 right-4 bg-white/70 backdrop-blur-md rounded-xl px-4 py-2 shadow-md z-40 text-sm text-gray-800">
       {/* Lokacija */}
-      <div className="flex items-center justify-center gap-1 mb-1 text-blue-600 font-medium">
+      <div className="flex items-center justify-center gap-1 mb-1 text-gray-800 font-medium">
         <FaMapMarkerAlt className="text-blue-600" />
         <span>Izola</span>
       </div>
@@ -39,7 +39,7 @@ export default function Weather() {
         </div>
         <div className="flex items-center gap-1">
           <WiStrongWind size={20} className="text-blue-600" />
-          <span className="text-gray-800 font-normal">
+          <span className="text-gray-800 font-normal whitespace-nowrap">
             {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}
           </span>
         </div>
