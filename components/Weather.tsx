@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { WiThermometer, WiStrongWind } from 'react-icons/wi'
 
 export default function Weather() {
-  const [weather, setWeather] = useState<{ tempZrak?: number; veter?: number; ikonaUrl?: string }>({})
+  const [weather, setWeather] = useState<{ tempZrak?: number; veter?: number }>({})
 
   useEffect(() => {
     async function fetchWeather() {
@@ -22,13 +22,10 @@ export default function Weather() {
   }, [])
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm px-3 py-1 rounded-md shadow flex items-center gap-2 text-xs sm:text-sm text-gray-800">
-      <span className="font-semibold">Izola:</span>
-
-      <WiThermometer className="text-blue-600 text-lg" />
-      <span>{weather.tempZrak ? `${Math.round(weather.tempZrak)} °C` : '-- °C'}</span>
-
-      <WiStrongWind className="text-blue-600 text-lg" />
+    <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-md text-sm text-gray-900 flex items-center gap-3">
+      <WiThermometer className="text-blue-500 text-xl" />
+      <span className="font-semibold">{weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
+      <WiStrongWind className="text-blue-500 text-xl" />
       <span>{weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
     </div>
   )
