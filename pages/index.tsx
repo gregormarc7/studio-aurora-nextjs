@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Hero from '../components/Hero'
-import Weather from '../components/Weather'
 import SectionIzola from '../components/SectionIzola'
 import SectionApartma from '../components/SectionApartma'
 import SectionPovprasevanje from '../components/SectionPovprasevanje'
@@ -18,7 +17,6 @@ export default function Home() {
 
       <Header />
       <main>
-        <Weather />
         <Hero />
         <SectionIzola />
         <SectionApartma />
