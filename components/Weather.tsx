@@ -25,16 +25,13 @@ export default function Weather() {
   }, [])
 
   return (
-    <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md text-sm rounded-xl shadow-md px-4 py-2 flex flex-col items-start gap-1 z-30">
-      <div className="flex items-center gap-1 text-gray-700 font-medium">
-        <HiLocationMarker className="text-red-500 text-lg" />
-        <span>Izola</span>
-      </div>
+    <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md rounded-xl shadow-md px-4 py-3 z-30 w-fit text-sm flex flex-col items-center gap-1">
+      <HiLocationMarker className="text-black text-lg mb-1" />
       <div className="flex items-center gap-2 text-gray-800 font-semibold">
-        <WiThermometer className="text-blue-500 text-xl" />
+        <WiThermometer className="text-blue-500 text-lg" />
         <span>{weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
-        <WiStrongWind className="text-gray-400 text-xl" />
-        <span className="text-gray-500 font-normal">
+        <WiStrongWind className="text-gray-400 text-lg" />
+        <span className="text-gray-500 text-xs font-normal">
           {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}
         </span>
       </div>
