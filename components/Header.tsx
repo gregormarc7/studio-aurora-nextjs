@@ -14,19 +14,26 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-40">
-      <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 py-2">
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center md:flex-row">
         
-        {/* Logo center + hamburger for mobile */}
-        <div className="flex flex-col items-center md:flex-row md:gap-6">
-          <Image
-            src="/images/logo.png"
-            alt="Studio Aurora logo"
-            width={160}
-            height={160}
-            className="w-28 h-28 md:w-32 md:h-32"
-          />
-          <button id="hamburger" className="text-3xl mt-1 md:hidden">☰</button>
+        {/* Logo + Hamburger on mobile */}
+        <div className="flex justify-between w-full md:w-auto items-center md:gap-6">
+          <div className="border border-black rounded-md p-1">
+            <Image
+              src="/images/logo.png"
+              alt="Studio Aurora logo"
+              width={48}
+              height={48}
+              className="w-12 h-12"
+            />
+          </div>
+          <button
+            id="hamburger"
+            className="md:hidden border border-black rounded-md p-2 text-xl"
+          >
+            ☰
+          </button>
         </div>
 
         {/* Desktop Navigation */}
@@ -38,30 +45,30 @@ export default function Header() {
           <a href="#kontakt" className="hover:text-primary transition">Kontakt</a>
           <a
             href="#rezervacija"
-            className="bg-primary hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
-          >
-            Rezerviraj
-          </a>
-        </nav>
-
-        {/* Mobile Navigation */}
-        <nav
-          id="mobileNav"
-          className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-4 gap-2`}
-        >
-          <a href="#domov" className="text-gray-700 hover:text-primary">Domov</a>
-          <a href="#apartma" className="text-gray-700 hover:text-primary">O apartmaju</a>
-          <a href="#o-izoli" className="text-gray-700 hover:text-primary">O Izoli</a>
-          <a href="#lokacija" className="text-gray-700 hover:text-primary">Lokacija</a>
-          <a href="#kontakt" className="text-gray-700 hover:text-primary">Kontakt</a>
-          <a
-            href="#rezervacija"
-            className="bg-primary hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
+            className="bg-primary hover:bg-gradientEnd text-white px-4 py-1 rounded-full text-sm shadow transition"
           >
             Rezerviraj
           </a>
         </nav>
       </div>
+
+      {/* Mobile Navigation */}
+      <nav
+        id="mobileNav"
+        className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-2 gap-2 pb-4`}
+      >
+        <a href="#domov" className="text-gray-700 hover:text-primary">Domov</a>
+        <a href="#apartma" className="text-gray-700 hover:text-primary">O apartmaju</a>
+        <a href="#o-izoli" className="text-gray-700 hover:text-primary">O Izoli</a>
+        <a href="#lokacija" className="text-gray-700 hover:text-primary">Lokacija</a>
+        <a href="#kontakt" className="text-gray-700 hover:text-primary">Kontakt</a>
+        <a
+          href="#rezervacija"
+          className="bg-primary hover:bg-gradientEnd text-white px-4 py-1 rounded-full text-sm shadow transition"
+        >
+          Rezerviraj
+        </a>
+      </nav>
     </header>
   )
 }
