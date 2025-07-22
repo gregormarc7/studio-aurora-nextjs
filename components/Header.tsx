@@ -19,32 +19,34 @@ export default function Header() {
 
         {/* Mobile: Logo left, Hamburger right */}
         <div className="flex md:hidden w-full justify-between items-center">
-          <div className="border border-black rounded-md w-14 h-14 flex items-center justify-center">
+          <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
               src="/images/logo.png"
               alt="Studio Aurora logo"
-              width={40}
-              height={40}
-              className="object-contain w-10 h-10"
+              width={48}
+              height={48}
+              className="object-contain w-12 h-12"
             />
           </div>
           <button
             id="hamburger"
-            className="border border-black rounded-md w-14 h-14 flex items-center justify-center text-2xl"
+            className="border border-black rounded-md w-16 h-16 flex items-center justify-center text-2xl"
           >
             ☰
           </button>
         </div>
 
-        {/* Desktop: Logo center left */}
+        {/* Desktop: Logo */}
         <div className="hidden md:flex items-center gap-6">
-          <Image
-            src="/images/logo.png"
-            alt="Studio Aurora logo"
-            width={140}
-            height={140}
-            className="w-32 h-32 object-contain"
-          />
+          <div className="border border-black rounded-md p-1">
+            <Image
+              src="/images/logo.png"
+              alt="Studio Aurora logo"
+              width={140}
+              height={140}
+              className="w-32 h-32 object-contain"
+            />
+          </div>
         </div>
 
         {/* Desktop Navigation */}
@@ -56,7 +58,7 @@ export default function Header() {
           <a href="#kontakt" className="hover:text-primary transition">Kontakt</a>
           <a
             href="#rezervacija"
-            className="bg-primary hover:bg-gradientEnd text-white px-4 py-2 rounded-full text-sm font-semibold shadow transition"
+            className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
           >
             Rezerviraj
           </a>
