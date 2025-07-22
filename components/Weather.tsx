@@ -1,14 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { WiThermometer, WiStrongWind } from 'react-icons/wi'
 
 export default function Weather() {
-  const [weather, setWeather] = useState<{
-    tempZrak?: number
-    veter?: number
-    ikonaUrl?: string
-    opis?: string
-  }>({})
+  const [weather, setWeather] = useState<{ tempZrak?: number; veter?: number; ikonaUrl?: string }>({})
 
   useEffect(() => {
     async function fetchWeather() {
@@ -26,18 +22,14 @@ export default function Weather() {
   }, [])
 
   return (
-    <div className="fixed top-4 right-4 bg-blue-100 text-blue-900 px-4 py-3 rounded-xl shadow-lg text-sm flex flex-col items-start min-w-[160px] z-50">
-      <div className="flex items-center justify-between w-full mb-1">
-        <span className="font-semibold">🌍 Izola</span>
-        {weather.ikonaUrl && (
-          <img src={weather.ikonaUrl} alt="Vremenska ikona" className="h-5 w-5 ml-2" />
-        )}
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-lg">🌡️ {weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
-        <span className="text-sm">💨 {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
-      </div>
-      <span className="text-xs text-gray-600 mt-1">Sunny in Izola</span>
+    <div className="bg-white/80 backdrop-blur-sm px-3 py-1 rounded-md shadow flex items-center gap-2 text-xs sm:text-sm text-gray-800">
+      <span className="font-semibold">Izola:</span>
+
+      <WiThermometer className="text-blue-600 text-lg" />
+      <span>{weather.tempZrak ? `${Math.round(weather.tempZrak)} °C` : '-- °C'}</span>
+
+      <WiStrongWind className="text-blue-600 text-lg" />
+      <span>{weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
     </div>
   )
 }
