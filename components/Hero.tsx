@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import Weather from './Weather'
+import { FaCalendarAlt } from 'react-icons/fa'
+import clsx from 'clsx'
 
 export default function Hero() {
   return (
@@ -13,27 +14,23 @@ export default function Hero() {
         src="/images/hero.jpg"
         alt="Izola – pogled na morje"
         fill
-        style={{ objectFit: 'cover' }}
         priority
-        className="z-0"
+        className="object-cover z-0"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60 z-10"></div>
 
-      {/* Vreme desno zgoraj */}
-      <div className="absolute top-4 right-4 z-30">
-        <Weather />
-      </div>
-
-      {/* Glavna vsebina */}
-      <div className="relative z-20 max-w-3xl px-6">
-        <h1 className="text-5xl font-bold font-display mb-4 leading-tight" data-aos="fade-up">
-          <span>Studio</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 animate-pulse">
-            Aurora
-          </span>
+      <div className="relative z-20 max-w-3xl px-6 flex flex-col items-center">
+        <h1
+          className={clsx(
+            'text-6xl md:text-7xl font-bold font-display mb-2',
+            'animate-[wiggle_2s_infinite]'
+          )}
+        >
+          <span className="block">Studio</span>
+          <span className="block text-[#63b3ed]">Aurora</span>
         </h1>
         <p
-          className="text-xl mb-6 font-body"
+          className="text-xl mb-8 font-body text-white"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -46,9 +43,9 @@ export default function Hero() {
         >
           <a
             href="#rezervacija"
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition"
+            className="px-6 py-3 bg-[#63b3ed] hover:bg-[#4299e1] text-white font-semibold rounded-full shadow-lg flex items-center gap-2 transition"
           >
-            Rezerviraj zdaj
+            <FaCalendarAlt /> Rezerviraj zdaj
           </a>
           <a
             href="#galerija"
@@ -58,6 +55,19 @@ export default function Hero() {
           </a>
         </div>
       </div>
+
+      {/* Tailwind plugin za custom animacijo */}
+      <style jsx>{`
+        @keyframes wiggle {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
+      `}</style>
     </section>
   )
 }
