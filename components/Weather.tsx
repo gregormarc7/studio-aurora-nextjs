@@ -37,9 +37,9 @@ export default function Weather() {
             {weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}
           </span>
         </div>
-        <div className="flex items-center gap-1">
-          <WiStrongWind size={20} className="text-blue-600" />
-          <span className="text-gray-800 font-normal whitespace-nowrap">
+        <div className="flex items-center gap-1 text-blue-600">
+          <WiStrongWind size={20} />
+          <span className="text-gray-800 font-semibold whitespace-nowrap">
             {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}
           </span>
         </div>
