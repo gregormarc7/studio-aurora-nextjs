@@ -22,24 +22,21 @@ export default function Hero() {
       {/* Temni gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60 z-10" />
 
-      {/* Vsebina */}
-      <div className="relative z-20 max-w-3xl px-6 flex flex-col items-center">
-        {/* Vreme samo tukaj */}
-        <div className="mb-6">
-          <Weather />
-        </div>
+      {/* Weather zgoraj desno v Hero sekciji */}
+      <div className="absolute top-4 right-4 z-30">
+        <Weather />
+      </div>
 
-        {/* Naslov */}
+      {/* Vsebina hero sekcije */}
+      <div className="relative z-20 max-w-3xl px-6">
         <h1 className="text-5xl font-bold font-display mb-4" data-aos="fade-up">
           Studio <span className="text-accent">Aurora</span>
         </h1>
 
-        {/* Podnaslov */}
         <p className="text-xl mb-6 font-body" data-aos="fade-up" data-aos-delay="200">
           Sodoben apartma v umirjenem delu Izole.
         </p>
 
-        {/* Gumbi */}
         <div className="flex gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
           <a
             href="#rezervacija"
