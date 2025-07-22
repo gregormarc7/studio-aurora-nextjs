@@ -9,11 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#3B82F6', // Tailwind blue-500
+        primary: '#3B82F6', // glavni modri ton (modro poenotenje)
+        accent: '#3B82F6',  // tudi "Aurora" bo uporabljala to barvo
         dark: '#111827',
         light: '#F9FAFB',
-        gradientStart: '#3B82F6', // svetlejša modra
-        gradientEnd: '#1D4ED8',   // temnejša modra
+        gradientStart: '#3B82F6', // začetek gradienta
+        gradientEnd: '#1D4ED8',   // konec gradienta (temnejša modra)
       },
       fontFamily: {
         display: ['"Poppins"', 'sans-serif'],
