@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-40">
       <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between px-4 py-2">
-
+        
         {/* Logo center + hamburger for mobile */}
         <div className="flex flex-col items-center md:flex-row md:gap-6">
           <Image
@@ -31,14 +31,14 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#domov" className="hover:text-blue-500 transition">Domov</a>
-          <a href="#apartma" className="hover:text-blue-500 transition">O apartmaju</a>
-          <a href="#o-izoli" className="hover:text-blue-500 transition">O Izoli</a>
-          <a href="#lokacija" className="hover:text-blue-500 transition">Lokacija</a>
-          <a href="#kontakt" className="hover:text-blue-500 transition">Kontakt</a>
+          <a href="#domov" className="hover:text-primary transition">Domov</a>
+          <a href="#apartma" className="hover:text-primary transition">O apartmaju</a>
+          <a href="#o-izoli" className="hover:text-primary transition">O Izoli</a>
+          <a href="#lokacija" className="hover:text-primary transition">Lokacija</a>
+          <a href="#kontakt" className="hover:text-primary transition">Kontakt</a>
           <a
             href="#rezervacija"
-            className="bg-blue-400 hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
+            className="bg-primary hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
           >
             Rezerviraj
           </a>
@@ -49,14 +49,14 @@ export default function Header() {
           id="mobileNav"
           className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-4 gap-2`}
         >
-          <a href="#domov" className="text-gray-700 hover:text-blue-500">Domov</a>
-          <a href="#apartma" className="text-gray-700 hover:text-blue-500">O apartmaju</a>
-          <a href="#o-izoli" className="text-gray-700 hover:text-blue-500">O Izoli</a>
-          <a href="#lokacija" className="text-gray-700 hover:text-blue-500">Lokacija</a>
-          <a href="#kontakt" className="text-gray-700 hover:text-blue-500">Kontakt</a>
+          <a href="#domov" className="text-gray-700 hover:text-primary">Domov</a>
+          <a href="#apartma" className="text-gray-700 hover:text-primary">O apartmaju</a>
+          <a href="#o-izoli" className="text-gray-700 hover:text-primary">O Izoli</a>
+          <a href="#lokacija" className="text-gray-700 hover:text-primary">Lokacija</a>
+          <a href="#kontakt" className="text-gray-700 hover:text-primary">Kontakt</a>
           <a
             href="#rezervacija"
-            className="bg-blue-400 hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
+            className="bg-primary hover:bg-blue-600 text-white px-4 py-1 rounded-full text-sm shadow transition"
           >
             Rezerviraj
           </a>
