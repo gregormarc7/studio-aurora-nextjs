@@ -1,12 +1,14 @@
 'use client'
 import Image from 'next/image'
+import Weather from './Weather'
 
 export default function Hero() {
   return (
     <section
       id="domov"
-      className="relative min-h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden"
+      className="relative h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden"
     >
+      {/* Hero ozadje slika */}
       <Image
         src="/images/hero.jpg"
         alt="Izola – pogled na morje"
@@ -15,8 +17,16 @@ export default function Hero() {
         priority
         className="z-0"
       />
+
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60 z-10"></div>
 
+      {/* Vreme komponenta */}
+      <div className="absolute top-6 right-6 z-20">
+        <Weather />
+      </div>
+
+      {/* Vsebina hero sekcije */}
       <div className="relative z-20 max-w-3xl px-6">
         <h1
           className="text-5xl font-bold font-display mb-4"
