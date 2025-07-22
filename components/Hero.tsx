@@ -26,9 +26,9 @@ export default function Hero() {
   return (
     <section
       id="domov"
-      className="relative min-h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden"
+      className="relative min-h-[100dvh] text-white text-center overflow-hidden"
     >
-      {/* 📸 Background Image */}
+      {/* Background Image */}
       <Image
         src="/images/hero.jpg"
         alt="Izola – pogled na morje"
@@ -38,16 +38,16 @@ export default function Hero() {
         className="z-0"
       />
 
-      {/* 🖤 Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60 z-10"></div>
 
-      {/* ☀️ Desktop Weather */}
-      <div className="absolute top-4 right-4 z-20 bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm hidden md:block">
+      {/* 💨 Weather – Mobile ONLY (ABSOLUTE TOP) */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm md:hidden">
         <div className="flex items-center justify-center gap-1 text-primary font-medium mb-1">
           <HiOutlineLocationMarker className="text-base" />
           <span className="text-black">Izola</span>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 justify-center">
           <div className="flex items-center gap-1 text-primary">
             <WiThermometer className="text-xl" />
             <span className="text-black font-medium">
@@ -63,10 +63,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 🧩 Main Content */}
-      <div className="relative z-20 max-w-3xl px-6 flex flex-col items-center">
-        {/* 📏 Mobile Weather (above title) */}
-        <div className="bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm mb-6 md:hidden">
+      {/* 🧩 Hero Content Centered */}
+      <div className="relative z-20 max-w-3xl px-6 min-h-[100dvh] flex flex-col justify-center items-center">
+        {/* Desktop Weather */}
+        <div className="absolute top-4 right-4 z-20 bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm hidden md:block">
           <div className="flex items-center justify-center gap-1 text-primary font-medium mb-1">
             <HiOutlineLocationMarker className="text-base" />
             <span className="text-black">Izola</span>
@@ -74,31 +74,26 @@ export default function Hero() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1 text-primary">
               <WiThermometer className="text-xl" />
-              <span className="text-black font-medium">
-                {weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}
-              </span>
+              <span className="text-black font-medium">{weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
             </div>
             <div className="flex items-center gap-1 text-primary font-bold">
               <WiStrongWind className="text-xl" />
-              <span className="text-black font-medium">
-                {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}
-              </span>
+              <span className="text-black font-medium">{weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
             </div>
           </div>
         </div>
 
-        {/* ✨ Title */}
+        {/* Title */}
         <h1 className="text-6xl md:text-7xl font-bold font-display mb-2 leading-tight text-white animate-bounce-slow">
           <div>Studio</div>
           <div className="text-primary">Aurora</div>
         </h1>
 
-        {/* 📝 Subtitle */}
         <p className="text-xl md:text-2xl mb-6 font-body">
           Sodoben apartma v umirjenem delu Izole.
         </p>
 
-        {/* 🔘 Buttons */}
+        {/* Buttons */}
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <a
             href="#rezervacija"
