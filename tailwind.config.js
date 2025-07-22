@@ -9,12 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#3B82F6', // glavni modri ton (modro poenotenje)
-        accent: '#3B82F6',  // tudi "Aurora" bo uporabljala to barvo
+        primary: '#60A5FA',       // svetlejša modra (blue-400)
+        accent: '#60A5FA',        // Aurora in ostali elementi
+        primaryDark: '#3B82F6',   // dodatno (modra-500, če rabiš za hover ali temnejšo verzijo)
         dark: '#111827',
         light: '#F9FAFB',
-        gradientStart: '#3B82F6', // začetek gradienta
-        gradientEnd: '#1D4ED8',   // konec gradienta (temnejša modra)
+        gradientStart: '#60A5FA', // gradient začetek
+        gradientEnd: '#3B82F6',   // gradient konec (rahlo temnejša)
       },
       fontFamily: {
         display: ['"Poppins"', 'sans-serif'],
