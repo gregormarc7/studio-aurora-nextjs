@@ -9,12 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#3B82F6',
-        accent: '#F472B6',
+        primary: '#3B82F6', // Tailwind blue-500
         dark: '#111827',
         light: '#F9FAFB',
-        gradientStart: '#1e3a8a',
-        gradientEnd: '#9333ea',
+        gradientStart: '#3B82F6', // svetlejša modra
+        gradientEnd: '#1D4ED8',   // temnejša modra
       },
       fontFamily: {
         display: ['"Poppins"', 'sans-serif'],
@@ -28,6 +27,9 @@ module.exports = {
         '128': '32rem',
         '144': '36rem',
       },
+      animation: {
+        'bounce-slow': 'bounce 4s infinite',
+      }
     },
   },
   plugins: [
