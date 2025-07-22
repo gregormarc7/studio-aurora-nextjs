@@ -37,42 +37,60 @@ export default function Hero() {
         className="z-0"
       />
 
-      {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60 z-10"></div>
 
-      {/* Weather top right */}
-      <div className="absolute top-4 right-4 z-20 bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm">
-        <div className="flex items-center justify-center gap-1 text-blue-600 font-medium mb-1">
+      {/* Weather top-right desktop */}
+      <div className="absolute top-4 right-4 z-20 bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm hidden md:block">
+        <div className="flex items-center justify-center gap-1 text-sky-600 font-medium mb-1">
           <HiOutlineLocationMarker className="text-base" />
           <span className="text-black">Izola</span>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1 text-blue-600">
+          <div className="flex items-center gap-1 text-sky-600">
             <WiThermometer className="text-xl" />
             <span className="text-black font-medium">{weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
           </div>
-          <div className="flex items-center gap-1 text-blue-600">
+          <div className="flex items-center gap-1 text-sky-600">
             <WiStrongWind className="text-xl" />
             <span className="text-black font-medium">{weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
           </div>
         </div>
       </div>
 
-      {/* Hero content */}
-      <div className="relative z-20 max-w-3xl px-6">
-        <h1
-          className="text-6xl md:text-7xl font-bold font-display mb-2 leading-tight text-white animate-bounce-slow"
-        >
+      {/* Content */}
+      <div className="relative z-20 max-w-3xl px-6 flex flex-col items-center">
+        {/* Weather mobile */}
+        <div className="bg-white/80 text-black rounded-2xl px-4 py-2 shadow-md text-sm backdrop-blur-sm mb-4 md:hidden">
+          <div className="flex items-center justify-center gap-1 text-sky-600 font-medium mb-1">
+            <HiOutlineLocationMarker className="text-base" />
+            <span className="text-black">Izola</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 text-sky-600">
+              <WiThermometer className="text-xl" />
+              <span className="text-black font-medium">{weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}</span>
+            </div>
+            <div className="flex items-center gap-1 text-sky-600">
+              <WiStrongWind className="text-xl" />
+              <span className="text-black font-medium">{weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Text */}
+        <h1 className="text-6xl md:text-7xl font-bold font-display mb-2 leading-tight text-white animate-bounce-slow">
           <div>Studio</div>
           <div className="text-sky-400">Aurora</div>
         </h1>
         <p className="text-xl md:text-2xl mb-6 font-body" data-aos="fade-up" data-aos-delay="200">
           Sodoben apartma v umirjenem delu Izole.
         </p>
-        <div className="flex gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+
+        {/* Buttons */}
+        <div className="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
           <a
             href="#rezervacija"
-            className="px-6 py-3 bg-sky-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition flex items-center gap-2"
+            className="px-6 py-3 bg-sky-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition flex items-center gap-2 justify-center"
           >
             <FaCalendarAlt />
             Rezerviraj zdaj
