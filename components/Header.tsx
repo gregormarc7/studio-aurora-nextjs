@@ -15,25 +15,36 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center md:flex-row">
-        
-        {/* Logo + Hamburger on mobile */}
-        <div className="flex justify-between w-full md:w-auto items-center md:gap-6">
-          <div className="border border-black rounded-md p-1">
+      <div className="container mx-auto flex items-center justify-between px-4 py-2 md:py-4">
+
+        {/* Mobile: Logo left, Hamburger right */}
+        <div className="flex md:hidden w-full justify-between items-center">
+          <div className="border border-black rounded-md w-14 h-14 flex items-center justify-center">
             <Image
               src="/images/logo.png"
               alt="Studio Aurora logo"
-              width={48}
-              height={48}
-              className="w-12 h-12"
+              width={40}
+              height={40}
+              className="object-contain w-10 h-10"
             />
           </div>
           <button
             id="hamburger"
-            className="md:hidden border border-black rounded-md p-2 text-xl"
+            className="border border-black rounded-md w-14 h-14 flex items-center justify-center text-2xl"
           >
             ☰
           </button>
+        </div>
+
+        {/* Desktop: Logo center left */}
+        <div className="hidden md:flex items-center gap-6">
+          <Image
+            src="/images/logo.png"
+            alt="Studio Aurora logo"
+            width={140}
+            height={140}
+            className="w-32 h-32 object-contain"
+          />
         </div>
 
         {/* Desktop Navigation */}
@@ -45,7 +56,7 @@ export default function Header() {
           <a href="#kontakt" className="hover:text-primary transition">Kontakt</a>
           <a
             href="#rezervacija"
-            className="bg-primary hover:bg-gradientEnd text-white px-4 py-1 rounded-full text-sm shadow transition"
+            className="bg-primary hover:bg-gradientEnd text-white px-4 py-2 rounded-full text-sm font-semibold shadow transition"
           >
             Rezerviraj
           </a>
@@ -64,7 +75,7 @@ export default function Header() {
         <a href="#kontakt" className="text-gray-700 hover:text-primary">Kontakt</a>
         <a
           href="#rezervacija"
-          className="bg-primary hover:bg-gradientEnd text-white px-4 py-1 rounded-full text-sm shadow transition"
+          className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
         >
           Rezerviraj
         </a>
