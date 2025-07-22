@@ -34,7 +34,6 @@ export default function Header() {
           <a href="#domov" className="hover:text-blue-500 transition">Domov</a>
           <a href="#apartma" className="hover:text-blue-500 transition">O apartmaju</a>
           <a href="#o-izoli" className="hover:text-blue-500 transition">O Izoli</a>
-          <a href="#galerija" className="hover:text-blue-500 transition">Galerija</a>
           <a href="#lokacija" className="hover:text-blue-500 transition">Lokacija</a>
           <a href="#kontakt" className="hover:text-blue-500 transition">Kontakt</a>
           <a
@@ -53,7 +52,6 @@ export default function Header() {
           <a href="#domov" className="text-gray-700 hover:text-blue-500">Domov</a>
           <a href="#apartma" className="text-gray-700 hover:text-blue-500">O apartmaju</a>
           <a href="#o-izoli" className="text-gray-700 hover:text-blue-500">O Izoli</a>
-          <a href="#galerija" className="text-gray-700 hover:text-blue-500">Galerija</a>
           <a href="#lokacija" className="text-gray-700 hover:text-blue-500">Lokacija</a>
           <a href="#kontakt" className="text-gray-700 hover:text-blue-500">Kontakt</a>
           <a
