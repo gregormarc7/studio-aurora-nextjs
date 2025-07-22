@@ -17,7 +17,7 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between px-4 py-2 md:py-4">
 
-        {/* Mobile: Logo left, Hamburger right */}
+        {/* 🌐 Mobile: Logo left, Hamburger right */}
         <div className="flex md:hidden w-full justify-between items-center">
           <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
@@ -36,7 +36,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop: Logo */}
+        {/* 💻 Desktop: Logo */}
         <div className="hidden md:flex items-center gap-6">
           <div className="border border-black rounded-md p-1">
             <Image
@@ -49,7 +49,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* 🧭 Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="#domov" className="hover:text-primary transition">Domov</a>
           <a href="#apartma" className="hover:text-primary transition">O apartmaju</a>
@@ -65,7 +65,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* 📱 Mobile Navigation */}
       <nav
         id="mobileNav"
         className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-2 gap-2 pb-4`}
@@ -83,5 +83,5 @@ export default function Header() {
         </a>
       </nav>
     </header>
-  )
+)
 }
