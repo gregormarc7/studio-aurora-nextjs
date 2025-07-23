@@ -8,7 +8,7 @@ import {
   FaUsers,
   FaWifi,
   FaCar,
-  FaEye,
+  FaEyeSlash,
   FaBicycle,
   FaShoppingCart,
   FaUtensils,
@@ -79,7 +79,7 @@ export default function SectionApartma() {
   <Feature icon={<FaUsers />} label="Do 2 gosta" />
   <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
   <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
-  <Feature icon={<FaEye />} label="Zasebnost" />
+  <Feature icon={<FaEyeSlash />} label="Zasebnost" />
   <Feature icon={<FaBicycle />} label="2 min do Parenzane" />
   <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
   <Feature icon={<FaUtensils />} label="800m do restavracij" />
