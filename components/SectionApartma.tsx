@@ -44,68 +44,66 @@ export default function SectionApartma() {
 
   return (
     <section id="apartma" className="bg-gray-50 py-20 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Left: Image */}
-        <div className="w-full">
-          <img
-            src="/images/izola-hero.png"
-            alt="Izola pogled"
-            className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[460px]"
-          />
+      <div className="max-w-6xl mx-auto">
+        {/* Centered badge */}
+        <div className="w-full flex justify-center mb-3">
+          <span className="inline-block px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+            O Studio Aurora
+          </span>
         </div>
 
-        {/* Right: Content */}
-        <div>
-          {/* Centered badge */}
-          <div className="text-center md:text-left">
-            <span className="inline-block px-3 py-1 mb-3 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
-              O Studio Aurora
-            </span>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: Image */}
+          <div className="w-full">
+            <img
+              src="/images/izola-hero.png"
+              alt="Izola pogled"
+              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[460px]"
+            />
           </div>
 
-          <h2 className="text-4xl font-bold mb-4 text-center md:text-left">
-            Vaš popoln <span className="text-[#2DC6F7]">počitek</span>
-          </h2>
-          <p className="text-gray-700 mb-6 leading-relaxed text-center md:text-left">
-            Studio Aurora je nov, sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
-          </p>
+          {/* Right: Content */}
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <h2 className="text-4xl font-bold mb-4">
+              Vaš popoln <span className="text-[#2DC6F7]">počitek</span>
+            </h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Studio Aurora je sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
+            </p>
 
-          <h3 className="text-2xl font-semibold mb-4 text-center md:text-left">
-            Zakaj izbrati Studio Aurora?
-          </h3>
-          <p className="text-gray-600 mb-6 text-center md:text-left">
-            Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
-          </p>
+            <h3 className="text-2xl font-semibold mb-4">
+              Zakaj izbrati Studio Aurora?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
+            </p>
 
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-800">
-            <Feature icon={<FaUmbrellaBeach />} label="850m do plaže" />
-            <Feature icon={<FaUsers />} label="Do 2 gosta" />
-            <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
-            <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
-            <Feature icon={<FaEyeSlash />} label="Zasebnost" />
-            <Feature icon={<FaBicycle />} label="180m do Parenzane" />
-            <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
-            <Feature icon={<FaUtensils />} label="800m do restavracij" />
-            <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
-            <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-800 w-full max-w-md">
+              <Feature icon={<FaUmbrellaBeach />} label="850m do plaže" />
+              <Feature icon={<FaUsers />} label="Do 2 gosta" />
+              <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
+              <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
+              <Feature icon={<FaEyeSlash />} label="Zasebnost" />
+              <Feature icon={<FaBicycle />} label="180m do Parenzane" />
+              <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
+              <Feature icon={<FaUtensils />} label="800m do restavracij" />
+              <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
+              <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Gallery section */}
       <div className="container mx-auto mt-20 text-center">
-        {/* Centered badge */}
-        <div className="text-center">
-          <span className="inline-block px-3 py-1 mb-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
-            Galerija
-          </span>
-        </div>
-
+        <span className="inline-block px-3 py-1 mb-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+          Galerija
+        </span>
         <h2 className="text-3xl font-bold mb-2">
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
         <p className="text-sm mb-8 text-gray-600 max-w-xl mx-auto">
-          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš počitek.
+          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
         </p>
 
         <div className="relative group mx-auto w-full max-w-screen-lg rounded-xl overflow-hidden">
@@ -143,19 +141,20 @@ export default function SectionApartma() {
         <div className="mt-6 flex justify-center gap-4">
           <button
             onClick={prevImage}
-            className="bg-[#2DC6F7]/30 hover:bg-[#f472b6]/30 text-[#2DC6F7] hover:text-[#be185d] px-5 py-2 rounded-full transition-colors"
+            className="bg-[#2DC6F7]/30 hover:bg-pink-200 text-[#2DC6F7] hover:text-pink-600 px-5 py-2 rounded-full transition-colors"
           >
             ← Prejšnja
           </button>
           <button
             onClick={nextImage}
-            className="bg-[#2DC6F7]/30 hover:bg-[#f472b6]/30 text-[#2DC6F7] hover:text-[#be185d] px-5 py-2 rounded-full transition-colors"
+            className="bg-[#2DC6F7]/30 hover:bg-pink-200 text-[#2DC6F7] hover:text-pink-600 px-5 py-2 rounded-full transition-colors"
           >
             Naslednja →
           </button>
         </div>
       </div>
 
+      {/* Modal */}
       <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
         <div className="fixed inset-0 bg-black bg-opacity-70" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
