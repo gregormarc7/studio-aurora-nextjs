@@ -13,8 +13,11 @@ import {
   FaShoppingCart,
   FaUtensils,
   FaTv,
-  FaBed
+  FaBed,
+  FaBath,
+  FaFan
 } from 'react-icons/fa'
+import { MdOutlineKitchen } from 'react-icons/md'
 
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
 
@@ -52,25 +55,28 @@ export default function SectionApartma() {
           </span>
         </div>
 
+        {/* Centered header and paragraph */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-4xl font-bold mb-4">
+            Vaš popoln <span className="text-[#2DC6F7]">dopust</span>
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Studio Aurora je sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
+          </p>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Image */}
           <div className="w-full">
             <img
               src="/images/izola-hero.png"
               alt="Izola pogled"
-              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[460px]"
+              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[480px]"
             />
           </div>
 
           {/* Right: Content */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start">
-            <h2 className="text-4xl font-bold mb-4">
-              Vaš popoln <span className="text-[#2DC6F7]">dopust</span>
-            </h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Studio Aurora je sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
-            </p>
-
             <h3 className="text-2xl font-semibold mb-4">
               Zakaj izbrati Studio Aurora?
             </h3>
@@ -89,6 +95,8 @@ export default function SectionApartma() {
               <Feature icon={<FaUtensils />} label="800m do restavracij" />
               <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
               <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
+              <Feature icon={<MdOutlineKitchen />} label="Lastna kuhinja in kopalnica" />
+              <Feature icon={<FaFan />} label="Brezplačna klima in prezračevanje" />
             </div>
           </div>
         </div>
