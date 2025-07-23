@@ -44,15 +44,15 @@ export default function SectionApartma() {
 
   return (
     <section id="apartma" className="bg-gray-50 py-20 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-stretch">
-        {/* Left: Image */}
-        <div className="w-full h-full flex items-stretch">
-          <img
-            src="/images/izola-hero.png"
-            alt="Izola pogled"
-            className="rounded-3xl shadow-md w-full h-full object-cover"
-          />
-        </div>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  {/* Leva: slika */}
+  <div className="w-full h-full">
+    <img
+      src="/images/izola-hero.png"
+      alt="Izola pogled"
+      className="rounded-3xl shadow-md w-full h-full object-cover max-h-[460px]"
+    />
+  </div>
 
         {/* Right: Content */}
         <div className="text-center md:text-left flex flex-col items-center md:items-start justify-center">
