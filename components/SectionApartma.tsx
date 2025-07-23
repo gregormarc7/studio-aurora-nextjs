@@ -106,16 +106,19 @@ export default function SectionApartma() {
         </div>
       </div>
 
+      
       {/* ---------------- Galerija ---------------- */}
      
-      <div className="container mx-auto mt-20 text-center">
+      <div className="flex justify-center mb-4">
         <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
         </span>
-        <h2 className="text-4xl font-bold">
+          </div>
+        
+        <h2 className="text-center text-4xl font-bold">
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
-        <p className="text-lg text-gray-600 max-w-xl mx-auto mb-10">
+        <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-3 mb-12">
           Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira
           za vaš dopust.
         </p>
