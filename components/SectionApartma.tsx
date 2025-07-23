@@ -108,7 +108,8 @@ export default function SectionApartma() {
 
  
       
-      {/* ---------------- Galerija ---------------- */}     
+      {/* ---------------- Galerija ---------------- */}   
+        <div className="flex justify-center mb-4">
       <div className="container mx-auto mt-20 text-center">
         <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
