@@ -4,27 +4,27 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
+  /* ↕️ – toggle mobilni meni */
   useEffect(() => {
-    const hamburger = document.getElementById('hamburger')
-    if (hamburger) {
-      hamburger.addEventListener('click', () => setMenuOpen(prev => !prev))
-    }
+    const btn = document.getElementById('hamburger')
+    if (btn) btn.addEventListener('click', () => setOpen(p => !p))
   }, [])
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4 py-2 md:py-4">
 
-        {/* 🌐 Mobile: Logo left, Hamburger right */}
+        {/* ───── Mobile: logo + hamburger ───── */}
         <div className="flex md:hidden w-full justify-between items-center">
           <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
-              src="/images/ChatGPTlogo.png"
+              src="/images/logo.png"                    /* <-- zamenjaj po potrebi */
               alt="Studio Aurora logo"
               width={48}
               height={48}
+              priority
               className="object-contain w-12 h-12"
             />
           </div>
@@ -36,26 +36,34 @@ export default function Header() {
           </button>
         </div>
 
-        {/* 💻 Desktop: Logo */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* ───── Desktop: logo ───── */}
+        <div className="hidden md:flex items-center">
           <div className="border border-black rounded-md p-1">
             <Image
-              src="/images/ChatGPTlogo.png"
+              src="/images/logo.png"
               alt="Studio Aurora logo"
               width={140}
               height={140}
-              className="w-32 h-32 object-contain"
+              priority
+              className="object-contain w-32 h-32"
             />
           </div>
         </div>
 
-        {/* 🧭 Desktop Navigation */}
+        {/* ───── Desktop navigacija ───── */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#domov" className="hover:text-primary transition">Domov</a>
-          <a href="#apartma" className="hover:text-primary transition">O apartmaju</a>
-          <a href="#o-izoli" className="hover:text-primary transition">O Izoli</a>
-          <a href="#lokacija" className="hover:text-primary transition">Lokacija</a>
-          <a href="#kontakt" className="hover:text-primary transition">Kontakt</a>
+          {[
+            ['#domov', 'Domov'],
+            ['#apartma', 'O apartmaju'],
+            ['#o-izoli', 'O Izoli'],
+            ['#lokacija', 'Lokacija'],
+            ['#kontakt', 'Kontakt'],
+          ].map(([href, txt]) => (
+            <a key={href} href={href} className="hover:text-primary transition">
+              {txt}
+            </a>
+          ))}
+
           <a
             href="#rezervacija"
             className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
@@ -65,16 +73,24 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* 📱 Mobile Navigation */}
+      {/* ───── Mobile navigacija ───── */}
       <nav
         id="mobileNav"
-        className={`w-full flex-col md:hidden ${menuOpen ? 'flex' : 'hidden'} items-center mt-2 gap-2 pb-4`}
+        className={`md:hidden flex-col w-full items-center gap-2 pb-4 ${
+          open ? 'flex mt-3' : 'hidden'
+        }`}
       >
-        <a href="#domov" className="text-gray-700 hover:text-primary">Domov</a>
-        <a href="#apartma" className="text-gray-700 hover:text-primary">O apartmaju</a>
-        <a href="#o-izoli" className="text-gray-700 hover:text-primary">O Izoli</a>
-        <a href="#lokacija" className="text-gray-700 hover:text-primary">Lokacija</a>
-        <a href="#kontakt" className="text-gray-700 hover:text-primary">Kontakt</a>
+        {[
+          ['#domov', 'Domov'],
+          ['#apartma', 'O apartmaju'],
+          ['#o-izoli', 'O Izoli'],
+          ['#lokacija', 'Lokacija'],
+          ['#kontakt', 'Kontakt'],
+        ].map(([href, txt]) => (
+          <a key={href} href={href} className="text-gray-700 hover:text-primary">
+            {txt}
+          </a>
+        ))}
         <a
           href="#rezervacija"
           className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
@@ -83,5 +99,5 @@ export default function Header() {
         </a>
       </nav>
     </header>
-)
+  )
 }
