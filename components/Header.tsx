@@ -21,7 +21,7 @@ export default function Header() {
         <div className="flex md:hidden w-full justify-between items-center">
           <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
-              src="/images/logo.png"
+              src="/images/ChatGPT logo.png"
               alt="Studio Aurora logo"
               width={48}
               height={48}
@@ -40,7 +40,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-6">
           <div className="border border-black rounded-md p-1">
             <Image
-              src="/images/logo.png"
+              src="/images/ChatGPT logo.png"
               alt="Studio Aurora logo"
               width={140}
               height={140}
