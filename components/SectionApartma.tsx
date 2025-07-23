@@ -44,46 +44,52 @@ export default function SectionApartma() {
 
   return (
     <section id="apartma" className="bg-gray-50 py-20 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-  {/* Leva: slika */}
-  <div className="w-full h-full">
-    <img
-      src="/images/izola-hero.png"
-      alt="Izola pogled"
-      className="rounded-3xl shadow-md w-full h-full object-cover max-h-[460px]"
-    />
-  </div>
-
-        {/* Right: Content */}
-        <div className="text-center md:text-left flex flex-col items-center md:items-start justify-center">
-          <span className="inline-block px-3 py-1 mb-3 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
-            O Studio Aurora
+      <div className="max-w-6xl mx-auto">
+        {/* Centered badge */}
+        <div className="w-full flex justify-center mb-3">
+          <span className="inline-block px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+            O Apartmaju
           </span>
-          <h2 className="text-4xl font-bold mb-4">
-            Vaš popoln <span className="text-[#2DC6F7]">počitek</span>
-          </h2>
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            Studio Aurora je nov, sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
-          </p>
+        </div>
 
-          <h3 className="text-2xl font-semibold mb-4">
-            Zakaj izbrati Studio Aurora?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: Image */}
+          <div className="w-full">
+            <img
+              src="/images/izola-hero.png"
+              alt="Izola pogled"
+              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[460px]"
+            />
+          </div>
 
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-800 w-full max-w-md">
-            <Feature icon={<FaUmbrellaBeach />} label="850m do plaže" />
-            <Feature icon={<FaUsers />} label="Do 2 gosta" />
-            <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
-            <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
-            <Feature icon={<FaEyeSlash />} label="Zasebnost" />
-            <Feature icon={<FaBicycle />} label="180m do Parenzane" />
-            <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
-            <Feature icon={<FaUtensils />} label="800m do restavracij" />
-            <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
-            <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
+          {/* Right: Content */}
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <h2 className="text-4xl font-bold mb-4">
+              Vaš popoln <span className="text-[#2DC6F7]">dopust</span>
+            </h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Studio Aurora je sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
+            </p>
+
+            <h3 className="text-2xl font-semibold mb-4">
+              Zakaj izbrati Studio Aurora?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-800 w-full max-w-md">
+              <Feature icon={<FaUmbrellaBeach />} label="850m do plaže" />
+              <Feature icon={<FaUsers />} label="Do 2 gosta" />
+              <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
+              <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
+              <Feature icon={<FaEyeSlash />} label="Zasebnost" />
+              <Feature icon={<FaBicycle />} label="180m do Parenzane" />
+              <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
+              <Feature icon={<FaUtensils />} label="800m do restavracij" />
+              <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
+              <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +103,7 @@ export default function SectionApartma() {
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
         <p className="text-sm mb-8 text-gray-600 max-w-xl mx-auto">
-          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš počitek.
+          Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
         </p>
 
         <div className="relative group mx-auto w-full max-w-screen-lg rounded-xl overflow-hidden">
