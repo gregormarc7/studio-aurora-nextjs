@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
+import { FaUmbrellaBeach, FaUsers, FaWifi, FaCar, FaEye, FaHeadset } from 'react-icons/fa'
 
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
 
@@ -31,15 +32,56 @@ export default function SectionApartma() {
     setSelectedImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
 
   return (
-    <section id="apartma" className="py-16 bg-gray-100 text-gray-800">
-      <div className="container mx-auto px-4 text-center">
+    <section id="apartma" className="bg-gray-50 py-20 px-4">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        {/* Left: Image */}
+        <div>
+          <img
+            src="/images/izola-pogled.jpg"
+            alt="Izola pogled"
+            className="rounded-3xl shadow-md"
+          />
+        </div>
+
+        {/* Right: Content */}
+        <div>
+          <span className="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-600 text-sm">
+            O Studio Aurora
+          </span>
+          <h2 className="text-4xl font-bold mb-4">
+            Vaš popoln <span className="text-pink-400">počitek</span>
+          </h2>
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            Studio Aurora je sodobno opremljen apartma v neposredni bližini plaže, ki ponuja
+            popolno kombinacijo udobja in naravne lepote Slovenske Istre.
+          </p>
+
+          <h3 className="text-2xl font-semibold mb-4">Zakaj izbrati Studio Aurora?</h3>
+          <p className="text-gray-600 mb-6">
+            Izola je slikovito obmorsko mesto z bogatim kulturnim dogajanjem, odlično kulinariko
+            in razgledom na slovensko obalo. Naš apartma je idealna izhodiščna točka za sprostitev
+            in raziskovanje vsega, kar ponuja ta čudovita destinacija.
+          </p>
+
+          <div className="grid grid-cols-2 gap-4 text-sm text-gray-800">
+            <Feature icon={<FaUmbrellaBeach />} label="5 min do plaže" />
+            <Feature icon={<FaUsers />} label="Do 4 gostov" />
+            <Feature icon={<FaWifi />} label="Brezplačen WiFi" />
+            <Feature icon={<FaCar />} label="Brezplačno parkiranje" />
+            <Feature icon={<FaEye />} label="Pogled na morje" />
+            <Feature icon={<FaHeadset />} label="24/7 podpora" />
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery section */}
+      <div className="container mx-auto mt-20 text-center">
         <span className="inline-block px-3 py-1 mb-2 rounded-full bg-blue-100 text-blue-600 text-sm">Galerija</span>
         <h2 className="text-3xl font-bold mb-2">Odkrijte <span className="text-blue-600">udobje</span></h2>
         <p className="text-sm mb-8">
           Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš počitek.
         </p>
 
-        {/* Main image */}
         <div className="relative group mx-auto w-full max-w-screen-lg rounded-xl overflow-hidden">
           <img
             src={images[selectedImageIndex]}
@@ -59,7 +101,6 @@ export default function SectionApartma() {
           </button>
         </div>
 
-        {/* Thumbnails */}
         <div className="grid grid-cols-5 gap-4 mt-6 max-w-screen-lg mx-auto">
           {images.map((src, index) => (
             <img
@@ -67,15 +108,12 @@ export default function SectionApartma() {
               src={src}
               alt={`Thumbnail ${index + 1}`}
               loading="lazy"
-              className={`cursor-pointer h-24 object-cover w-full rounded-md border-2 ${
-                index === selectedImageIndex ? 'border-blue-500' : 'border-transparent'
-              }`}
+              className={`cursor-pointer h-24 object-cover w-full rounded-md border-2 ${index === selectedImageIndex ? 'border-blue-500' : 'border-transparent'}`}
               onClick={() => setSelectedImageIndex(index)}
             />
           ))}
         </div>
 
-        {/* Prev / Next buttons */}
         <div className="mt-6 flex justify-center gap-4">
           <button
             onClick={prevImage}
@@ -92,7 +130,6 @@ export default function SectionApartma() {
         </div>
       </div>
 
-      {/* Lightbox modal */}
       <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
         <div className="fixed inset-0 bg-black bg-opacity-70" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
@@ -127,5 +164,14 @@ export default function SectionApartma() {
         </div>
       </Dialog>
     </section>
+  )
+}
+
+function Feature({ icon, label }: { icon: JSX.Element; label: string }) {
+  return (
+    <div className="flex items-center gap-3 bg-white rounded-lg px-4 py-3 shadow-sm">
+      <div className="text-blue-500 text-lg">{icon}</div>
+      <span>{label}</span>
+    </div>
   )
 }
