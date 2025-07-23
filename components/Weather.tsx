@@ -1,47 +1,37 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { WiThermometer, WiStrongWind } from 'react-icons/wi'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { HiOutlineLocationMarker } from 'react-icons/hi'
 
-export default function Weather() {
+export default function WeatherFloating() {
   const [weather, setWeather] = useState<{ tempZrak?: number; veter?: number }>({})
 
   useEffect(() => {
-    async function fetchWeather() {
-      try {
-        const res = await fetch('/.netlify/functions/weather')
-        if (!res.ok) throw new Error('HTTP ' + res.status)
-        const data = await res.json()
-        setWeather(data)
-      } catch (err) {
-        console.error('❌ Napaka pri vremenu:', err)
-      }
-    }
-
-    fetchWeather()
+    fetch('/.netlify/functions/weather')
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(setWeather)
+      .catch(console.error)
   }, [])
 
-  return (
-    <div className="absolute top-4 right-4 bg-white/70 backdrop-blur-md rounded-xl px-4 py-2 shadow-md z-40 text-sm text-gray-800">
-      {/* Lokacija */}
-      <div className="flex items-center justify-center gap-1 mb-1 text-gray-800 font-medium">
-        <FaMapMarkerAlt className="text-blue-600" />
-        <span>Izola</span>
-      </div>
+  const temp = weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'
+  const wind = weather.veter     ? `${Math.round(weather.veter)} km/h` : '-- km/h'
 
-      {/* Vreme info */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1 text-blue-600">
-          <WiThermometer size={20} />
-          <span className="text-gray-800 font-semibold">
-            {weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'}
-          </span>
+  return (
+    <div className="fixed bottom-4 right-4 z-50">
+      <div className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm">
+        <div className="flex items-center justify-center gap-1 text-primary font-medium mb-1">
+          <HiOutlineLocationMarker className="text-base" />
+          <span className="text-black">Izola</span>
         </div>
-        <div className="flex items-center gap-1 text-blue-600">
-          <WiStrongWind size={20} />
-          <span className="text-gray-800 font-semibold whitespace-nowrap">
-            {weather.veter ? `${Math.round(weather.veter)} km/h` : '-- km/h'}
-          </span>
+        <div className="flex items-center gap-4 justify-center">
+          <div className="flex items-center gap-1 text-primary">
+            <WiThermometer className="text-xl" />
+            <span className="text-black font-medium">{temp}</span>
+          </div>
+          <div className="flex items-center gap-1 text-primary font-bold">
+            <WiStrongWind className="text-xl" />
+            <span className="text-black font-medium">{wind}</span>
+          </div>
         </div>
       </div>
     </div>
