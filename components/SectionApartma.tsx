@@ -15,9 +15,8 @@ import {
   FaTv,
   FaBed,
   FaBath,
-  FaFan
+  FaWind
 } from 'react-icons/fa'
-import { MdOutlineKitchen } from 'react-icons/md'
 
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
 
@@ -38,49 +37,48 @@ export default function SectionApartma() {
   }
 
   const closeModal = () => setIsOpen(false)
-
   const prevImage = () =>
     setSelectedImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-
   const nextImage = () =>
     setSelectedImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
 
   return (
     <section id="apartma" className="bg-gray-50 py-20 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        {/* Centered badge */}
+        {/* Badge */}
         <div className="w-full flex justify-center mb-3">
           <span className="inline-block px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
             O Apartmaju
           </span>
         </div>
 
-        {/* Centered header and paragraph */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        {/* Title + Description */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-4xl font-bold mb-4">
             Vaš popoln <span className="text-[#2DC6F7]">dopust</span>
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
             Studio Aurora je sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left: Image */}
-          <div className="w-full">
+          <div className="w-full pt-6 md:pt-12">
             <img
               src="/images/izola-hero.png"
               alt="Izola pogled"
-              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[480px]"
+              className="rounded-3xl shadow-md w-full h-auto object-cover max-h-[460px]"
             />
           </div>
 
-          {/* Right: Content */}
+          {/* Right: Features */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h3 className="text-2xl font-semibold mb-4">
               Zakaj izbrati Studio Aurora?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
               Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
             </p>
 
@@ -95,14 +93,14 @@ export default function SectionApartma() {
               <Feature icon={<FaUtensils />} label="800m do restavracij" />
               <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
               <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
-              <Feature icon={<MdOutlineKitchen />} label="Lastna kuhinja in kopalnica" />
-              <Feature icon={<FaFan />} label="Brezplačna klima in prezračevanje" />
+              <Feature icon={<FaBath />} label="Lastna kuhinja in kopalnica" />
+              <Feature icon={<FaWind />} label="Brezplačna klima in prezračevanje" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Gallery section */}
+      {/* Gallery */}
       <div className="container mx-auto mt-20 text-center">
         <span className="inline-block px-3 py-1 mb-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
@@ -110,7 +108,7 @@ export default function SectionApartma() {
         <h2 className="text-3xl font-bold mb-2">
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
-        <p className="text-sm mb-8 text-gray-600 max-w-xl mx-auto">
+        <p className="text-base md:text-lg mb-8 text-gray-600 max-w-xl mx-auto">
           Preglejte naš sodobno opremljen apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
         </p>
 
