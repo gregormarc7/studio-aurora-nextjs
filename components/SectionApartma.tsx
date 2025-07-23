@@ -107,11 +107,12 @@ export default function SectionApartma() {
       </div>
 
       {/* ---------------- Galerija ---------------- */}
+     
       <div className="container mx-auto mt-20 text-center">
-        <span className="px-3 py-1 mb-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+        <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
         </span>
-        <h2 className="text-3xl font-bold mb-2">
+        <h2 className="text-4xl font-bold">
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
         <p className="text-lg text-gray-600 max-w-xl mx-auto mb-10">
