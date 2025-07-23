@@ -3,7 +3,18 @@
 import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import { FaUmbrellaBeach, FaUsers, FaWifi, FaCar, FaEye, FaHeadset } from 'react-icons/fa'
+import {
+  FaUmbrellaBeach,
+  FaUsers,
+  FaWifi,
+  FaCar,
+  FaEye,
+  FaBicycle,
+  FaShoppingCart,
+  FaUtensils,
+  FaTv,
+  FaBed
+} from 'react-icons/fa'
 
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
 
