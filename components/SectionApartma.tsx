@@ -37,7 +37,7 @@ export default function SectionApartma() {
         {/* Left: Image */}
         <div>
           <img
-            src="/images/izola-pogled.jpg"
+            src="/images/izola-hero.png"
             alt="Izola pogled"
             className="rounded-3xl shadow-md"
           />
