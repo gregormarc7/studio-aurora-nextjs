@@ -52,8 +52,9 @@ export default function SectionApartma() {
             Vaš popoln <span className="text-pink-400">počitek</span>
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Studio Aurora je sodobno opremljen apartma v neposredni bližini plaže, ki ponuja
-            popolno kombinacijo udobja in naravne lepote Slovenske Istre.
+           Studio Aurora je nov, sodobno opremljen studio apartma za dve osebi, ki ponuja mir, zasebnost in udobje. 
+           Nahaja se v mirni soseski Izole, le 10 minut hoje od plaže in le dve minuti od priljubljene kolesarske poti Parenzana. 
+           Idealna izbira za pare, poslovneže ali solo popotnike, ki iščejo čist, praktičen in sproščen oddih ob morju.
           </p>
 
           <h3 className="text-2xl font-semibold mb-4">Zakaj izbrati Studio Aurora?</h3>
