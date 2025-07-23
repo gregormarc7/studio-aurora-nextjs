@@ -84,7 +84,7 @@ export default function SectionApartma() {
             <Feature icon={<FaBicycle />} label="180m do Parenzane" />
             <Feature icon={<FaShoppingCart />} label="600m do trgovine" />
             <Feature icon={<FaUtensils />} label="800m do restavracij" />
-            <Feature icon={<FaTv />} label="Netflix" />
+            <Feature icon={<FaTv />} label="Kabelska TV + Netflix" />
             <Feature icon={<FaBed />} label="Posteljnina in brisače vključene" />
           </div>
         </div>
