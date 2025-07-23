@@ -70,9 +70,8 @@ export default function SectionApartma() {
 
           <h3 className="text-2xl font-semibold mb-4">Zakaj izbrati Studio Aurora?</h3>
           <p className="text-gray-600 mb-6">
-            Izola je slikovito obmorsko mesto z bogatim kulturnim dogajanjem, odlično kulinariko
-            in razgledom na slovensko obalo. Naš apartma je idealna izhodiščna točka za sprostitev
-            in raziskovanje vsega, kar ponuja ta čudovita destinacija.
+            Izola očara s svojo slikovito obalo, živahnim kulturnim utripom in izvrstno kulinariko. 
+            Studio Aurora pa je popolna izbira za vse, ki želite doživeti to čarobno obmorsko mesto v mirnem in udobnem okolju.
           </p>
 
           <div className="grid grid-cols-2 gap-4 text-sm text-gray-800">
