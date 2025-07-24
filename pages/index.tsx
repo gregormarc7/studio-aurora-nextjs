@@ -17,14 +17,14 @@ export default function Home() {
       </Head>
 
       <Header />
-     <main>
-  <Hero />
-  <SectionApartma />
-  <SectionIzola />
-  <SectionLokacija />
-  <SectionPovprasevanje />
-</main>
-<Footer />
+      <main>
+        <Hero />
+        <SectionApartma />
+        <SectionIzola />
+        <SectionLokacija />
+        <SectionPovprasevanje />
+      </main>
+      <Footer /> {/* Dodaj to vrstico */}
     </>
   )
 }
