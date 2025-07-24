@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Hero from '../components/Hero'
 import SectionIzola from '../components/SectionIzola'
 import SectionApartma from '../components/SectionApartma'
-import SectionPovprasevanje from '../components/SectionPovprasevanje'
 import SectionLokacija from '../components/SectionLokacija'
+import SectionPovprasevanje from '../components/SectionPovprasevanje'
 import Header from '../components/Header'
 
 export default function Home() {
@@ -20,9 +20,9 @@ export default function Home() {
         <Hero />
         <SectionApartma />
         <SectionIzola />
-        <SectionPovprasevanje />
         <SectionLokacija />
-      </main>
+        <SectionPovprasevanje />
+        </main>
     </>
   )
 }
