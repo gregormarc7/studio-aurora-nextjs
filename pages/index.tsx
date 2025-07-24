@@ -5,6 +5,7 @@ import SectionApartma from '../components/SectionApartma'
 import SectionLokacija from '../components/SectionLokacija'
 import SectionPovprasevanje from '../components/SectionPovprasevanje'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -16,13 +17,14 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main>
-        <Hero />
-        <SectionApartma />
-        <SectionIzola />
-        <SectionLokacija />
-        <SectionPovprasevanje />
-        </main>
+     <main>
+  <Hero />
+  <SectionApartma />
+  <SectionIzola />
+  <SectionLokacija />
+  <SectionPovprasevanje />
+</main>
+<Footer />
     </>
   )
 }
