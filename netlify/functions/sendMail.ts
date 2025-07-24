@@ -49,7 +49,7 @@ const handler: Handler = async (event) => {
     await transporter.sendMail(toGuest)
     return { statusCode: 200, body: JSON.stringify({ success: true }) }
   } catch (err) {
-    console.error('Email error:', err)
+    console.error('❌ Email error:', err)
     return { statusCode: 500, body: JSON.stringify({ error: 'Email send failed' }) }
   }
 }
