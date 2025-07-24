@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 export default function Hero() {
   const [weather, setWeather] = useState<{ tempZrak?: number; veter?: number }>({})
 
-  /* ⛅️ – naloži podatke ob prvem renderju */
+  // ⛅️ Naloži podatke o vremenu
   useEffect(() => {
     fetch('/.netlify/functions/weather')
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -17,14 +17,13 @@ export default function Hero() {
       .catch(e => console.error('❌ Napaka pri vremenu:', e))
   }, [])
 
-  /* helpers */
   const temp = weather.tempZrak ? `${Math.round(weather.tempZrak)}°C` : '--°C'
   const wind = weather.veter     ? `${Math.round(weather.veter)} km/h` : '-- km/h'
 
   return (
     <section id="domov" className="relative min-h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden">
 
-      {/* ozadje */}
+      {/* Ozadje */}
       <Image
         src="/images/hero.jpg"
         alt="Izola – pogled na morje"
@@ -32,21 +31,19 @@ export default function Hero() {
         priority
         className="object-cover z-0"
       />
-
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/20 to-black/60" />
 
-      {/* ---------------- VREME ---------------- */}
-      {/* Desktop */}
+      {/* 🟦 Vreme – desktop */}
       <div className="hidden md:block absolute top-4 right-4 z-20">
         <WeatherBox temp={temp} wind={wind} />
       </div>
 
-      {/* Mobile */}
+      {/* 🟦 Vreme – mobilno */}
       <div className="block md:hidden absolute top-4 left-1/2 -translate-x-1/2 z-20">
         <WeatherBox temp={temp} wind={wind} />
       </div>
 
-      {/* ---------------- SREDINSKA VSEBINA ---------------- */}
+      {/* Vsebina */}
       <div className="relative z-20 max-w-3xl px-6 flex flex-col items-center mt-32 md:mt-0">
         <h1 className="font-display font-bold leading-tight animate-bounce-slow text-6xl md:text-7xl">
           <div>Studio</div>
@@ -59,7 +56,7 @@ export default function Hero() {
 
         <div className="flex flex-col md:flex-row gap-4">
           <a
-            href="#rezervacija"
+            href="#povprasevanje"
             className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-lg hover:scale-105 transition flex items-center gap-2 justify-center"
           >
             <FaCalendarAlt /> Rezerviraj zdaj
@@ -76,7 +73,7 @@ export default function Hero() {
   )
 }
 
-/* ───── majhna komponenta za vreme ───── */
+/* 🔹 Komponenta za prikaz vremena */
 function WeatherBox({ temp, wind }: { temp: string; wind: string }) {
   return (
     <div className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm">
