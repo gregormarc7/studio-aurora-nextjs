@@ -180,11 +180,17 @@ function Feature({ icon, label }: FeatureProps) {
   );
 }
 
-function NavBtn({ onClick, children }) {
+type NavBtnProps = {
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+function NavBtn({ onClick, children }: NavBtnProps) {
   return (
     <button
       onClick={onClick}
-      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
+      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7]
+                 hover:bg-pink-200 hover:text-pink-600 transition"
     >
       {children}
     </button>
