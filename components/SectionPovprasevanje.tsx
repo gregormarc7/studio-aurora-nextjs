@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
 import { FaStar } from "react-icons/fa"
-import Image from "next/image"
 
 export default function SectionPovprasevanje() {
   const [form, setForm] = useState({
