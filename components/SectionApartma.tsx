@@ -57,11 +57,13 @@ export default function SectionApartma() {
         {/* ----- slika + opis + “čipke” ----- */}
         <div className="grid lg:grid-cols-[minmax(0,700px)_1fr] gap-14 lg:gap-20 items-start">
           {/* slika */}
-          <img
-            src="/images/izola-hero.png"
-            alt="Pogled na Izolo"
-            className="w-full h-full rounded-3xl shadow-md object-cover"
-          />
+          <Image
+  src="/images/izola-hero.png"
+  alt="Pogled na Izolo"
+  width={700}
+  height={500}
+  className="w-full rounded-3xl shadow-md object-cover"
+/>
 
           {/* opis + feature grid */}
           <div>
