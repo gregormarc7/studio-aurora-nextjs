@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
 import { FaStar } from "react-icons/fa"
-import { FaPaperPlane, FaUser } from "react-icons/fa"
 
 export default function SectionPovprasevanje() {
   const [form, setForm] = useState({
@@ -59,28 +58,28 @@ export default function SectionPovprasevanje() {
   }
 
   return (
-    <>
-      <section id="povprasevanje" className="bg-gray-50 py-20 px-4">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
+    <section id="povprasevanje" className="bg-gray-50 py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Naslov */}
+        <div className="flex justify-center">
+          <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+            Kontakt & Rezervacija
+          </span>
+        </div>
+        <h2 className="text-center text-4xl font-bold mt-1">
+          Rezervirajte svoj <span className="text-[#2DC6F7]">pobeg</span>
+        </h2>
+        <p className="mt-3 mb-12 text-center text-lg text-gray-700 max-w-3xl mx-auto">
+          Pripravite se na nepozaben dopust v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
+        </p>
+
+        {/* Glavna mreža */}
+        <div className="grid lg:grid-cols-2 gap-10">
           {/* Leva stran */}
           <div className="space-y-6">
-            <div className="text-center lg:text-left">
-              <div className="text-sm text-gray-500 font-medium uppercase tracking-wide mb-2">
-                Kontakt & Rezervacija
-              </div>
-              <h2 className="text-4xl font-bold">
-                Rezervirajte svoj <span className="text-gray-800">pobeg</span>
-              </h2>
-              <p className="text-gray-600 mt-2">
-                Pripravite se na nepozaben dopust v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <ContactInfo icon={<HiOutlineMail />} label="Email" value="studioauroraizola@gmail.com" />
-              <ContactInfo icon={<HiOutlinePhone />} label="Telefon" value="+386 41 430 460 ali +386 40 585 604" />
-              <ContactInfo icon={<HiOutlineLocationMarker />} label="Lokacija" value="Na terasah 2, 6310 Izola, Slovenija" />
-            </div>
+            <ContactInfo icon={<HiOutlineMail />} label="Email" value="studioauroraizola@gmail.com" />
+            <ContactInfo icon={<HiOutlinePhone />} label="Telefon" value="+386 41 430 460 ali +386 40 585 604" />
+            <ContactInfo icon={<HiOutlineLocationMarker />} label="Lokacija" value="Na terasah 2, 6310 Izola, Slovenija" />
 
             <div className="bg-white rounded-xl shadow px-6 py-4 mt-4">
               <h4 className="flex items-center gap-2 text-lg font-semibold text-yellow-500">
@@ -96,77 +95,48 @@ export default function SectionPovprasevanje() {
 
           {/* Desna stran – obrazec */}
           <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow p-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold">Pošljite povpraševanje</h3>
-              <p className="text-sm text-gray-500">Izpolnite obrazec in odgovorili vam bomo v najkrajšem času.</p>
-            </div>
-
+            <div className="text-lg font-semibold">Pošljite povpraševanje</div>
+            <p className="text-sm text-gray-500 mb-4">Izpolnite obrazec in odgovorili vam bomo v najkrajšem času.</p>
             <div className="grid md:grid-cols-2 gap-4">
-              <input name="name" type="text" value={form.name} onChange={handleChange} required placeholder="Ime in priimek *" className="input" />
-              <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="Email naslov *" className="input" />
-
-              <input name="arrival" type="date" value={form.arrival} onChange={handleChange} className="input" />
-              <input name="departure" type="date" value={form.departure} onChange={handleChange} className="input" />
-
-              <select name="guests" value={form.guests} onChange={handleChange} className="input col-span-2 md:col-span-1">
+              <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Ime in priimek *" required className="input" />
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email naslov *" required className="input" />
+              <input type="date" name="arrival" value={form.arrival} onChange={handleChange} placeholder="Prihod" className="input" />
+              <input type="date" name="departure" value={form.departure} onChange={handleChange} placeholder="Odhod" className="input" />
+              <select name="guests" value={form.guests} onChange={handleChange} className="input">
                 <option>1 oseba</option>
                 <option>2 osebi</option>
               </select>
-
-              <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
+              <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
             </div>
-
-            <textarea
-              name="message"
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Povejte nam več o vaših željah in potrebah..."
-              className="input"
-            />
-
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="bg-sky-400 hover:bg-sky-500 transition text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 justify-center"
-            >
-              <FaPaperPlane /> {status === "sending" ? "Pošiljanje..." : "Pošlji povpraševanje"}
+            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Povejte nam več o vaših željah in potrebah..." rows={4} className="input" />
+            <button type="submit" disabled={status === "sending"} className="w-full bg-[#2DC6F7] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
+              {status === "sending" ? "Pošiljanje..." : "📩 Pošlji povpraševanje"}
             </button>
           </form>
         </div>
-      </section>
+      </div>
 
-      {/* Noga */}
-      <footer className="bg-gray-100 py-10 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 text-sm text-gray-600">
-          <div>
-            <div className="text-lg font-bold text-gray-800 mb-2">🌊 Studio Aurora</div>
-            <p>Sodoben apartma v neposredni bližini plaže v Izoli. Vaš popoln oddih ob Slovenskem morju.</p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-700 mb-2">Kontakt</h4>
-            <p>📧 studioauroraizola@gmail.com</p>
-            <p>📞 +386 41 430 460</p>
-            <p>📍 Na terasah 2, 6310 Izola</p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-700 mb-2">Povezave</h4>
-            <ul className="space-y-1">
-              <li>O apartmaju</li>
-              <li>Galerija</li>
-              <li>Rezervacije</li>
-              <li>Kontakt</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-700 mb-2">Sledite nam</h4>
-            <p>📸 Instagram<br />🔗 Facebook</p>
-            <p className="mt-2 text-xs">Narejeno z ❤️ v Sloveniji</p>
-          </div>
+      {/* Footer znotraj sekcije */}
+      <div className="max-w-6xl mx-auto mt-16 border-t pt-10 grid md:grid-cols-3 gap-10 text-sm text-gray-600">
+        <div>
+          <div className="font-bold text-lg text-[#2DC6F7] mb-2">Studio Aurora</div>
+          <p>Sodoben apartma v neposredni bližini plaže v Izoli. Vaš popoln oddih ob slovenski obali.</p>
         </div>
-        <div className="text-center text-xs text-gray-400 mt-6">&copy; 2024 Studio Aurora. Vse pravice pridržane.</div>
-      </footer>
-    </>
+        <div>
+          <div className="font-semibold mb-1">Kontakt</div>
+          <p>📧 studioauroraizola@gmail.com</p>
+          <p>📞 +386 41 430 460</p>
+          <p>📍 Na terasah 2, 6310 Izola</p>
+        </div>
+        <div>
+          <div className="font-semibold mb-1">Povezave</div>
+          <p>O apartmaju</p>
+          <p>Galerija</p>
+          <p>Lokacija</p>
+          <p>Kontakt</p>
+        </div>
+      </div>
+    </section>
   )
 }
 
