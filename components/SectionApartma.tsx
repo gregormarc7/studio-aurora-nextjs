@@ -4,21 +4,12 @@ import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import {
-  FaUmbrellaBeach,
-  FaUsers,
-  FaWifi,
-  FaCar,
-  FaEyeSlash,
-  FaBicycle,
-  FaShoppingCart,
-  FaUtensils,
-  FaTv,
-  FaBed,
-  FaBath,
-  FaWind
+  FaUmbrellaBeach, FaUsers, FaWifi, FaCar, FaEyeSlash,
+  FaBicycle, FaShoppingCart, FaUtensils, FaTv, FaBed,
+  FaBath, FaWind
 } from 'react-icons/fa'
 
-/* ––– demo galerija ––– */
+/* ---- DEMO galerija ---- */
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`)
 
 export default function SectionApartma() {
@@ -26,7 +17,7 @@ export default function SectionApartma() {
   const [open, setOpen] = useState(false)
   const [fade, setFade] = useState(false)
 
-  /* fade-in animacija za glavno sliko galerije */
+  /* fade-in pri menjavi glavne slike */
   useEffect(() => {
     setFade(false)
     const t = setTimeout(() => setFade(true), 80)
@@ -40,7 +31,7 @@ export default function SectionApartma() {
     <section id="apartma" className="scroll-mt-24 bg-gray-50 py-20 px-4">
       <div className="max-w-6xl mx-auto">
 
-        {/* ---------------- Badge + naslov ---------------- */}
+        {/* ---------- Badge + glavni naslov ---------- */}
         <div className="flex justify-center mb-4">
           <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
             O Apartmaju
@@ -56,10 +47,10 @@ export default function SectionApartma() {
           poti&nbsp;Parenzana.
         </p>
 
-        {/* ---------------- slika + vsebine ---------------- */}
+        {/* ---------- slika + opis + “čipke” ---------- */}
         <div className="grid lg:grid-cols-[minmax(0,640px)_1fr] gap-14 items-start">
 
-          {/* slika */}
+          {/* Slika */}
           <div>
             <img
               src="/images/izola-hero.png"
@@ -68,48 +59,40 @@ export default function SectionApartma() {
             />
           </div>
 
-          {/* opis + prednosti */}
+          {/* Opis + prednosti */}
           <div>
             <h3 className="text-2xl font-semibold mb-4">
               Zakaj izbrati Studio Aurora?
             </h3>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               Izola očara z obalo, živahnim kulturnim utripom in izvrstno kulinariko.
-              Naš apartma je idealna izhodiščna točka, če želite doživeti to&nbsp;čarobno
+              Naš apartma je idealna izhodiščna točka, če želite doživeti to čarobno
               mesto v mirnem in udobnem okolju.
             </p>
 
-            {/* 3 stolpci – min 200 px – feature čipke */}
-            <div
-              className="
-                grid gap-4
-                [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]
-              "
-            >
-              <Feature icon={<FaUmbrellaBeach />} label="850 m do plaže"     />
-              <Feature icon={<FaUsers />}        label="Do 2 gosta"          />
-              <Feature icon={<FaWifi />}         label="Brezplačen Wi-Fi"    />
+            {/* 1 → 2 → 3 kolone glede na širino */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Feature icon={<FaUmbrellaBeach />} label="850 m do plaže"          />
+              <Feature icon={<FaUsers />}        label="Do 2 gosta"              />
+              <Feature icon={<FaWifi />}         label="Brezplačen Wi-Fi"        />
 
-              <Feature icon={<FaCar />}          label="Brezp. parkiranje"   />
-              <Feature icon={<FaEyeSlash />}     label="Zasebnost"           />
-              <Feature icon={<FaBicycle />}      label="180 m do Parenzane"  />
+              <Feature icon={<FaCar />}          label="Brezplačno parkiranje"   />
+              <Feature icon={<FaEyeSlash />}     label="Zasebnost"               />
+              <Feature icon={<FaBicycle />}      label="180 m do Parenzane"      />
 
-              <Feature icon={<FaShoppingCart />} label="600 m do trgovine"   />
-              <Feature icon={<FaUtensils />}     label="800 m do restavracij"/>
-              <Feature icon={<FaTv />}           label="TV + Netflix"        />
+              <Feature icon={<FaShoppingCart />} label="600 m do trgovine"       />
+              <Feature icon={<FaUtensils />}     label="800 m do restavracij"    />
+              <Feature icon={<FaTv />}           label="TV + Netflix"            />
 
-              <Feature icon={<FaBed />}          label="Posteljnina & brisače"/>
-              <Feature icon={<FaBath />}         label="Kuhinja & kopalnica" />
-              <Feature icon={<FaWind />}         label="Klima & prezračevanje"/>
+              <Feature icon={<FaBed />}          label="Posteljnina & brisače"   />
+              <Feature icon={<FaBath />}         label="Kuhinja & kopalnica"     />
+              <Feature icon={<FaWind />}         label="Klima & prezračevanje"   />
             </div>
           </div>
         </div>
       </div>
 
- 
-      
-      {/* ---------------- Galerija ---------------- */}   
-       
+      {/* ---------- Galerija ---------- */}
       <div className="container mx-auto mt-20 text-center">
         <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
@@ -117,7 +100,7 @@ export default function SectionApartma() {
         <h2 className="text-4xl font-bold">
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+        <p className="text-lg text-gray-600 max-w-xl mx-auto mb-10">
           Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira
           za vaš dopust.
         </p>
@@ -138,13 +121,14 @@ export default function SectionApartma() {
             onClick={() => setOpen(true)}
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
           >
-            <span className="w-10 h-10 bg-white text-[#2DC6F7] rounded-full shadow border border-black flex items-center justify-center text-xl font-bold">
+            <span className="w-10 h-10 bg-white text-[#2DC6F7] rounded-full shadow
+                             border border-black flex items-center justify-center text-xl font-bold">
               +
             </span>
           </button>
         </div>
 
-        {/* thumbs + kontrole */}
+        {/* thumbnails */}
         <div className="grid grid-cols-5 gap-4 mt-6 max-w-screen-lg mx-auto">
           {images.map((src, i) => (
             <img
@@ -158,46 +142,44 @@ export default function SectionApartma() {
           ))}
         </div>
 
+        {/* kontrole */}
         <div className="mt-8 flex justify-center gap-4">
           <button
             onClick={prev}
-            className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
-          >
+            className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7]
+                       hover:bg-pink-200 hover:text-pink-600 transition">
             ← Prejšnja
           </button>
           <button
             onClick={next}
-            className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
-          >
+            className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7]
+                       hover:bg-pink-200 hover:text-pink-600 transition">
             Naslednja →
           </button>
         </div>
       </div>
 
-      {/* ---------------- Modal ---------------- */}
+      {/* ---------- Modal ---------- */}
       <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/70" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="relative bg-white rounded-lg max-w-5xl w-full overflow-hidden">
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-600"
-            >
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-600">
               <XMarkIcon className="w-6 h-6" />
             </button>
             <div className="relative">
               <img src={images[sel]} className="w-full h-auto" />
               <button
                 onClick={prev}
-                className="absolute top-1/2 left-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
-              >
-                ‹
+                className="absolute top-1/2 left-0 -translate-y-1/2
+                           text-white text-5xl px-3 select-none">‹
               </button>
               <button
                 onClick={next}
-                className="absolute top-1/2 right-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
-              >
-                ›
+                className="absolute top-1/2 right-0 -translate-y-1/2
+                           text-white text-5xl px-3 select-none">›
               </button>
             </div>
           </Dialog.Panel>
@@ -207,12 +189,12 @@ export default function SectionApartma() {
   )
 }
 
-/* ---------- Helper ---------- */
+/* ---------- helper komponenta ---------- */
 function Feature({ icon, label }: { icon: JSX.Element; label: string }) {
   return (
-    <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm whitespace-nowrap">
+    <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
       <span className="text-[#2DC6F7] text-lg">{icon}</span>
-      <span className="text-sm font-medium">{label}</span>
+      <span className="text-sm font-medium whitespace-nowrap">{label}</span>
     </div>
   )
 }
