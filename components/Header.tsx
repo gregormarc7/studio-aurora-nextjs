@@ -6,7 +6,6 @@ import Image from 'next/image'
 export default function Header() {
   const [open, setOpen] = useState(false)
 
-  /* ↕️ – toggle mobilni meni */
   useEffect(() => {
     const btn = document.getElementById('hamburger')
     if (btn) btn.addEventListener('click', () => setOpen(p => !p))
@@ -16,11 +15,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4 py-2 md:py-4">
 
-        {/* ───── Mobile: logo + hamburger ───── */}
+        {/* Mobile: logo + hamburger */}
         <div className="flex md:hidden w-full justify-between items-center">
           <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
-              src="/images/logo.png"                    /* <-- zamenjaj po potrebi */
+              src="/images/logo.png"
               alt="Studio Aurora logo"
               width={48}
               height={48}
@@ -36,7 +35,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* ───── Desktop: logo ───── */}
+        {/* Desktop: logo */}
         <div className="hidden md:flex items-center">
           <div className="border border-black rounded-md p-1">
             <Image
@@ -50,14 +49,14 @@ export default function Header() {
           </div>
         </div>
 
-        {/* ───── Desktop navigacija ───── */}
+        {/* Desktop navigacija */}
         <nav className="hidden md:flex items-center gap-6">
           {[
             ['#domov', 'Domov'],
             ['#apartma', 'O apartmaju'],
             ['#o-izoli', 'O Izoli'],
             ['#lokacija', 'Lokacija'],
-            ['#kontakt', 'Kontakt'],
+            ['#povprasevanje', 'Kontakt'],
           ].map(([href, txt]) => (
             <a key={href} href={href} className="hover:text-primary transition">
               {txt}
@@ -65,7 +64,7 @@ export default function Header() {
           ))}
 
           <a
-            href="#rezervacija"
+            href="#povprasevanje"
             className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
           >
             Rezerviraj
@@ -73,7 +72,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* ───── Mobile navigacija ───── */}
+      {/* Mobile navigacija */}
       <nav
         id="mobileNav"
         className={`md:hidden flex-col w-full items-center gap-2 pb-4 ${
@@ -85,14 +84,15 @@ export default function Header() {
           ['#apartma', 'O apartmaju'],
           ['#o-izoli', 'O Izoli'],
           ['#lokacija', 'Lokacija'],
-          ['#kontakt', 'Kontakt'],
+          ['#povprasevanje', 'Kontakt'],
         ].map(([href, txt]) => (
           <a key={href} href={href} className="text-gray-700 hover:text-primary">
             {txt}
           </a>
         ))}
+
         <a
-          href="#rezervacija"
+          href="#povprasevanje"
           className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
         >
           Rezerviraj
