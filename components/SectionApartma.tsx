@@ -166,7 +166,12 @@ export default function SectionApartma() {
 }
 
 /* ----- helper komponenti ----- */
-function Feature({ icon, label }) {
+type FeatureProps = {
+  icon: JSX.Element;
+  label: string;
+};
+
+function Feature({ icon, label }: FeatureProps) {
   return (
     <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
       <span className="text-[#2DC6F7] text-lg">{icon}</span>
