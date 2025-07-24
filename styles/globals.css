@@ -12,3 +12,7 @@
     @apply w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 bg-white placeholder-gray-400;
   }
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* višina headerja */
+}
