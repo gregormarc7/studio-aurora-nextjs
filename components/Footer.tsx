@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 
 export default function Footer() {
@@ -7,18 +5,18 @@ export default function Footer() {
     <footer className="bg-gray-50 border-t border-gray-200 py-10 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-sm text-gray-700">
         {/* Logo in opis */}
-        <div>
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-3">
             <Image
-              src="/logo.png"
-              alt="Studio Aurora Logo"
-              width={30}
-              height={30}
-              className="w-7 h-7 object-contain"
+              src="/images/logo.png"  // Poskrbi, da datoteka obstaja na tej poti
+              alt="Studio Aurora logo"
+              width={50}
+              height={50}
+              className="object-contain"
             />
-            <div className="text-[#2DC6F7] font-bold text-lg">Studio Aurora</div>
+            <span className="text-[#2DC6F7] font-bold text-lg">Studio Aurora</span>
           </div>
-          <p className="mt-2 text-gray-600 max-w-xs">
+          <p className="text-gray-600 max-w-xs mt-2">
             Sodoben apartma v neposredni bližini plaže v Izoli. Vaš popoln oddih ob slovenski obali.
           </p>
         </div>
@@ -26,9 +24,10 @@ export default function Footer() {
         {/* Kontaktni podatki */}
         <div>
           <h4 className="text-gray-900 font-semibold mb-2">Kontakt</h4>
-          <ul className="space-y-1 whitespace-pre-line">
+          <ul className="space-y-1">
             <li>📧 studioauroraizola@gmail.com</li>
-            <li>📞 +386 41 430 460{'\n'}📞 +386 40 585 604</li>
+            <li>📞 +386 41 430 460</li>
+            <li>📞 +386 40 585 604</li>
             <li>📍 Na terasah 2, 6310 Izola</li>
           </ul>
         </div>
