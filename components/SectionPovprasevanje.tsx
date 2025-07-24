@@ -66,13 +66,13 @@ export default function SectionPovprasevanje() {
             Rezervirajte svoj <span className="text-pink-400">pobeg</span>
           </h2>
           <p className="text-gray-600">
-            Pripravite se na nepozaben počitek v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
+            Pripravite se na nepozaben dopust v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
           </p>
 
           <div className="space-y-4">
-            <ContactInfo icon={<HiOutlineMail />} label="Email" value="info@studio-aurora-izola.com" />
-            <ContactInfo icon={<HiOutlinePhone />} label="Telefon" value="+386 40 123 456" />
-            <ContactInfo icon={<HiOutlineLocationMarker />} label="Lokacija" value="Ob obali 12, 6280 Izola, Slovenija" />
+            <ContactInfo icon={<HiOutlineMail />} label="Email" value="studioauroraizola@gmail.com" />
+            <ContactInfo icon={<HiOutlinePhone />} label="Telefon" value="+386 41 430 460 ali +386 40 585 604 " />
+            <ContactInfo icon={<HiOutlineLocationMarker />} label="Lokacija" value="Na terasah 2, 6310 Izola, Slovenija" />
           </div>
 
           <div className="bg-white rounded-xl shadow px-6 py-4 mt-4">
@@ -80,10 +80,10 @@ export default function SectionPovprasevanje() {
               <FaStar /> Hitra dejstva
             </h4>
             <ul className="text-sm mt-2 space-y-1">
-              <li>Check-in: <strong>15:00</strong></li>
+              <li>Check-in: <strong>16:00</strong></li>
               <li>Check-out: <strong>11:00</strong></li>
-              <li>Maksimalno gostov: <strong>4</strong></li>
-              <li>Minimalno nočitev: <strong>2 noči</strong></li>
+              <li>Maksimalno gostov: <strong>2</strong></li>
+              
             </ul>
           </div>
         </div>
@@ -99,8 +99,6 @@ export default function SectionPovprasevanje() {
             <select name="guests" value={form.guests} onChange={handleChange} className="input col-span-2 md:col-span-1">
               <option>1 oseba</option>
               <option>2 osebi</option>
-              <option>3 osebe</option>
-              <option>4 osebe</option>
             </select>
             <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
           </div>
