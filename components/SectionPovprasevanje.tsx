@@ -15,15 +15,46 @@ export default function SectionPovprasevanje() {
     message: "",
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
     setForm(prev => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Tu dodaš pošiljanje e-pošte (glej spodaj)
-    alert("Hvala za povpraševanje! Odgovorimo v najkrajšem možnem času.")
+    setStatus("sending")
+
+    try {
+      const res = await fetch("/.netlify/functions/sendMail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+
+      if (res.ok) {
+        setStatus("sent")
+        alert("✅ Sporočilo je bilo uspešno poslano. Odgovorili vam bomo v najkrajšem možnem času.")
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          arrival: "",
+          departure: "",
+          guests: "2 osebi",
+          message: "",
+        })
+      } else {
+        throw new Error("Pošiljanje ni uspelo.")
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus("error")
+      alert("❌ Prišlo je do napake pri pošiljanju. Poskusite znova ali nas kontaktirajte direktno.")
+    }
   }
 
   return (
@@ -74,8 +105,8 @@ export default function SectionPovprasevanje() {
             <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
           </div>
           <textarea name="message" value={form.message} onChange={handleChange} placeholder="Povejte nam več o vaših željah..." rows={4} className="input" />
-          <button type="submit" className="bg-[#2DC6F7] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
-            📩 Pošlji povpraševanje
+          <button type="submit" disabled={status === "sending"} className="bg-[#2DC6F7] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
+            {status === "sending" ? "Pošiljanje..." : "📩 Pošlji povpraševanje"}
           </button>
         </form>
       </div>
