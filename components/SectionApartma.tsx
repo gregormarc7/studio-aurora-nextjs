@@ -1,153 +1,203 @@
-"use client"
 
-import { useState } from "react"
-import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
-import { FaStar } from "react-icons/fa"
+"use client";
 
-export default function SectionPovprasevanje() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    arrival: "",
-    departure: "",
-    guests: "2 osebi",
-    message: "",
-  })
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  FaUmbrellaBeach,
+  FaUsers,
+  FaWifi,
+  FaCar,
+  FaEyeSlash,
+  FaBicycle,
+  FaShoppingCart,
+  FaUtensils,
+  FaTv,
+  FaBed,
+  FaBath,
+  FaWind,
+} from "react-icons/fa";
 
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target
-    setForm(prev => ({ ...prev, [name]: value }))
-  }
+export default function SectionApartma() {
+  const [sel, setSel] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [fade, setFade] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("sending")
+  useEffect(() => {
+    setFade(false);
+    const t = setTimeout(() => setFade(true), 80);
+    return () => clearTimeout(t);
+  }, [sel]);
 
-    try {
-      const res = await fetch("/.netlify/functions/sendMail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
-
-      if (res.ok) {
-        setStatus("sent")
-        alert("✅ Sporočilo je bilo uspešno poslano. Odgovorili vam bomo v najkrajšem možnem času.")
-        setForm({
-          name: "",
-          email: "",
-          phone: "",
-          arrival: "",
-          departure: "",
-          guests: "2 osebi",
-          message: "",
-        })
-      } else {
-        throw new Error("Pošiljanje ni uspelo.")
-      }
-    } catch (err) {
-      console.error(err)
-      setStatus("error")
-      alert("❌ Prišlo je do napake pri pošiljanju. Poskusite znova ali nas kontaktirajte direktno.")
-    }
-  }
+  const prev = () => setSel((s) => (s ? s - 1 : images.length - 1));
+  const next = () => setSel((s) => (s === images.length - 1 ? 0 : s + 1));
 
   return (
-    <section id="povprasevanje" className="bg-gray-50 py-20 px-4">
+    <section id="apartma" className="scroll-mt-24 bg-gray-50 py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Naslov */}
         <div className="flex justify-center">
           <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
-            Kontakt & Rezervacija
+            O Apartmaju
           </span>
         </div>
+
         <h2 className="text-center text-4xl font-bold mt-1">
-          Rezervirajte svoj <span className="text-[#2DC6F7]">pobeg</span>
+          Vaš popoln <span className="text-[#2DC6F7]">dopust</span>
         </h2>
         <p className="mt-3 mb-12 text-center text-lg text-gray-700 max-w-3xl mx-auto">
-          Pripravite se na nepozaben dopust v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
+          Studio Aurora je sodobno opremljen studio-apartma za dve osebi. Nahaja se v mirni soseski Izole,
+          10&nbsp;min hoje od plaže in 2&nbsp;minuti od priljubljene kolesarske poti Parenzana.
         </p>
 
-        {/* Glavna mreža */}
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Leva stran */}
-          <div className="space-y-6">
-            <ContactInfo icon={<HiOutlineMail />} label="Email" value="studioauroraizola@gmail.com" />
-            <ContactInfo icon={<HiOutlinePhone />} label="Telefon" value="+386 41 430 460 ali +386 40 585 604" />
-            <ContactInfo icon={<HiOutlineLocationMarker />} label="Lokacija" value="Na terasah 2, 6310 Izola, Slovenija" />
+        <div className="grid lg:grid-cols-[minmax(0,700px)_1fr] gap-14 lg:gap-20 items-start">
+          <Image
+            src="/images/izola-hero.png"
+            alt="Pogled na Izolo"
+            width={700}
+            height={500}
+            className="w-full rounded-3xl shadow-md object-cover"
+          />
 
-            <div className="bg-white rounded-xl shadow px-6 py-4 mt-4">
-              <h4 className="flex items-center gap-2 text-lg font-semibold text-yellow-500">
-                <FaStar /> Hitra dejstva
-              </h4>
-              <ul className="text-sm mt-2 space-y-1">
-                <li>Check-in: <strong>16:00</strong></li>
-                <li>Check-out: <strong>11:00</strong></li>
-                <li>Maksimalno gostov: <strong>2</strong></li>
-              </ul>
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">Zakaj izbrati Studio Aurora?</h3>
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Izola očara z obalo, živahnim kulturnim utripom in izvrstno kulinariko. Naš apartma je idealna
+              izhodiščna točka, če želite doživeti to čarobno mesto v mirnem in udobnem okolju.
+            </p>
+
+            <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(235px,1fr))] xl:[grid-template-columns:repeat(3,1fr)]">
+              {features.map((f) => (
+                <Feature key={f.label} icon={f.icon} label={f.label} />
+              ))}
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Desna stran – obrazec */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow p-6 space-y-6">
-            <div className="text-lg font-semibold">Pošljite povpraševanje</div>
-            <p className="text-sm text-gray-500 mb-4">Izpolnite obrazec in odgovorili vam bomo v najkrajšem času.</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Ime in priimek *" required className="input" />
-              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email naslov *" required className="input" />
-              <input type="date" name="arrival" value={form.arrival} onChange={handleChange} placeholder="Prihod" className="input" />
-              <input type="date" name="departure" value={form.departure} onChange={handleChange} placeholder="Odhod" className="input" />
-              <select name="guests" value={form.guests} onChange={handleChange} className="input">
-                <option>1 oseba</option>
-                <option>2 osebi</option>
-              </select>
-              <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
-            </div>
-            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Povejte nam več o vaših željah in potrebah..." rows={4} className="input" />
-            <button type="submit" disabled={status === "sending"} className="w-full bg-[#2DC6F7] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
-              {status === "sending" ? "Pošiljanje..." : "📩 Pošlji povpraševanje"}
+      <div id="galerija" className="container mx-auto mt-24 text-center">
+        <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+          Galerija
+        </span>
+        <h2 className="text-4xl font-bold mt-1">
+          Odkrijte <span className="text-[#2DC6F7]">udobje</span>
+        </h2>
+        <p className="mt-3 mb-10 text-lg text-gray-600 max-w-xl mx-auto">
+          Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
+        </p>
+
+        <div className="relative group mx-auto max-w-screen-lg rounded-xl overflow-hidden">
+          <img
+            src={images[sel]}
+            className={`w-full transition duration-500 ${fade ? "opacity-100" : "opacity-0"} group-hover:scale-105`}
+            onClick={() => setOpen(true)}
+          />
+          <span className="absolute bottom-2 left-2 px-2 py-1 bg-black/60 text-white text-xs rounded">
+            {sel + 1} / {images.length}
+          </span>
+          <button
+            onClick={() => setOpen(true)}
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
+          >
+            <span className="w-10 h-10 bg-white text-[#2DC6F7] rounded-full shadow border border-black flex items-center justify-center text-xl font-bold">
+              +
+            </span>
+          </button>
+        </div>
+
+        <div className="grid grid-cols-5 gap-4 mt-6 max-w-screen-lg mx-auto">
+          {images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              onClick={() => setSel(i)}
+              className={`h-24 w-full object-cover rounded-md cursor-pointer border-2 ${i === sel ? "border-[#2DC6F7]" : "border-transparent"}`}
+            />
+          ))}
+        </div>
+
+        <div className="mt-8 flex justify-center gap-4">
+          <NavBtn onClick={prev}>← Prejšnja</NavBtn>
+          <NavBtn onClick={next}>Naslednja →</NavBtn>
+        </div>
+      </div>
+
+      <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/70" />
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="relative bg-white rounded-lg max-w-5xl w-full overflow-hidden">
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-600"
+            >
+              <XMarkIcon className="w-6 h-6" />
             </button>
-          </form>
+            <div className="relative">
+              <img src={images[sel]} className="w-full h-auto" />
+              <button
+                onClick={prev}
+                className="absolute top-1/2 left-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
+              >
+                ‹
+              </button>
+              <button
+                onClick={next}
+                className="absolute top-1/2 right-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
+              >
+                ›
+              </button>
+            </div>
+          </Dialog.Panel>
         </div>
-      </div>
-
-      {/* Footer znotraj sekcije */}
-      <div className="max-w-6xl mx-auto mt-16 border-t pt-10 grid md:grid-cols-3 gap-10 text-sm text-gray-600">
-        <div>
-          <div className="font-bold text-lg text-[#2DC6F7] mb-2">Studio Aurora</div>
-          <p>Sodoben apartma v neposredni bližini plaže v Izoli. Vaš popoln oddih ob slovenski obali.</p>
-        </div>
-        <div>
-          <div className="font-semibold mb-1">Kontakt</div>
-          <p>📧 studioauroraizola@gmail.com</p>
-          <p>📞 +386 41 430 460</p>
-          <p>📍 Na terasah 2, 6310 Izola</p>
-        </div>
-        <div>
-          <div className="font-semibold mb-1">Povezave</div>
-          <p>O apartmaju</p>
-          <p>Galerija</p>
-          <p>Lokacija</p>
-          <p>Kontakt</p>
-        </div>
-      </div>
+      </Dialog>
     </section>
-  )
+  );
 }
 
-function ContactInfo({ icon, label, value }: { icon: JSX.Element, label: string, value: string }) {
+type FeatureProps = {
+  icon: JSX.Element;
+  label: string;
+};
+
+function Feature({ icon, label }: FeatureProps) {
   return (
-    <div className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
-      <div className="text-xl text-[#2DC6F7] mt-1">{icon}</div>
-      <div>
-        <div className="text-sm text-gray-500">{label}</div>
-        <div className="font-medium">{value}</div>
-      </div>
+    <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
+      <span className="text-[#2DC6F7] text-lg">{icon}</span>
+      <span className="text-sm font-medium whitespace-nowrap">{label}</span>
     </div>
-  )
+  );
 }
+
+type NavBtnProps = {
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+function NavBtn({ onClick, children }: NavBtnProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
+    >
+      {children}
+    </button>
+  );
+}
+
+const features = [
+  { icon: <FaUmbrellaBeach />, label: "850 m do plaže" },
+  { icon: <FaUsers />, label: "Do 2 gosta" },
+  { icon: <FaWifi />, label: "Brezplačen Wi-Fi" },
+  { icon: <FaCar />, label: "Brezplačno parkiranje" },
+  { icon: <FaEyeSlash />, label: "Zasebnost" },
+  { icon: <FaBicycle />, label: "180 m do Parenzane" },
+  { icon: <FaShoppingCart />, label: "600 m do trgovine" },
+  { icon: <FaUtensils />, label: "800 m do restavracij" },
+  { icon: <FaTv />, label: "TV + Netflix" },
+  { icon: <FaBed />, label: "Posteljnina & brisače" },
+  { icon: <FaBath />, label: "Kuhinja & kopalnica" },
+  { icon: <FaWind />, label: "Klima & prezračevanje" },
+];
