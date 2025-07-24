@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
 import { FaStar } from "react-icons/fa"
+import Image from "next/image"
 
 export default function SectionPovprasevanje() {
   const [form, setForm] = useState({
@@ -113,27 +114,6 @@ export default function SectionPovprasevanje() {
               {status === "sending" ? "Pošiljanje..." : "📩 Pošlji povpraševanje"}
             </button>
           </form>
-        </div>
-      </div>
-
-      {/* Footer znotraj sekcije */}
-      <div className="max-w-6xl mx-auto mt-16 border-t pt-10 grid md:grid-cols-3 gap-10 text-sm text-gray-600">
-        <div>
-          <div className="font-bold text-lg text-[#2DC6F7] mb-2">Studio Aurora</div>
-          <p>Sodoben apartma v neposredni bližini plaže v Izoli. Vaš popoln oddih ob slovenski obali.</p>
-        </div>
-        <div>
-          <div className="font-semibold mb-1">Kontakt</div>
-          <p>📧 studioauroraizola@gmail.com</p>
-          <p>📞 +386 41 430 460</p>
-          <p>📍 Na terasah 2, 6310 Izola</p>
-        </div>
-        <div>
-          <div className="font-semibold mb-1">Povezave</div>
-          <p>O apartmaju</p>
-          <p>Galerija</p>
-          <p>Lokacija</p>
-          <p>Kontakt</p>
         </div>
       </div>
     </section>
