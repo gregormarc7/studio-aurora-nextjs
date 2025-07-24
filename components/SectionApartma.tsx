@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
@@ -18,7 +19,6 @@ import {
   FaWind,
 } from "react-icons/fa";
 
-/* demo galerija */
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`);
 
 export default function SectionApartma() {
@@ -26,7 +26,6 @@ export default function SectionApartma() {
   const [open, setOpen] = useState(false);
   const [fade, setFade] = useState(false);
 
-  /* fade-in efekt ob menjavi */
   useEffect(() => {
     setFade(false);
     const t = setTimeout(() => setFade(true), 80);
@@ -39,7 +38,6 @@ export default function SectionApartma() {
   return (
     <section id="apartma" className="scroll-mt-24 bg-gray-50 py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* ----- Badge & glavni naslov ----- */}
         <div className="flex justify-center">
           <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
             O Apartmaju
@@ -54,18 +52,15 @@ export default function SectionApartma() {
           10&nbsp;min hoje od plaže in 2&nbsp;minuti od priljubljene kolesarske poti Parenzana.
         </p>
 
-        {/* ----- slika + opis + “čipke” ----- */}
         <div className="grid lg:grid-cols-[minmax(0,700px)_1fr] gap-14 lg:gap-20 items-start">
-          {/* slika */}
           <Image
-  src="/images/izola-hero.png"
-  alt="Pogled na Izolo"
-  width={700}
-  height={500}
-  className="w-full rounded-3xl shadow-md object-cover"
-/>
+            src="/images/izola-hero.png"
+            alt="Pogled na Izolo"
+            width={700}
+            height={500}
+            className="w-full rounded-3xl shadow-md object-cover"
+          />
 
-          {/* opis + feature grid */}
           <div>
             <h3 className="text-2xl font-semibold mb-4">Zakaj izbrati Studio Aurora?</h3>
             <p className="text-gray-600 leading-relaxed mb-8">
@@ -73,7 +68,6 @@ export default function SectionApartma() {
               izhodiščna točka, če želite doživeti to čarobno mesto v mirnem in udobnem okolju.
             </p>
 
-            {/* 1 | 2 | 3 kolone (xl)  — min-width 235 px, da vse vrstice ostanejo enovrstične */}
             <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(235px,1fr))] xl:[grid-template-columns:repeat(3,1fr)]">
               {features.map((f) => (
                 <Feature key={f.label} icon={f.icon} label={f.label} />
@@ -83,8 +77,7 @@ export default function SectionApartma() {
         </div>
       </div>
 
-      {/* ---------- Galerija ---------- */}
-      <div className="container mx-auto mt-24 text-center">
+      <div id="galerija" className="container mx-auto mt-24 text-center">
         <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
         </span>
@@ -95,7 +88,6 @@ export default function SectionApartma() {
           Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
         </p>
 
-        {/* glavna slika */}
         <div className="relative group mx-auto max-w-screen-lg rounded-xl overflow-hidden">
           <img
             src={images[sel]}
@@ -115,7 +107,6 @@ export default function SectionApartma() {
           </button>
         </div>
 
-        {/* thumbnails */}
         <div className="grid grid-cols-5 gap-4 mt-6 max-w-screen-lg mx-auto">
           {images.map((src, i) => (
             <img
@@ -127,14 +118,12 @@ export default function SectionApartma() {
           ))}
         </div>
 
-        {/* kontrole */}
         <div className="mt-8 flex justify-center gap-4">
           <NavBtn onClick={prev}>← Prejšnja</NavBtn>
           <NavBtn onClick={next}>Naslednja →</NavBtn>
         </div>
       </div>
 
-      {/* ---------- Modal ---------- */}
       <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/70" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
@@ -167,7 +156,6 @@ export default function SectionApartma() {
   );
 }
 
-/* ----- helper komponenti ----- */
 type FeatureProps = {
   icon: JSX.Element;
   label: string;
@@ -191,28 +179,23 @@ function NavBtn({ onClick, children }: NavBtnProps) {
   return (
     <button
       onClick={onClick}
-      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7]
-                 hover:bg-pink-200 hover:text-pink-600 transition"
+      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
     >
       {children}
     </button>
   );
 }
 
-/* ----- podatki za “čipke” ----- */
 const features = [
   { icon: <FaUmbrellaBeach />, label: "850 m do plaže" },
   { icon: <FaUsers />, label: "Do 2 gosta" },
   { icon: <FaWifi />, label: "Brezplačen Wi-Fi" },
-
   { icon: <FaCar />, label: "Brezplačno parkiranje" },
   { icon: <FaEyeSlash />, label: "Zasebnost" },
   { icon: <FaBicycle />, label: "180 m do Parenzane" },
-
   { icon: <FaShoppingCart />, label: "600 m do trgovine" },
   { icon: <FaUtensils />, label: "800 m do restavracij" },
   { icon: <FaTv />, label: "TV + Netflix" },
-
   { icon: <FaBed />, label: "Posteljnina & brisače" },
   { icon: <FaBath />, label: "Kuhinja & kopalnica" },
   { icon: <FaWind />, label: "Klima & prezračevanje" },
