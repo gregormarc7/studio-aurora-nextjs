@@ -1,38 +1,43 @@
-import { MapPin, Store, UtensilsCrossed, Waves } from 'lucide-react'
+"use client"
+
+import { MapPin, ParkingCircle, Store, UtensilsCrossed, Waves } from 'lucide-react'
 
 export default function SectionLokacija() {
   return (
-    <section id="lokacija" className="bg-gray-50 py-20">
-      <div className="mx-auto max-w-6xl px-4 text-center">
-        <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-sky-500 mb-2">
-          Lokacija
-        </span>
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Ključne <span className="text-sky-500">lokacije</span>
+    <section id="lokacija" className="bg-gray-50 py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Zavihek in naslov */}
+        <div className="flex justify-center">
+          <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
+            Lokacija
+          </span>
+        </div>
+        <h2 className="text-center text-4xl font-bold mt-1">
+          Ključne <span className="text-[#2DC6F7]">lokacije</span>
         </h2>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-3 mb-12 text-center text-gray-700 max-w-3xl mx-auto">
           Studio Aurora se nahaja v idealnem delu Izole z lahkim dostopom do vseh pomembnih lokacij
         </p>
 
-        <div className="mt-10 flex justify-center">
+        {/* Zemljevid */}
+        <div className="flex justify-center mb-12">
           <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=1Md86RX51cMSg8EdYq8spTYiMp8suye0&ehbc=2E312F"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1EiFO6O4Vqv4F5K9_TAqHlaDQc0D4gDo&ehbc=2E312F"
             width="100%"
-            height="450"
-            className="rounded-xl shadow-lg border"
+            height="480"
+            className="rounded-xl shadow w-full max-w-5xl"
             loading="lazy"
-            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 text-left">
-          {/* Plaže */}
+        {/* Lokacije po kategorijah */}
+        <div className="grid md:grid-cols-3 gap-10 text-sm text-gray-800">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Waves className="text-sky-500 w-5 h-5" />
-              <h3 className="text-lg font-semibold text-gray-900">Plaže</h3>
-            </div>
-            <ul className="text-gray-700 space-y-1">
+            <h4 className="flex items-center gap-2 font-semibold text-base mb-2">
+              <Waves className="text-[#2DC6F7] w-5 h-5" /> Plaže
+            </h4>
+            <ul className="space-y-1">
               <li>Beach Delfinček</li>
               <li>Bele Skale beach</li>
               <li>Plaža Simonov zaliv</li>
@@ -40,13 +45,11 @@ export default function SectionLokacija() {
             </ul>
           </div>
 
-          {/* Restavracije */}
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <UtensilsCrossed className="text-sky-500 w-5 h-5" />
-              <h3 className="text-lg font-semibold text-gray-900">Restavracije</h3>
-            </div>
-            <ul className="text-gray-700 space-y-1">
+            <h4 className="flex items-center gap-2 font-semibold text-base mb-2">
+              <UtensilsCrossed className="text-[#2DC6F7] w-5 h-5" /> Restavracije
+            </h4>
+            <ul className="space-y-1">
               <li>Gostilna Manjada</li>
               <li>Gostilna Sonja</li>
               <li>Primavera</li>
@@ -54,13 +57,11 @@ export default function SectionLokacija() {
             </ul>
           </div>
 
-          {/* Trgovine */}
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Store className="text-sky-500 w-5 h-5" />
-              <h3 className="text-lg font-semibold text-gray-900">Trgovine</h3>
-            </div>
-            <ul className="text-gray-700 space-y-1">
+            <h4 className="flex items-center gap-2 font-semibold text-base mb-2">
+              <Store className="text-[#2DC6F7] w-5 h-5" /> Trgovine
+            </h4>
+            <ul className="space-y-1">
               <li>Hipermarket SPAR</li>
               <li>Dm Drogerie Markt</li>
               <li>Poslovni sistem Mercator</li>
