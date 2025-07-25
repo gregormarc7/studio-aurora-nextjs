@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react"
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
 import { FaStar } from "react-icons/fa"
@@ -98,8 +100,27 @@ export default function SectionPovprasevanje() {
             <div className="grid md:grid-cols-2 gap-4">
               <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Ime in priimek *" required className="input" />
               <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email naslov *" required className="input" />
-              <input type="date" name="arrival" value={form.arrival} onChange={handleChange} placeholder="Prihod" className="input" />
-              <input type="date" name="departure" value={form.departure} onChange={handleChange} placeholder="Odhod" className="input" />
+
+              <input
+                type="date"
+                name="arrival"
+                value={form.arrival}
+                onChange={handleChange}
+                required
+                className="input appearance-none"
+                style={{ minHeight: '40px' }}
+              />
+
+              <input
+                type="date"
+                name="departure"
+                value={form.departure}
+                onChange={handleChange}
+                required
+                className="input appearance-none"
+                style={{ minHeight: '40px' }}
+              />
+
               <select name="guests" value={form.guests} onChange={handleChange} className="input">
                 <option>1 oseba</option>
                 <option>2 osebi</option>
