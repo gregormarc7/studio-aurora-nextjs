@@ -2,16 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base sloj */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-}
-@layer components {
-  .input {
-    @apply w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 bg-white placeholder-gray-400;
+
+  body {
+    @apply font-body bg-gray-50 text-gray-800;
   }
 }
+
+/* Komponentni sloj */
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-gray-300 px-4 py-2 text-sm 
+      focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-gray-400;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primaryDark transition;
+  }
+
+  .badge {
+    @apply px-3 py-1 rounded-full text-sm font-semibold;
+  }
+}
+
+/* Dodatni root stil */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem; /* višina headerja */
