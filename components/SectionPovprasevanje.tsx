@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useState } from "react"
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi"
@@ -37,7 +37,7 @@ export default function SectionPovprasevanje() {
 
       if (res.ok) {
         setStatus("sent")
-        alert("✅ Sporočilo je bilo uspešno poslano. Odgovorili vam bomo v najkrajšem možnem času.")
+        alert("\u2705 Sporo\u010dilo je bilo uspe\u0161no poslano. Odgovorili vam bomo v najkraj\u0161em mo\u017enem \u010dasu.")
         setForm({
           name: "",
           email: "",
@@ -48,12 +48,12 @@ export default function SectionPovprasevanje() {
           message: "",
         })
       } else {
-        throw new Error("Pošiljanje ni uspelo.")
+        throw new Error("Po\u0161iljanje ni uspelo.")
       }
     } catch (err) {
       console.error(err)
       setStatus("error")
-      alert("❌ Prišlo je do napake pri pošiljanju. Poskusite znova ali nas kontaktirajte direktno.")
+      alert("\u274C Pri\u0161lo je do napake pri po\u0161iljanju. Poskusite znova ali nas kontaktirajte direktno.")
     }
   }
 
@@ -73,7 +73,7 @@ export default function SectionPovprasevanje() {
           Pripravite se na nepozaben dopust v Studio Aurora. Kontaktirajte nas za rezervacijo ali dodatne informacije.
         </p>
 
-        {/* Glavna mreža */}
+        {/* Glavna mre\u017ea */}
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Leva stran */}
           <div className="space-y-6">
@@ -95,31 +95,43 @@ export default function SectionPovprasevanje() {
 
           {/* Desna stran – obrazec */}
           <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow p-6 space-y-6">
-            <div className="text-lg font-semibold">Pošljite povpraševanje</div>
-            <p className="text-sm text-gray-500 mb-4">Izpolnite obrazec in odgovorili vam bomo v najkrajšem času.</p>
+            <div className="text-lg font-semibold">Po\u0161ljite povpra\u0161evanje</div>
+            <p className="text-sm text-gray-500 mb-4">Izpolnite obrazec in odgovorili vam bomo v najkraj\u0161em \u010dasu.</p>
             <div className="grid md:grid-cols-2 gap-4">
               <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Ime in priimek *" required className="input" />
               <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email naslov *" required className="input" />
 
-              <input
-                type="date"
-                name="arrival"
-                value={form.arrival}
-                onChange={handleChange}
-                required
-                className="input appearance-none"
-                style={{ minHeight: '40px' }}
-              />
-
-              <input
-                type="date"
-                name="departure"
-                value={form.departure}
-                onChange={handleChange}
-                required
-                className="input appearance-none"
-                style={{ minHeight: '40px' }}
-              />
+              {/* Polja za datum z la\u017enim placeholderjem */}
+              <div className="relative">
+                <input
+                  type="date"
+                  name="arrival"
+                  value={form.arrival}
+                  onChange={handleChange}
+                  required
+                  className="input text-gray-900"
+                />
+                {!form.arrival && (
+                  <span className="pointer-events-none absolute left-4 top-2.5 text-gray-400 text-sm">
+                    Prihod
+                  </span>
+                )}
+              </div>
+              <div className="relative">
+                <input
+                  type="date"
+                  name="departure"
+                  value={form.departure}
+                  onChange={handleChange}
+                  required
+                  className="input text-gray-900"
+                />
+                {!form.departure && (
+                  <span className="pointer-events-none absolute left-4 top-2.5 text-gray-400 text-sm">
+                    Odhod
+                  </span>
+                )}
+              </div>
 
               <select name="guests" value={form.guests} onChange={handleChange} className="input">
                 <option>1 oseba</option>
@@ -127,9 +139,9 @@ export default function SectionPovprasevanje() {
               </select>
               <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Telefon" className="input" />
             </div>
-            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Povejte nam več o vaših željah in potrebah..." rows={4} className="input" />
+            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Povejte nam ve\u010d o va\u0161ih \u017eeljah in potrebah..." rows={4} className="input" />
             <button type="submit" disabled={status === "sending"} className="w-full bg-[#2DC6F7] text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
-              {status === "sending" ? "Pošiljanje..." : "📩 Pošlji povpraševanje"}
+              {status === "sending" ? "Po\u0161iljanje..." : "\ud83d\udce9 Po\u0161lji povpra\u0161evanje"}
             </button>
           </form>
         </div>
