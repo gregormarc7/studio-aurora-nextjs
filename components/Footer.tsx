@@ -3,11 +3,11 @@ import Image from "next/image"
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200 py-10 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 text-center gap-10 text-sm text-gray-700">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm text-gray-700 text-center md:text-left">
 
         {/* Stolpec 1: Studio Aurora */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="flex items-center gap-2 justify-center">
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <div className="flex items-center gap-2 justify-center md:justify-start">
             <Image
               src="/images/logo.png"
               alt="Studio Aurora logo"
@@ -18,7 +18,8 @@ export default function Footer() {
             <span className="text-[#2DC6F7] font-bold text-lg">Studio Aurora</span>
           </div>
           <p className="text-gray-600 max-w-xs">
-            Sodoben apartma v neposredni bližini plaže v Izoli.<br />Vaš popoln oddih ob slovenski obali.
+            Sodoben apartma v neposredni bližini plaže v Izoli.<br />
+            Vaš popoln oddih ob slovenski obali.
           </p>
         </div>
 
