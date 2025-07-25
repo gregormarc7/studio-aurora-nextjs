@@ -9,13 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#38bdf8',        // 💙 svetlejša nežna modra (sky-400)
-        accent: '#38bdf8',         // za "Aurora" in podobne poudarke
-        primaryDark: '#0ea5e9',    // za hover in kontrast (sky-500)
+        primary: '#38bdf8',
+        accent: '#38bdf8',
+        primaryDark: '#0ea5e9',
         dark: '#111827',
         light: '#F9FAFB',
-        gradientStart: '#38bdf8',  // začetek gradienta
-        gradientEnd: '#0ea5e9',    // konec gradienta
+        gradientStart: '#38bdf8',
+        gradientEnd: '#0ea5e9',
       },
       fontFamily: {
         display: ['"Poppins"', 'sans-serif'],
@@ -31,11 +31,13 @@ module.exports = {
       },
       animation: {
         'bounce-slow': 'bounce 4s infinite',
-      }
+      },
     },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms'),
+    require('@tailwindcss/forms')({
+      strategy: 'class', // ⬅️ Ključni dodatek: omogoča uporabo "form-control" razredov samo tam, kjer jih želiš!
+    }),
   ],
 }
