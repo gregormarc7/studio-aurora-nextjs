@@ -46,7 +46,7 @@ export default function Header() {
         <div className="hidden md:flex items-center">
           <div className="border border-black rounded-md p-1">
             <Image
-              src="/images/logo.png"
+              src="/images/logo1.png"
               alt="Studio Aurora logo"
               width={140}
               height={140}
