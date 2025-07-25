@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-3">
           <div className="flex items-center gap-2 justify-center">
             <Image
-              src="/images/logo.png"
+              src="/images/logo1.png"
               alt="Studio Aurora logo"
               width={36}
               height={36}
