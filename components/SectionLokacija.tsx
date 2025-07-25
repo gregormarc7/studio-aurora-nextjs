@@ -1,70 +1,61 @@
-import { FaStore, FaUtensils, FaUmbrellaBeach, FaParking, FaMountain, FaMapSigns } from 'react-icons/fa'
-import { MdLocalGroceryStore, MdCameraAlt, MdDirections } from 'react-icons/md'
-
 export default function SectionLokacija() {
   return (
-    <section id="lokacija" className="py-16 bg-gray-100 text-gray-800">
-      <div className="container mx-auto px-4">
-        {/* Naslov */}
-        <div className="text-center mb-10">
-          <span className="inline-block text-xs font-semibold bg-gray-200 text-gray-600 px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-            Lokacija
-          </span>
-          <h2 className="text-4xl font-extrabold mb-4">
+    <section id="lokacija" className="py-20 bg-gray-100 text-gray-800">
+      <div className="max-w-6xl mx-auto px-4">
+
+        {/* Naslov sekcije */}
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-1 text-xs font-semibold bg-gray-200 text-gray-700 rounded-full mb-3">
+            LOKACIJA
+          </div>
+          <h2 className="text-4xl font-bold">
             Ključne <span className="text-primary">lokacije</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600">
+          <p className="mt-4 text-gray-600">
             Studio Aurora se nahaja v idealnem delu Izole z lahkim dostopom do vseh pomembnih lokacij
           </p>
         </div>
 
-        {/* GRID – zemljevid in seznam */}
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Google My Maps – embed interaktivni zemljevid */}
-          <div className="rounded-xl overflow-hidden shadow-md">
+        {/* Vsebina: zemljevid + lokacije */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Embed Google My Maps */}
+          <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
             <iframe
               src="https://www.google.com/maps/d/u/0/embed?mid=1Md86RX51cMSg8EdYq8spTYiMp8suye0&ehbc=2E312F"
               width="100%"
-              height="480"
+              height="100%"
               loading="lazy"
-              className="rounded-xl"
-            ></iframe>
+              className="w-full h-full border-0"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
-          {/* Seznam lokacij */}
-          <div className="space-y-4 text-sm">
-            <LocationItem icon={<FaStore />} title="Hipermarket SPAR" />
-            <LocationItem icon={<FaMapSigns />} title="Apartma – Studio Aurora Izola" />
-            <LocationItem icon={<FaUmbrellaBeach />} title="Beach Delfinček" />
-            <LocationItem icon={<FaUtensils />} title="Beach Garden Pizza & Grill" />
-            <LocationItem icon={<FaUmbrellaBeach />} title="Bele Skale beach" />
-            <LocationItem icon={<MdLocalGroceryStore />} title="DM Drogerie Markt trgovsko središče" />
-            <LocationItem icon={<FaParking />} title="Free-of-Charge Parking" />
-            <LocationItem icon={<FaUtensils />} title="Gostilna Manjada" />
-            <LocationItem icon={<FaUtensils />} title="Gostilna Sonja" />
-            <LocationItem icon={<MdCameraAlt />} title="Jagodje Viewpoint" />
-            <LocationItem icon={<FaParking />} title="PZA Izola, San Simon" />
-            <LocationItem icon={<FaParking />} title="Parkirišče San Simon" />
-            <LocationItem icon={<FaParking />} title="Parkirišče za motorna kolesa" />
-            <LocationItem icon={<FaUmbrellaBeach />} title="Plaža Simonov zaliv" />
-            <LocationItem icon={<FaStore />} title="Mercator poslovni center" />
-            <LocationItem icon={<FaMapSigns />} title="Pri ladjedelnici" />
-            <LocationItem icon={<FaUtensils />} title="Primavera" />
-            <LocationItem icon={<FaUmbrellaBeach />} title="Svetilnik Beach Izola" />
-            <LocationItem icon={<MdDirections />} title="Tunnel Entrance" />
+          {/* Seznam lokacij v 2-3 kolone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            {[
+              ['Studio Aurora', 'Vaš dom v Izoli'],
+              ['Gostilna Marica', '150m – tradicionalna istrska kuhinja'],
+              ['Restavracija Ribič', '300m – sveže morske jedi'],
+              ['Plaža Simonov zaliv', '400m – modra zastava'],
+              ['Mestna plaža', '600m – družinska plaža'],
+              ['Mercator Center', '200m – nakupovalni center'],
+              ['Staro mestno jedro', '500m – zgodovinske znamenitosti'],
+              ['Tunnel Entrance', '200m – Parenzana'],
+              ['Beach Delfinček', 'Plaža – 8 min hoje'],
+              ['Gostilna Sonja', 'Domača kuhinja'],
+              ['Svetilnik Beach', 'Zahodna obala Izole'],
+              ['PZA Izola', 'San Simon – parkirišče za avtodome'],
+              ['Free Parking', 'Brezplačno parkirišče 50m stran'],
+            ].map(([title, desc]) => (
+              <div key={title} className="bg-white rounded-lg shadow-sm p-4">
+                <div className="font-semibold text-gray-800">{title}</div>
+                <div className="text-gray-500 text-xs mt-1">{desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-/* 🔹 Komponenta za posamezno lokacijo */
-function LocationItem({ icon, title }: { icon: React.ReactNode; title: string }) {
-  return (
-    <div className="flex items-center gap-3 bg-white p-3 rounded-md shadow-sm hover:shadow-md transition">
-      <div className="text-primary text-lg">{icon}</div>
-      <div className="font-medium">{title}</div>
-    </div>
   )
 }
