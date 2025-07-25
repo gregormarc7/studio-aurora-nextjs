@@ -16,18 +16,16 @@ export default function SectionLokacija() {
           Ključne <span className="text-[#2DC6F7]">lokacije</span>
         </h2>
         <p className="mt-3 mb-10 text-center text-gray-700 max-w-2xl mx-auto">
-          Studio Aurora se nahaja v idealnem delu Izole z lahkim dostopom do vseh pomembnih lokacij
+          Studio Aurora se nahaja v idealnem delu Izole z lahkim dostopom do vseh pomembnih lokacij.
         </p>
 
-        {/* Zemljevid */}
-        <div className="overflow-hidden rounded-xl shadow-lg mb-10 aspect-[3/2]">
+        {/* Zemljevid – responsive in centered */}
+        <div className="w-full max-w-6xl mx-auto aspect-[4/3] rounded-xl overflow-hidden shadow mb-10">
           <iframe
             src="https://www.google.com/maps/d/u/0/embed?mid=1Md86RX51cMSg8EdYq8spTYiMp8suye0&ehbc=2E312F"
-            width="100%"
-            height="600"
-            style={{ border: 0 }}
-            loading="lazy"
+            className="w-full h-full border-0"
             allowFullScreen
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
