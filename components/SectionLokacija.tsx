@@ -1,7 +1,5 @@
 "use client"
 
-import { FaUmbrellaBeach, FaUtensils, FaStore } from "react-icons/fa"
-
 export default function SectionLokacija() {
   return (
     <section id="lokacija" className="bg-gray-50 py-20 px-4">
@@ -15,29 +13,29 @@ export default function SectionLokacija() {
         <h2 className="text-center text-4xl font-bold">
           Ključne <span className="text-[#2DC6F7]">lokacije</span>
         </h2>
-        <p className="mt-2 mb-10 text-center text-gray-700 text-lg max-w-3xl mx-auto">
+        <p className="mt-2 mb-10 text-center text-gray-700 max-w-2xl mx-auto">
           Studio Aurora se nahaja v idealnem delu Izole z lahkim dostopom do vseh pomembnih lokacij
         </p>
 
         {/* Zemljevid */}
-        <div className="rounded-xl overflow-hidden shadow mb-12">
+        <div className="mb-12 flex justify-center">
           <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=1Md86RX51cMSg8EdYq8spTYiMp8suye0&ehbc=2E312F"
+            title="Studio Aurora Map"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1v9mWk_pMqNLoy3Jjc2scvwEO-d_UzPc&ehbc=2E312F"
             width="100%"
-            height="480"
-            style={{ border: 0 }}
+            height="500"
+            className="rounded-xl shadow-lg w-full max-w-6xl"
             allowFullScreen
-            loading="lazy"
           ></iframe>
         </div>
 
-        {/* Lokacije – 3 kolone */}
-        <div className="grid md:grid-cols-3 gap-10 text-sm text-gray-800">
+        {/* Kategorije lokacij */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm text-center text-gray-800 max-w-4xl mx-auto">
           {/* Plaže */}
           <div>
-            <h3 className="flex items-center gap-2 text-[#2DC6F7] font-semibold text-lg mb-3">
-              <FaUmbrellaBeach /> Plaže
-            </h3>
+            <div className="flex items-center justify-center gap-2 font-semibold text-[#2DC6F7] mb-2">
+              <span>🌊</span> <span>Plaže</span>
+            </div>
             <ul className="space-y-1">
               <li>Beach Delfinček</li>
               <li>Bele Skale beach</li>
@@ -48,9 +46,9 @@ export default function SectionLokacija() {
 
           {/* Restavracije */}
           <div>
-            <h3 className="flex items-center gap-2 text-[#2DC6F7] font-semibold text-lg mb-3">
-              <FaUtensils /> Restavracije
-            </h3>
+            <div className="flex items-center justify-center gap-2 font-semibold text-[#2DC6F7] mb-2">
+              <span>🍽️</span> <span>Restavracije</span>
+            </div>
             <ul className="space-y-1">
               <li>Gostilna Manjada</li>
               <li>Gostilna Sonja</li>
@@ -61,9 +59,9 @@ export default function SectionLokacija() {
 
           {/* Trgovine */}
           <div>
-            <h3 className="flex items-center gap-2 text-[#2DC6F7] font-semibold text-lg mb-3">
-              <FaStore /> Trgovine
-            </h3>
+            <div className="flex items-center justify-center gap-2 font-semibold text-[#2DC6F7] mb-2">
+              <span>🛒</span> <span>Trgovine</span>
+            </div>
             <ul className="space-y-1">
               <li>Hipermarket SPAR</li>
               <li>Dm Drogerie Markt</li>
