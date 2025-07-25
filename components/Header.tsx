@@ -1,15 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const btn = document.getElementById('hamburger')
-    if (btn) btn.addEventListener('click', () => setOpen(p => !p))
-  }, [])
+  const handleLinkClick = () => {
+    setOpen(false) // zapri meni
+  }
+
+  const navLinks = [
+    ['#domov', 'Domov'],
+    ['#apartma', 'O apartmaju'],
+    ['#o-izoli', 'O Izoli'],
+    ['#lokacija', 'Lokacija'],
+    ['#povprasevanje', 'Kontakt'],
+  ]
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
@@ -28,7 +35,7 @@ export default function Header() {
             />
           </div>
           <button
-            id="hamburger"
+            onClick={() => setOpen(prev => !prev)}
             className="border border-black rounded-md w-16 h-16 flex items-center justify-center text-2xl"
           >
             ☰
@@ -51,18 +58,11 @@ export default function Header() {
 
         {/* Desktop navigacija */}
         <nav className="hidden md:flex items-center gap-6">
-          {[
-            ['#domov', 'Domov'],
-            ['#apartma', 'O apartmaju'],
-            ['#o-izoli', 'O Izoli'],
-            ['#lokacija', 'Lokacija'],
-            ['#povprasevanje', 'Kontakt'],
-          ].map(([href, txt]) => (
+          {navLinks.map(([href, txt]) => (
             <a key={href} href={href} className="hover:text-primary transition">
               {txt}
             </a>
           ))}
-
           <a
             href="#povprasevanje"
             className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
@@ -74,25 +74,24 @@ export default function Header() {
 
       {/* Mobile navigacija */}
       <nav
-        id="mobileNav"
         className={`md:hidden flex-col w-full items-center gap-2 pb-4 ${
           open ? 'flex mt-3' : 'hidden'
         }`}
       >
-        {[
-          ['#domov', 'Domov'],
-          ['#apartma', 'O apartmaju'],
-          ['#o-izoli', 'O Izoli'],
-          ['#lokacija', 'Lokacija'],
-          ['#povprasevanje', 'Kontakt'],
-        ].map(([href, txt]) => (
-          <a key={href} href={href} className="text-gray-700 hover:text-primary">
+        {navLinks.map(([href, txt]) => (
+          <a
+            key={href}
+            href={href}
+            className="text-gray-700 hover:text-primary"
+            onClick={handleLinkClick}
+          >
             {txt}
           </a>
         ))}
 
         <a
           href="#povprasevanje"
+          onClick={handleLinkClick}
           className="bg-primary hover:bg-gradientEnd text-white px-6 py-2 rounded-full text-sm font-semibold shadow transition"
         >
           Rezerviraj
