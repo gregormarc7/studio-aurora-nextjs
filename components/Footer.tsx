@@ -3,11 +3,11 @@ import Image from "next/image"
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200 py-10 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-sm text-gray-700 text-center md:text-left">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 text-center gap-10 text-sm text-gray-700">
 
         {/* Stolpec 1: Studio Aurora */}
-        <div className="flex flex-col items-center md:items-start gap-3">
-          <div className="flex items-center gap-2 justify-center md:justify-start">
+        <div className="flex flex-col items-center gap-3">
+          <div className="flex items-center gap-2 justify-center">
             <Image
               src="/images/logo1.png"
               alt="Studio Aurora logo"
@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
 
         {/* Stolpec 2: Kontakt */}
-        <div className="space-y-1 flex flex-col items-center md:items-start">
+        <div className="space-y-1">
           <h4 className="text-gray-900 font-semibold mb-2">Kontakt</h4>
           <p>📧 studioauroraizola@gmail.com</p>
           <p>📞 +386 41 430 460</p>
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
 
         {/* Stolpec 3: Povezave */}
-        <div className="space-y-1 flex flex-col items-center md:items-start">
+        <div className="space-y-1">
           <h4 className="text-gray-900 font-semibold mb-2">Povezave</h4>
           <p><a href="#apartma" className="hover:text-[#2DC6F7]">O apartmaju</a></p>
           <p><a href="#galerija" className="hover:text-[#2DC6F7]">Galerija</a></p>
@@ -47,4 +47,4 @@ export default function Footer() {
       </div>
     </footer>
   )
-}
+}"
