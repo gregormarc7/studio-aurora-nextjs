@@ -17,8 +17,11 @@ export default function WeatherFloating() {
   const wind = weather.veter     ? `${Math.round(weather.veter)} km/h` : '-- km/h'
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <div className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm">
+    <div className="fixed bottom-4 right-4 z-50" aria-label="Trenutno vreme v Izoli">
+      <div
+        className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm"
+        title={`Vreme v Izoli – temperatura: ${temp}, veter: ${wind}`}
+      >
         <div className="flex items-center justify-center gap-1 text-primary font-medium mb-1">
           <HiOutlineLocationMarker className="text-base" />
           <span className="text-black">Izola</span>
