@@ -23,16 +23,17 @@ export default function Hero() {
     <section
       id="domov"
       className="relative h-[100dvh] flex items-center justify-center text-white text-center overflow-hidden scroll-mt-24"
+      aria-label="Studio Aurora hero sekcija z informacijami o apartmaju v Izoli"
     >
       {/* ozadje */}
       <Image
         src="/images/hero.jpg"
-        alt="Izola – pogled na morje"
+        alt="Studio Aurora v Izoli, pogled na morje in obalo"
         fill
         priority
         className="object-cover z-0"
       />
-      <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/20 to-black/60" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/20 to-black/60" aria-hidden="true" />
 
       {/* vreme – desktop */}
       <div className="hidden md:block absolute top-4 right-4 z-20">
@@ -51,17 +52,19 @@ export default function Hero() {
           <div className="text-primary">Aurora</div>
         </h1>
         <p className="text-xl md:text-2xl mt-4 mb-8">
-          Sodoben apartma v umirjenem delu Izole.
+          Sodoben apartma v umirjenem delu Izole – idealen za oddih ob slovenski obali.
         </p>
         <div className="flex flex-col md:flex-row gap-4">
           <a
             href="#povprasevanje"
+            aria-label="Pojdi na rezervacijo apartmaja"
             className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-lg hover:scale-105 transition flex items-center gap-2 justify-center"
           >
             <FaCalendarAlt /> Rezerviraj zdaj
           </a>
           <a
             href="#galerija"
+            aria-label="Poglej slike apartmaja Studio Aurora"
             className="px-6 py-3 rounded-full font-semibold transition bg-white/20 border border-white hover:bg-gradient-to-r from-primary to-gradientEnd hover:border-transparent"
           >
             Poglej galerijo
@@ -74,7 +77,7 @@ export default function Hero() {
 
 function WeatherBox({ temp, wind }: { temp: string; wind: string }) {
   return (
-    <div className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm">
+    <div className="bg-white/80 backdrop-blur-sm text-black rounded-2xl px-4 py-2 shadow-md text-sm" aria-label="Trenutno vreme v Izoli">
       <div className="flex items-center justify-center gap-1 text-primary font-medium mb-1">
         <HiOutlineLocationMarker className="text-base" />
         <span className="text-black">Izola</span>
