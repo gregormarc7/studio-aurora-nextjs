@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -37,7 +36,7 @@ export default function SectionApartma() {
   const next = () => setSel((s) => (s === images.length - 1 ? 0 : s + 1));
 
   return (
-    <section id="apartma" className="scroll-mt-24 bg-gray-50 py-20 px-4">
+    <section id="apartma" className="scroll-mt-24 bg-gray-50 py-20 px-4" aria-label="O apartmaju Studio Aurora v Izoli">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-center">
           <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
@@ -56,7 +55,7 @@ export default function SectionApartma() {
         <div className="grid lg:grid-cols-[minmax(0,700px)_1fr] gap-14 lg:gap-20 items-start">
           <Image
             src="/images/izola-hero.png"
-            alt="Pogled na Izolo"
+            alt="Pogled na obalo Izole iz apartmaja Studio Aurora"
             width={700}
             height={500}
             className="w-full rounded-3xl shadow-md object-cover"
@@ -78,7 +77,7 @@ export default function SectionApartma() {
         </div>
       </div>
 
-      <div id="galerija" className="container mx-auto mt-24 text-center">
+      <div id="galerija" className="container mx-auto mt-24 text-center" aria-label="Galerija apartmaja Studio Aurora">
         <span className="px-3 py-1 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] text-sm font-semibold">
           Galerija
         </span>
@@ -86,7 +85,7 @@ export default function SectionApartma() {
           Odkrijte <span className="text-[#2DC6F7]">udobje</span>
         </h2>
         <p className="mt-3 mb-10 text-lg text-gray-600 max-w-xl mx-auto">
-          Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust.
+          Preglejte apartma in se prepričajte, zakaj je Studio Aurora popolna izbira za vaš dopust ob slovenski obali.
         </p>
 
         <div className="relative group mx-auto max-w-screen-lg rounded-xl overflow-hidden">
@@ -94,6 +93,7 @@ export default function SectionApartma() {
             src={images[sel]}
             className={`w-full transition duration-500 ${fade ? "opacity-100" : "opacity-0"} group-hover:scale-105`}
             onClick={() => setOpen(true)}
+            alt={`Fotografija ${sel + 1} apartmaja Studio Aurora v Izoli`}
           />
           <span className="absolute bottom-2 left-2 px-2 py-1 bg-black/60 text-white text-xs rounded">
             {sel + 1} / {images.length}
@@ -101,6 +101,7 @@ export default function SectionApartma() {
           <button
             onClick={() => setOpen(true)}
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
+            aria-label="Odpri galerijo slik v večjem pogledu"
           >
             <span className="w-10 h-10 bg-white text-[#2DC6F7] rounded-full shadow border border-black flex items-center justify-center text-xl font-bold">
               +
@@ -115,6 +116,7 @@ export default function SectionApartma() {
               src={src}
               onClick={() => setSel(i)}
               className={`h-24 w-full object-cover rounded-md cursor-pointer border-2 ${i === sel ? "border-[#2DC6F7]" : "border-transparent"}`}
+              alt={`Galerija – fotografija ${i + 1} Studio Aurora`}
             />
           ))}
         </div>
@@ -126,26 +128,29 @@ export default function SectionApartma() {
       </div>
 
       <Dialog open={open} onClose={() => setOpen(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/70" />
+        <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="relative bg-white rounded-lg max-w-5xl w-full overflow-hidden">
             <button
               onClick={() => setOpen(false)}
               className="absolute top-2 right-2 text-gray-600 hover:text-red-600"
+              aria-label="Zapri galerijo"
             >
               <XMarkIcon className="w-6 h-6" />
             </button>
             <div className="relative">
-              <img src={images[sel]} className="w-full h-auto" />
+              <img src={images[sel]} className="w-full h-auto" alt={`Povečana slika ${sel + 1} Studio Aurora`} />
               <button
                 onClick={prev}
                 className="absolute top-1/2 left-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
+                aria-label="Prejšnja slika"
               >
                 ‹
               </button>
               <button
                 onClick={next}
                 className="absolute top-1/2 right-0 -translate-y-1/2 text-white text-5xl px-3 select-none"
+                aria-label="Naslednja slika"
               >
                 ›
               </button>
@@ -157,26 +162,17 @@ export default function SectionApartma() {
   );
 }
 
-type FeatureProps = {
-  icon: JSX.Element;
-  label: string;
-};
 
-function Feature({ icon, label }: FeatureProps) {
+function Feature({ icon, label }) {
   return (
     <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
-      <span className="text-[#2DC6F7] text-lg">{icon}</span>
+      <span className="text-[#2DC6F7] text-lg" aria-hidden="true">{icon}</span>
       <span className="text-sm font-medium whitespace-nowrap">{label}</span>
     </div>
   );
 }
 
-type NavBtnProps = {
-  onClick: () => void;
-  children: React.ReactNode;
-};
-
-function NavBtn({ onClick, children }: NavBtnProps) {
+function NavBtn({ onClick, children }) {
   return (
     <button
       onClick={onClick}
