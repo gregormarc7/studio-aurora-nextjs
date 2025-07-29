@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 import {
   FaUmbrellaBeach,
   FaUsers,
@@ -17,9 +17,54 @@ import {
   FaBed,
   FaBath,
   FaWind,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 const images = Array.from({ length: 10 }, (_, i) => `/images/studio${i + 1}.jpg`);
+
+type FeatureProps = {
+  icon: JSX.Element;
+  label: string;
+};
+
+function Feature({ icon, label }: FeatureProps) {
+  return (
+    <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
+      <span className="text-[#2DC6F7] text-lg" aria-hidden="true">{icon}</span>
+      <span className="text-sm font-medium whitespace-nowrap">{label}</span>
+    </div>
+  );
+}
+
+type NavBtnProps = {
+  onClick: () => void;
+  children: React.ReactNode;
+};
+
+function NavBtn({ onClick, children }: NavBtnProps) {
+  return (
+    <button
+      onClick={onClick}
+      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
+    >
+      {children}
+    </button>
+  );
+}
+
+const features = [
+  { icon: <FaUmbrellaBeach />, label: '850 m do plaže' },
+  { icon: <FaUsers />, label: 'Do 2 gosta' },
+  { icon: <FaWifi />, label: 'Brezplačen Wi-Fi' },
+  { icon: <FaCar />, label: 'Brezplačno parkiranje' },
+  { icon: <FaEyeSlash />, label: 'Zasebnost' },
+  { icon: <FaBicycle />, label: '180 m do Parenzane' },
+  { icon: <FaShoppingCart />, label: '600 m do trgovine' },
+  { icon: <FaUtensils />, label: '800 m do restavracij' },
+  { icon: <FaTv />, label: 'TV + Netflix' },
+  { icon: <FaBed />, label: 'Posteljnina & brisače' },
+  { icon: <FaBath />, label: 'Kuhinja & kopalnica' },
+  { icon: <FaWind />, label: 'Klima & prezračevanje' },
+];
 
 export default function SectionApartma() {
   const [sel, setSel] = useState(0);
@@ -55,7 +100,7 @@ export default function SectionApartma() {
         <div className="grid lg:grid-cols-[minmax(0,700px)_1fr] gap-14 lg:gap-20 items-start">
           <Image
             src="/images/izola-hero.png"
-            alt="Pogled na obalo Izole iz apartmaja Studio Aurora"
+            alt="Pogled na Izolo"
             width={700}
             height={500}
             className="w-full rounded-3xl shadow-md object-cover"
@@ -91,7 +136,7 @@ export default function SectionApartma() {
         <div className="relative group mx-auto max-w-screen-lg rounded-xl overflow-hidden">
           <img
             src={images[sel]}
-            className={`w-full transition duration-500 ${fade ? "opacity-100" : "opacity-0"} group-hover:scale-105`}
+            className={`w-full transition duration-500 ${fade ? 'opacity-100' : 'opacity-0'} group-hover:scale-105`}
             onClick={() => setOpen(true)}
             alt={`Fotografija ${sel + 1} apartmaja Studio Aurora v Izoli`}
           />
@@ -115,7 +160,7 @@ export default function SectionApartma() {
               key={i}
               src={src}
               onClick={() => setSel(i)}
-              className={`h-24 w-full object-cover rounded-md cursor-pointer border-2 ${i === sel ? "border-[#2DC6F7]" : "border-transparent"}`}
+              className={`h-24 w-full object-cover rounded-md cursor-pointer border-2 ${i === sel ? 'border-[#2DC6F7]' : 'border-transparent'}`}
               alt={`Galerija – fotografija ${i + 1} Studio Aurora`}
             />
           ))}
@@ -161,39 +206,3 @@ export default function SectionApartma() {
     </section>
   );
 }
-
-
-function Feature({ icon, label }) {
-  return (
-    <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-lg shadow-sm">
-      <span className="text-[#2DC6F7] text-lg" aria-hidden="true">{icon}</span>
-      <span className="text-sm font-medium whitespace-nowrap">{label}</span>
-    </div>
-  );
-}
-
-function NavBtn({ onClick, children }) {
-  return (
-    <button
-      onClick={onClick}
-      className="px-6 py-2 rounded-full bg-[#2DC6F7]/20 text-[#2DC6F7] hover:bg-pink-200 hover:text-pink-600 transition"
-    >
-      {children}
-    </button>
-  );
-}
-
-const features = [
-  { icon: <FaUmbrellaBeach />, label: "850 m do plaže" },
-  { icon: <FaUsers />, label: "Do 2 gosta" },
-  { icon: <FaWifi />, label: "Brezplačen Wi-Fi" },
-  { icon: <FaCar />, label: "Brezplačno parkiranje" },
-  { icon: <FaEyeSlash />, label: "Zasebnost" },
-  { icon: <FaBicycle />, label: "180 m do Parenzane" },
-  { icon: <FaShoppingCart />, label: "600 m do trgovine" },
-  { icon: <FaUtensils />, label: "800 m do restavracij" },
-  { icon: <FaTv />, label: "TV + Netflix" },
-  { icon: <FaBed />, label: "Posteljnina & brisače" },
-  { icon: <FaBath />, label: "Kuhinja & kopalnica" },
-  { icon: <FaWind />, label: "Klima & prezračevanje" },
-];
