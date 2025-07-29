@@ -7,7 +7,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   const handleLinkClick = () => {
-    setOpen(false) // zapri meni
+    setOpen(false)
   }
 
   const navLinks = [
@@ -27,7 +27,7 @@ export default function Header() {
           <div className="border border-black rounded-md w-16 h-16 flex items-center justify-center">
             <Image
               src="/images/logo1.png"
-              alt="Studio Aurora logo"
+              alt="Studio Aurora logo - Izola"
               width={48}
               height={48}
               priority
@@ -37,6 +37,7 @@ export default function Header() {
           <button
             onClick={() => setOpen(prev => !prev)}
             className="border border-black rounded-md w-16 h-16 flex items-center justify-center text-2xl"
+            aria-label="Meni"
           >
             ☰
           </button>
@@ -47,7 +48,7 @@ export default function Header() {
           <div className="border border-black rounded-md p-1">
             <Image
               src="/images/logo1.png"
-              alt="Studio Aurora logo"
+              alt="Studio Aurora logotip - apartma Izola"
               width={140}
               height={140}
               priority
@@ -57,7 +58,7 @@ export default function Header() {
         </div>
 
         {/* Desktop navigacija */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Glavna navigacija">
           {navLinks.map(([href, txt]) => (
             <a key={href} href={href} className="hover:text-primary transition">
               {txt}
@@ -77,6 +78,7 @@ export default function Header() {
         className={`md:hidden flex-col w-full items-center gap-2 pb-4 ${
           open ? 'flex mt-3' : 'hidden'
         }`}
+        aria-label="Mobilna navigacija"
       >
         {navLinks.map(([href, txt]) => (
           <a
